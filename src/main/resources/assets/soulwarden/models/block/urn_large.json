@@ -1,0 +1,41 @@
+{
+    "textures": {
+        "particle": "#texture"
+    },
+    "elements": [
+        {   "from": [ 2, 0, 2 ],
+            "to": [ 14, 12, 14 ],
+            "faces": {
+                "down":  { "uv": [ 2, 2, 14, 14 ], "texture": "#bottom", "cullface": "down"},
+                "up":    { "uv": [ 2, 2, 14, 14 ], "texture": "#texture" },
+                "north": { "uv": [ 2, 0, 14, 12 ], "texture": "#front" },
+                "south": { "uv": [ 2, 0, 14, 12 ], "texture": "#side" },
+                "west":  { "uv": [ 2, 0, 14, 12 ], "texture": "#side" },
+                "east":  { "uv": [ 2, 0, 14, 12 ], "texture": "#side" }
+            },
+            "__comment": "Bottom"
+        },
+        {   "from": [ 5, 12, 5 ],
+            "to": [ 11, 14, 11 ],
+            "faces": {
+                "north": { "uv": [ 5, 12, 11, 14 ], "texture": "#texture" },
+                "south": { "uv": [ 5, 12, 11, 14 ], "texture": "#texture" },
+                "west":  { "uv": [ 5, 12, 11, 14 ], "texture": "#texture" },
+                "east":  { "uv": [ 5, 12, 11, 14 ], "texture": "#texture" }
+            },
+            "__comment": "Neck"
+        },
+        {   "from": [ 4, 14, 4 ],
+            "to": [ 12, 16, 12 ],
+            "faces": {
+                "down":  { "uv": [ 4, 4, 12, 12 ], "texture": "#texture" },
+                "up":    { "uv": [ 4, 4, 12, 12 ], "texture": "#mouth", "cullface": "up" },
+                "north": { "uv": [ 4, 14, 12, 16 ], "texture": "#texture" },
+                "south": { "uv": [ 4, 14, 12, 16 ], "texture": "#texture" },
+                "west":  { "uv": [ 4, 14, 12, 16 ], "texture": "#texture" },
+                "east":  { "uv": [ 4, 14, 12, 16 ], "texture": "#texture" }
+            },
+            "__comment": "Mouth"
+        }
+    ]
+}
