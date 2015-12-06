@@ -23,7 +23,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.items.itemblocks.IMetaBlockName;
 import vikinggoth.soulwarden.reference.EnumWoodType;
-import vikinggoth.soulwarden.registries.ConfigBlocks;
 import vikinggoth.soulwarden.registries.ConfigItems;
 
 import java.util.List;
@@ -116,7 +115,7 @@ public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
         list.add(new ItemStack(itemIn, 1, EnumWoodType.WEEPWILLOW.getMetadata()));
         list.add(new ItemStack(itemIn, 1, EnumWoodType.BONEBEECH.getMetadata()));
         list.add(new ItemStack(itemIn, 1, EnumWoodType.HAND.getMetadata()));
-        list.add(new ItemStack(itemIn, 1, EnumWoodType.ALM.getMetadata()));
+        list.add(new ItemStack(itemIn, 1, EnumWoodType.ALNWICK.getMetadata()));
         list.add(new ItemStack(itemIn, 1, EnumWoodType.POMEGRANATE.getMetadata()));
     }
 

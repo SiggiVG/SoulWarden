@@ -1,5 +1,5 @@
 {
-  "parent":"soulwarden:block/ghoul_log",
+  "parent":"soulwarden:block/alm_log",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],

@@ -1,0 +1,8 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom": "soulwarden:blocks/planks_pomegranate",
+        "top": "soulwarden:blocks/planks_pomegranate",
+        "side": "soulwarden:blocks/planks_pomegranate"
+    }
+}

@@ -3,7 +3,6 @@ package vikinggoth.soulwarden.registries;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.material.Material;
-import net.minecraft.util.IStringSerializable;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import vikinggoth.soulwarden.SoulWarden;
 import vikinggoth.soulwarden.blocks.*;
@@ -58,7 +57,7 @@ public class ConfigBlocks
     public static Block weepwillowStairs;
     public static Block bonebeechStairs;
     public static Block handStairs;
-    public static Block almStairs;
+    public static Block alnwickStairs;
     public static Block pomegranateStairs;
 
     //Slabs
@@ -71,7 +70,7 @@ public class ConfigBlocks
     public static Block weepwillowDoor;
     public static Block bonebeechDoor;
     public static Block handDoor;
-    public static Block almDoor;
+    public static Block alnwickDoor;
     public static Block pomegranateDoor;
 
     //Bone
@@ -158,8 +157,8 @@ public class ConfigBlocks
         weepwillowStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.WEEPWILLOW)).setUnlocalizedName("planks_weepwillow_stairs");
         bonebeechStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.BONEBEECH)).setUnlocalizedName("planks_bonebeech_stairs");
         handStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.HAND)).setUnlocalizedName("planks_hand_stairs");
-        almStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.HAND)).setUnlocalizedName("planks_alm_stairs");
-        pomegranateStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.HAND)).setUnlocalizedName("planks_pomegranate_stairs");
+        alnwickStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.ALNWICK)).setUnlocalizedName("planks_alm_stairs");
+        pomegranateStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.POMEGRANATE)).setUnlocalizedName("planks_pomegranate_stairs");
         //Slabs
         planksSWSlab = new BlockHalfPlanksSWSlab(Material.wood).setUnlocalizedName("plankSW_slab");
         planksSWSlabDouble = new BlockDoublePlanksSWSlab(Material.wood).setUnlocalizedName("plankSW_double_slab");
@@ -170,7 +169,7 @@ public class ConfigBlocks
         weepwillowDoor = new BlockDoorSW().setUnlocalizedName("door_weepwillow");
         bonebeechDoor = new BlockDoorSW().setUnlocalizedName("door_bonebeech");
         handDoor = new BlockDoorSW().setUnlocalizedName("door_hand");
-        almDoor = new BlockDoorSW().setUnlocalizedName("door_alm");
+        alnwickDoor = new BlockDoorSW().setUnlocalizedName("door_alm");
         pomegranateDoor = new BlockDoorSW().setUnlocalizedName("door_pomegranate");
 
         //Bone
@@ -229,7 +228,7 @@ public class ConfigBlocks
         regBlock(weepwillowStairs);
         regBlock(bonebeechStairs);
         regBlock(handStairs);
-        regBlock(almStairs);
+        regBlock(alnwickStairs);
         regBlock(pomegranateStairs);
 
         //Slabs
@@ -270,55 +269,5 @@ public class ConfigBlocks
 
 
 
-    /**
-     * Things to add:
-     * Flowers: Calla Lilies(Overworld tombs that aren't dangerous), Black Rose(two blocks tall), Marigold(in tombs identical to the Calla Lily tombs, but spawn a wight when the seal is broken), Mourning Glory(is a vine in the Necropolis), and Monkshood(Necropolis flower, right clicking a wolf with it instantly kills the wolf)
-     * Crops: Nighshade(berries are gotten from a special process requiring a poisonous potato and stygian water, are also found in dungeons)
-     *
-     * Stygian Stone: crafted by dropping soulstone and obsidian into the Stygian Water that's found in the Necropolis
-     *
-     * Dimensions: Necropolis
-     *  The ceiling of the necropolis is covered in stalagtites of Soulstone(default) and has veins of Soulstone(cracked) running through it.
-     *  The ground is composed similarly, often having stalagmites and boulders. there are occaisional patches of Gravesoil
-     *  The Necropolis generates structures based upon biome
-     *  There are seas/lakes of Stygian Water, which are difficult for the player to see through (apply wither?)
-     *  scattered throughout this Stygian Sea are islands built onto giant stalagmites, with NecropoliCenter biome at the higher altitudes
-     *  and NecropoliTownship at the lower ones. There are also shorter islands with BoneForest biomes or IslandCrag structures
-     *
-     * Biomes:
-     *  Overworld: Pumpkin Patch(lots of pumpkins, White Pumpkins, Scarecrows, occasional ruined farmhouse), Haunted Woods(Horrors spawn in it, may contain Terror Glen)
-     *      Graveyard(leafless trees, lots of gravestones, some tombs, random walls)
-     *  Nether:
-     *  Necropolis: Necropoli Center(acropolis, is higher in elevation), Necropoli Township, Bone Forrest, Stygian Sea,
-     *
-     *
-     * Structures:
-     *  Overworld: Soulstone Monolithe,
-     *      White Tomb(with Calla Lilies, 3 sizes), Gold Tomb(with Marigolds, 3 sizes, spawns wight when seal is broken),
-     *      Ruined Tower, Ruined House/Farmhouse, *      Waystone(random stack of stones),
-     *      Gallows Tree(leafless tree with metal bars hanging from it and bone piles and skeleton skulls around it, has skeleton spawner in it),
-     *
-     *
-     *  Nether: Cracked Soulstone Monolithe, Evil Eye Hive,
-     *  Necropolis:
-     *
-     * Mobs:
-     *  Passive: Lost Soul,
-     *  Neutral: Noisy Soul(lost souls that fight back, they're noisier),
-     *      Evil Eye(tameable, spawn naturally in the nether, if spawned from Eye Hive spawner, they are hostile),
-     *
-     *  Hostile: Angry Soul(aggresive lost souls), Vehement Soul(lost souls that seek out players from a far distance)
-     *      Reassembling Skeleton(turn into a pile of bones on death, if pile isnt killed, they reassemble),
-     *      Horror(Gives the player the shiver effect when the player looks at them)
-     *  Pet: Calm Eye(Evil that has been tamed using a Ghast Tear, act like ranged wolves),
-     *  NPC: Necropolitan(Zombie/Skeletons that live in the Necropolis and function like Overworld Villagers, they trade Stygian Crystals)
-     *  Construct: Skull Bat(skeleton head, 2 bat wings, and a charged soulgem make these, they dont need to recharge)
-     *
-     * Boss:
-     *  Overworld: Masked Horror,
-     *  Nether:
-     *  Necropolis: Gravelord/Lich, Boneyard,
-     *  Construct: Pumpking,
-     *
-     */
+
 }

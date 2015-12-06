@@ -66,7 +66,41 @@
         "east=true,north=false,south=true,variant=hand,west=true": { "model": "soulwarden:hand_fence_nse", "y": 90, "uvlock": true },
         "east=false,north=true,south=true,variant=hand,west=true": { "model": "soulwarden:hand_fence_nse", "y": 180, "uvlock": true },
         "east=true,north=true,south=false,variant=hand,west=true": { "model": "soulwarden:hand_fence_nse", "y": 270, "uvlock": true },
-        "east=true,north=true,south=true,variant=hand,west=true": { "model": "soulwarden:hand_fence_nsew", "uvlock": true }
+        "east=true,north=true,south=true,variant=hand,west=true": { "model": "soulwarden:hand_fence_nsew", "uvlock": true },
+
+        "east=false,north=false,south=false,variant=alnwick,west=false": { "model": "soulwarden:alnwick_fence_post" },
+        "east=false,north=true,south=false,variant=alnwick,west=false": { "model": "soulwarden:alnwick_fence_n", "uvlock": true },
+        "east=true,north=false,south=false,variant=alnwick,west=false": { "model": "soulwarden:alnwick_fence_n", "y": 90, "uvlock": true },
+        "east=false,north=false,south=true,variant=alnwick,west=false": { "model": "soulwarden:alnwick_fence_n", "y": 180, "uvlock": true },
+        "east=false,north=false,south=false,variant=alnwick,west=true": { "model": "soulwarden:alnwick_fence_n", "y": 270, "uvlock": true },
+        "east=true,north=true,south=false,variant=alnwick,west=false": { "model": "soulwarden:alnwick_fence_ne", "uvlock": true },
+        "east=true,north=false,south=true,variant=alnwick,west=false": { "model": "soulwarden:alnwick_fence_ne", "y": 90, "uvlock": true },
+        "east=false,north=false,south=true,variant=alnwick,west=true": { "model": "soulwarden:alnwick_fence_ne", "y": 180, "uvlock": true },
+        "east=false,north=true,south=false,variant=alnwick,west=true": { "model": "soulwarden:alnwick_fence_ne", "y": 270, "uvlock": true },
+        "east=false,north=true,south=true,variant=alnwick,west=false": { "model": "soulwarden:alnwick_fence_ns", "uvlock": true },
+        "east=true,north=false,south=false,variant=alnwick,west=true": { "model": "soulwarden:alnwick_fence_ns", "y": 90, "uvlock": true },
+        "east=true,north=true,south=true,variant=alnwick,west=false": { "model": "soulwarden:alnwick_fence_nse", "uvlock": true },
+        "east=true,north=false,south=true,variant=alnwick,west=true": { "model": "soulwarden:alnwick_fence_nse", "y": 90, "uvlock": true },
+        "east=false,north=true,south=true,variant=alnwick,west=true": { "model": "soulwarden:alnwick_fence_nse", "y": 180, "uvlock": true },
+        "east=true,north=true,south=false,variant=alnwick,west=true": { "model": "soulwarden:alnwick_fence_nse", "y": 270, "uvlock": true },
+        "east=true,north=true,south=true,variant=alnwick,west=true": { "model": "soulwarden:alnwick_fence_nsew", "uvlock": true },
+
+        "east=false,north=false,south=false,variant=pomegranate,west=false": { "model": "soulwarden:pomegranate_fence_post" },
+        "east=false,north=true,south=false,variant=pomegranate,west=false": { "model": "soulwarden:pomegranate_fence_n", "uvlock": true },
+        "east=true,north=false,south=false,variant=pomegranate,west=false": { "model": "soulwarden:pomegranate_fence_n", "y": 90, "uvlock": true },
+        "east=false,north=false,south=true,variant=pomegranate,west=false": { "model": "soulwarden:pomegranate_fence_n", "y": 180, "uvlock": true },
+        "east=false,north=false,south=false,variant=pomegranate,west=true": { "model": "soulwarden:pomegranate_fence_n", "y": 270, "uvlock": true },
+        "east=true,north=true,south=false,variant=pomegranate,west=false": { "model": "soulwarden:pomegranate_fence_ne", "uvlock": true },
+        "east=true,north=false,south=true,variant=pomegranate,west=false": { "model": "soulwarden:pomegranate_fence_ne", "y": 90, "uvlock": true },
+        "east=false,north=false,south=true,variant=pomegranate,west=true": { "model": "soulwarden:pomegranate_fence_ne", "y": 180, "uvlock": true },
+        "east=false,north=true,south=false,variant=pomegranate,west=true": { "model": "soulwarden:pomegranate_fence_ne", "y": 270, "uvlock": true },
+        "east=false,north=true,south=true,variant=pomegranate,west=false": { "model": "soulwarden:pomegranate_fence_ns", "uvlock": true },
+        "east=true,north=false,south=false,variant=pomegranate,west=true": { "model": "soulwarden:pomegranate_fence_ns", "y": 90, "uvlock": true },
+        "east=true,north=true,south=true,variant=pomegranate,west=false": { "model": "soulwarden:pomegranate_fence_nse", "uvlock": true },
+        "east=true,north=false,south=true,variant=pomegranate,west=true": { "model": "soulwarden:pomegranate_fence_nse", "y": 90, "uvlock": true },
+        "east=false,north=true,south=true,variant=pomegranate,west=true": { "model": "soulwarden:pomegranate_fence_nse", "y": 180, "uvlock": true },
+        "east=true,north=true,south=false,variant=pomegranate,west=true": { "model": "soulwarden:pomegranate_fence_nse", "y": 270, "uvlock": true },
+        "east=true,north=true,south=true,variant=pomegranate,west=true": { "model": "soulwarden:pomegranate_fence_nsew", "uvlock": true }
 
 
     }

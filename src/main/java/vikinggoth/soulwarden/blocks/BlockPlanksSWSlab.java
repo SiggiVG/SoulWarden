@@ -1,5 +1,6 @@
 package vikinggoth.soulwarden.blocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -36,6 +37,7 @@ public abstract class BlockPlanksSWSlab extends BlockSlab
             blockState = blockState.withProperty(HALF, EnumBlockHalf.BOTTOM);
         }
         this.setDefaultState(blockState.withProperty(VARIANT, EnumWoodType.GHOUL));
+        this.setStepSound(Block.soundTypeWood);
         this.setCreativeTab(SoulWarden.SWTab);
         this.useNeighborBrightness = !this.isDouble();
     }

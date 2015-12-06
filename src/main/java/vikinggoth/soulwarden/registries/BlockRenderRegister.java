@@ -5,7 +5,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import vikinggoth.soulwarden.SoulWarden;
 import vikinggoth.soulwarden.reference.Reference;
 
 /**
@@ -40,20 +39,28 @@ public final class BlockRenderRegister
                 modid + ":log_ghoul", modid + ":log_weepwillow", modid + ":log_bonebeech", modid + ":log_hand"
         );
 
+        ModelBakery.addVariantName(Item.getItemFromBlock(ConfigBlocks.logSW2),
+                modid + ":log_alm", modid + ":log_pomegranate"
+        );
+
         ModelBakery.addVariantName(Item.getItemFromBlock(ConfigBlocks.log_wallSW),
-                modid + ":log_wall_ghoul", modid + ":log_wall_weepwillow", modid + ":log_wall_bonebeech", modid + ":log_wall_hand"
+                modid + ":log_wall_ghoul", modid + ":log_wall_weepwillow", modid + ":log_wall_bonebeech", modid + ":log_wall_hand",
+                modid + ":log_wall_alm", modid + ":log_wall_pomegranate"
         );
 
         ModelBakery.addVariantName(Item.getItemFromBlock(ConfigBlocks.plankSW),
-                modid + ":plank_ghoul", modid + ":plank_weepwillow", modid + ":plank_bonebeech", modid + ":plank_hand"
+                modid + ":plank_ghoul", modid + ":plank_weepwillow", modid + ":plank_bonebeech", modid + ":plank_hand",
+                modid + ":plank_alm", modid + ":plank_pomegranate"
         );
 
         ModelBakery.addVariantName(Item.getItemFromBlock(ConfigBlocks.plankSW),
-                modid + ":plank_ghoul_slab", modid + ":plank_weepwillow_slab", modid + ":plank_bonebeech_slab", modid + ":plank_hand_slab"
+                modid + ":plank_ghoul_slab", modid + ":plank_weepwillow_slab", modid + ":plank_bonebeech_slab", modid + ":plank_hand_slab",
+                modid + ":plank_alm_slab", modid + ":plank_pomegranate_slab"
         );
 
         ModelBakery.addVariantName(Item.getItemFromBlock(ConfigBlocks.fenceSW),
-                modid + ":fence_ghoul", modid + ":fence_weepwillow", modid + ":fence_bonebeech", modid + ":fence_hand"
+                modid + ":fence_ghoul", modid + ":fence_weepwillow", modid + ":fence_bonebeech", modid + ":fence_hand",
+                modid + ":fence_alm", modid + ":fence_pomegranate"
         );
 
         //TODO Doors
@@ -113,31 +120,43 @@ public final class BlockRenderRegister
         regBlock(ConfigBlocks.logSW, 1, "log_weepwillow");
         regBlock(ConfigBlocks.logSW, 2, "log_bonebeech");
         regBlock(ConfigBlocks.logSW, 3, "log_hand");
+        regBlock(ConfigBlocks.logSW2, 0, "log_alm");
+        regBlock(ConfigBlocks.logSW2, 1, "log_pomegranate");
 
         regBlock(ConfigBlocks.log_wallSW, 0, "log_wall_ghoul");
         regBlock(ConfigBlocks.log_wallSW, 1, "log_wall_weepwillow");
         regBlock(ConfigBlocks.log_wallSW, 2, "log_wall_bonebeech");
         regBlock(ConfigBlocks.log_wallSW, 3, "log_wall_hand");
+        regBlock(ConfigBlocks.log_wallSW, 4, "log_wall_alm");
+        regBlock(ConfigBlocks.log_wallSW, 5, "log_wall_pomegranate");
 
         regBlock(ConfigBlocks.plankSW, 0, "plank_ghoul");
         regBlock(ConfigBlocks.plankSW, 1, "plank_weepwillow");
         regBlock(ConfigBlocks.plankSW, 2, "plank_bonebeech");
         regBlock(ConfigBlocks.plankSW, 3, "plank_hand");
+        regBlock(ConfigBlocks.plankSW, 4, "plank_alm");
+        regBlock(ConfigBlocks.plankSW, 5, "plank_pomegranate");
 
         regBlock(ConfigBlocks.planksSWSlab, 0, "plank_ghoul_slab");
         regBlock(ConfigBlocks.planksSWSlab, 1, "plank_weepwillow_slab");
         regBlock(ConfigBlocks.planksSWSlab, 2, "plank_bonebeech_slab");
         regBlock(ConfigBlocks.planksSWSlab, 3, "plank_hand_slab");
+        regBlock(ConfigBlocks.planksSWSlab, 4, "plank_alm_slab");
+        regBlock(ConfigBlocks.planksSWSlab, 5, "plank_pomegranate_slab");
 
         regBlock(ConfigBlocks.ghoulStairs);
         regBlock(ConfigBlocks.weepwillowStairs);
         regBlock(ConfigBlocks.bonebeechStairs);
         regBlock(ConfigBlocks.handStairs);
+        regBlock(ConfigBlocks.alnwickStairs);
+        regBlock(ConfigBlocks.pomegranateStairs);
 
         regBlock(ConfigBlocks.fenceSW, 0, "fence_ghoul");
         regBlock(ConfigBlocks.fenceSW, 1, "fence_weepwillow");
         regBlock(ConfigBlocks.fenceSW, 2, "fence_bonebeech");
         regBlock(ConfigBlocks.fenceSW, 3, "fence_hand");
+        regBlock(ConfigBlocks.fenceSW, 4, "fence_alm");
+        regBlock(ConfigBlocks.fenceSW, 5, "fence_pomegranate");
 
         //TODO Doors
 

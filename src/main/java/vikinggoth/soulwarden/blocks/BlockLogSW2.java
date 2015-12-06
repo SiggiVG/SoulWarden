@@ -25,7 +25,7 @@ public class BlockLogSW2 extends BlockLog implements IMetaBlockName
 
     public BlockLogSW2()
     {
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumType.ALM).withProperty(LOG_AXIS, EnumAxis.Y));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumType.ALNWICK).withProperty(LOG_AXIS, EnumAxis.Y));
         this.setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood);
     }
 
@@ -35,7 +35,7 @@ public class BlockLogSW2 extends BlockLog implements IMetaBlockName
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item itemIn, CreativeTabs tab, List list)
     {
-        list.add(new ItemStack(itemIn, 1, EnumType.ALM.getMetadata()));
+        list.add(new ItemStack(itemIn, 1, EnumType.ALNWICK.getMetadata()));
         list.add(new ItemStack(itemIn, 1, EnumType.POMEGRANATE.getMetadata()));
     }
 
@@ -113,7 +113,7 @@ public class BlockLogSW2 extends BlockLog implements IMetaBlockName
 
     public static enum EnumType implements IStringSerializable
     {
-        ALM(0, "alm"),
+        ALNWICK(0, "alnwick"),
         POMEGRANATE(1, "pomegranate");
 
         private static final EnumType[] META_LOOKUP = new EnumType[values().length];

@@ -11,7 +11,7 @@ public enum EnumWoodType implements IStringSerializable
     WEEPWILLOW(1, "weepwillow"),
     BONEBEECH(2, "bonebeech"),
     HAND(3, "hand"), //wax hand
-    ALM(4, "alm"),
+    ALNWICK(4, "alnwick"),
     POMEGRANATE(5, "pomegranate");
 
     private static final EnumWoodType[] META_LOOKUP = new EnumWoodType[values().length];

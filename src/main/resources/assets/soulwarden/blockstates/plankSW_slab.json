@@ -4,9 +4,14 @@
         "half=bottom,variant=weepwillow": { "model": "soulwarden:half_slab_plankSW_weepwillow" },
         "half=bottom,variant=bonebeech": { "model": "soulwarden:half_slab_plankSW_bonebeech" },
         "half=bottom,variant=hand": { "model": "soulwarden:half_slab_plankSW_hand" },
+        "half=bottom,variant=alnwick": { "model": "soulwarden:half_slab_plankSW_alnwick" },
+        "half=bottom,variant=pomegranate": { "model": "soulwarden:half_slab_plankSW_pomegranate" },
+
         "half=top,variant=ghoul": { "model": "soulwarden:upper_slab_plankSW_ghoul" },
         "half=top,variant=weepwillow": { "model": "soulwarden:upper_slab_plankSW_weepwillow" },
         "half=top,variant=bonebeech": { "model": "soulwarden:upper_slab_plankSW_bonebeech" },
-        "half=top,variant=hand": { "model": "soulwarden:upper_slab_plankSW_hand" }
+        "half=top,variant=hand": { "model": "soulwarden:upper_slab_plankSW_hand" },
+        "half=top,variant=alnwick": { "model": "soulwarden:upper_slab_plankSW_alnwick" },
+        "half=top,variant=pomegranate": { "model": "soulwarden:upper_slab_plankSW_pomegranate" }
     }
 }

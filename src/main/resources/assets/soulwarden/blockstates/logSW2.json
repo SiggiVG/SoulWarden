@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "axis=y,variant=alnwick": {
+      "model": "soulwarden:alnwick_log"
+    },
+    "axis=z,variant=alnwick": {
+      "model": "soulwarden:alnwick_log_side"
+    },
+    "axis=x,variant=alnwick": {
+      "model": "soulwarden:alnwick_log_side",
+      "y": 90
+    },
+    "axis=none,variant=alnwick": {
+      "model": "soulwarden:alnwick_bark"
+    },
+    "axis=y,variant=pomegranate": {
+      "model": "soulwarden:pomegranate_log"
+    },
+    "axis=z,variant=pomegranate": {
+      "model": "soulwarden:pomegranate_log_side"
+    },
+    "axis=x,variant=pomegranate": {
+      "model": "soulwarden:pomegranate_log_side",
+      "y": 90
+    },
+    "axis=none,variant=pomegranate": {
+      "model": "soulwarden:pomegranate_bark"
+    }
+  }
+}
