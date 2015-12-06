@@ -1,10 +1,10 @@
 {
     "parent": "soulwarden:block/urn_small",
     "textures": {
-        "texture": "soulwarden:blocks/soulstone_smooth",
-        "side": "soulwarden:blocks/soulstone_brick",
-        "bottom": "soulwarden:blocks/soulstone_cracked",
-        "mouth": "soulwarden:blocks/soulstone_cracked",
-        "front": "soulwarden:blocks/soulstone_brick"
+        "texture": "soulwarden:blocks/boneblock",
+        "side": "soulwarden:blocks/boneblock",
+        "bottom": "soulwarden:blocks/boneblock",
+        "mouth": "soulwarden:blocks/boneblock",
+        "front": "soulwarden:blocks/boneblock"
     }
 }

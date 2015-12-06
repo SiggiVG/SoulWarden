@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "variant=default": { "model":"soulwarden:ore_soulgem" },
+    "variant=nether": { "model":"soulwarden:ore_soulgem_nether" },
+    "variant=necro": { "model":"soulwarden:ore_soulgem_necro" }
+  }
+}

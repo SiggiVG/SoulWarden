@@ -53,7 +53,7 @@ public final class BlockRenderRegister
                 modid + ":plank_alm", modid + ":plank_pomegranate"
         );
 
-        ModelBakery.addVariantName(Item.getItemFromBlock(ConfigBlocks.plankSW),
+        ModelBakery.addVariantName(Item.getItemFromBlock(ConfigBlocks.planksSWSlab),
                 modid + ":plank_ghoul_slab", modid + ":plank_weepwillow_slab", modid + ":plank_bonebeech_slab", modid + ":plank_hand_slab",
                 modid + ":plank_alm_slab", modid + ":plank_pomegranate_slab"
         );
@@ -64,6 +64,11 @@ public final class BlockRenderRegister
         );
 
         //TODO Doors
+
+        //Ores
+        ModelBakery.addVariantName(Item.getItemFromBlock(ConfigBlocks.ore_soulgem),
+                modid + ":ore_soulgem", modid + ":ore_soulgem_nether", modid + ":ore_soulgem_necro"
+        );
     }
 
     public static void registerBlockRenderer()
@@ -165,6 +170,29 @@ public final class BlockRenderRegister
         regBlock(ConfigBlocks.boneBlock);
         regBlock(ConfigBlocks.boneWall);
         regBlock(ConfigBlocks.boneFence);
+
+        //Urns
+        regBlock(ConfigBlocks.urnlarge, 0, "urnlarge_soulstone");
+        regBlock(ConfigBlocks.urnlarge, 1, "urnlarge_porcelain");
+        regBlock(ConfigBlocks.urnlarge, 2, "urnlarge_clay");
+        regBlock(ConfigBlocks.urnlarge, 3, "urnlarge_greek");
+        regBlock(ConfigBlocks.urnmedium, 0, "urnmedium_soulstone");
+        regBlock(ConfigBlocks.urnmedium, 1, "urnmedium_porcelain");
+        regBlock(ConfigBlocks.urnmedium, 2, "urnmedium_clay");
+        regBlock(ConfigBlocks.urnmedium, 3, "urnmedium_greek");
+        regBlock(ConfigBlocks.urnsmall, 0, "urnsmall_soulstone");
+        regBlock(ConfigBlocks.urnsmall, 1, "urnsmall_porcelain");
+        regBlock(ConfigBlocks.urnsmall, 2, "urnsmall_clay");
+        regBlock(ConfigBlocks.urnsmall, 3, "urnsmall_greek");
+
+        //Ores
+        regBlock(ConfigBlocks.ore_rostygold);
+        regBlock(ConfigBlocks.ore_pewter);
+        regBlock(ConfigBlocks.ore_soulgem_black);
+        regBlock(ConfigBlocks.ore_hematite);
+        regBlock(ConfigBlocks.ore_soulgem, 0, "ore_soulgem");
+        regBlock(ConfigBlocks.ore_soulgem, 1, "ore_soulgem_nether");
+        regBlock(ConfigBlocks.ore_soulgem, 2, "ore_soulgem_necro");
 
     }
 

@@ -2,6 +2,7 @@ package vikinggoth.soulwarden.registries;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
+import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import vikinggoth.soulwarden.SoulWarden;
@@ -86,6 +87,13 @@ public class ConfigBlocks
     public static Block urnmedium;
     public static Block urnsmall;
 
+    //Ores
+    public static Block ore_soulgem;
+    public static Block ore_soulgem_black;
+    public static Block ore_rostygold;
+    public static Block ore_pewter;
+    public static Block ore_hematite;
+
     //Soul Transport
     /*
     public static Block soulPylon; //main componant for soul transport
@@ -123,11 +131,11 @@ public class ConfigBlocks
     public static void createBlocks()
     {
         //Decorative and Building
-        graveSoil = new BlockGraveSoil().setUnlocalizedName("gravesoil").setCreativeTab(SoulWarden.SWTab);
-        graveSoilTilled = new BlockGraveFarmland().setUnlocalizedName("grave_farmland");//.setCreativeTab(SoulWarden.SWTab);
-        grassCemetery = new BlockGrassCemetery().setUnlocalizedName("grass_cemetery").setCreativeTab(SoulWarden.SWTab);
-        soulGravel = new BlockSoulGravel().setUnlocalizedName("soulgravel").setCreativeTab(SoulWarden.SWTab);
-        soulStone = new BlockSoulStone().setUnlocalizedName("soulstone").setCreativeTab(SoulWarden.SWTab);
+        graveSoil = new BlockGraveSoil().setUnlocalizedName("gravesoil");
+        graveSoilTilled = new BlockGraveFarmland().setUnlocalizedName("grave_farmland");//;
+        grassCemetery = new BlockGrassCemetery().setUnlocalizedName("grass_cemetery");
+        soulGravel = new BlockSoulGravel().setUnlocalizedName("soulgravel");
+        soulStone = new BlockSoulStone().setUnlocalizedName("soulstone");
         //SoulStoneStairs
         soulStoneBrickStairs = new BlockStairsSW(soulStone.getDefaultState().withProperty(BlockSoulStone.VARIANT, BlockSoulStone.EnumType.BRICK)).setUnlocalizedName("soulstone_brick_stairs");
         soulStoneCobbleStairs = new BlockStairsSW(soulStone.getDefaultState().withProperty(BlockSoulStone.VARIANT, BlockSoulStone.EnumType.COBBLE)).setUnlocalizedName("soulstone_cobble_stairs");
@@ -137,21 +145,21 @@ public class ConfigBlocks
         soulStoneSlab = new BlockHalfSoulStoneSlab(Material.rock).setUnlocalizedName("soulstone_slab");
         soulStoneSlabDouble = new BlockDoubleSoulStoneSlab(Material.rock).setUnlocalizedName("soulstone_double_slab");
         //Walls
-        soulStoneWall = new BlockSoulStoneWall(soulStone).setUnlocalizedName("soulstone_wall").setCreativeTab(SoulWarden.SWTab);
-        soulStoneFence = new BlockFence(soulStone.getMaterial()).setHardness(1.5F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("soulstone_fence").setCreativeTab(SoulWarden.SWTab);
+        soulStoneWall = new BlockSoulStoneWall(soulStone).setUnlocalizedName("soulstone_wall");
+        soulStoneFence = new BlockFence(soulStone.getMaterial()).setHardness(1.5F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("soulstone_fence");
 
         //Wood
         //Logs
-        logSW = new BlockLogSW().setUnlocalizedName("logSW").setCreativeTab(SoulWarden.SWTab);
-        logSW2 = new BlockLogSW2().setUnlocalizedName("logSW2").setCreativeTab(SoulWarden.SWTab);
+        logSW = new BlockLogSW().setUnlocalizedName("logSW");
+        logSW2 = new BlockLogSW2().setUnlocalizedName("logSW2");
         //Walls
-        log_wallSW = new BlockLogSWWall(logSW).setUnlocalizedName("log_wallSW").setCreativeTab(SoulWarden.SWTab);
+        log_wallSW = new BlockLogSWWall(logSW).setUnlocalizedName("log_wallSW");
         //Leaves
-        leafSW = new BlockLeafSW().setUnlocalizedName("leafSW").setCreativeTab(SoulWarden.SWTab);
+        leafSW = new BlockLeafSW().setUnlocalizedName("leafSW");
         //Sapling
-        //saplingSW = new BlockSaplingSW().setUnlocalizedName("saplingSW").setCreativeTab(SoulWarden.SWTab);
+        //saplingSW = new BlockSaplingSW().setUnlocalizedName("saplingSW");
         //Planks
-        plankSW = new BlockPlanksSW().setUnlocalizedName("plankSW").setCreativeTab(SoulWarden.SWTab);
+        plankSW = new BlockPlanksSW().setUnlocalizedName("plankSW");
         //Stairs
         ghoulStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.GHOUL)).setUnlocalizedName("planks_ghoul_stairs");
         weepwillowStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.WEEPWILLOW)).setUnlocalizedName("planks_weepwillow_stairs");
@@ -163,7 +171,7 @@ public class ConfigBlocks
         planksSWSlab = new BlockHalfPlanksSWSlab(Material.wood).setUnlocalizedName("plankSW_slab");
         planksSWSlabDouble = new BlockDoublePlanksSWSlab(Material.wood).setUnlocalizedName("plankSW_double_slab");
         //Fences
-        fenceSW = new BlockFenceSW().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setUnlocalizedName("fenceSW").setCreativeTab(SoulWarden.SWTab);
+        fenceSW = new BlockFenceSW().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setUnlocalizedName("fenceSW");
         //Doors TODO
         ghoulDoor = new BlockDoorSW().setUnlocalizedName("door_ghoul");
         weepwillowDoor = new BlockDoorSW().setUnlocalizedName("door_weepwillow");
@@ -173,22 +181,32 @@ public class ConfigBlocks
         pomegranateDoor = new BlockDoorSW().setUnlocalizedName("door_pomegranate");
 
         //Bone
-        bonePile = new BlockBonePile().setUnlocalizedName("bonepile").setCreativeTab(SoulWarden.SWTab);
-        boneBlock = new Block(Material.coral).setStepSound(Block.soundTypeLadder).setUnlocalizedName("boneblock").setCreativeTab(SoulWarden.SWTab);
-        boneWall = new BlockBoneWall(boneBlock).setStepSound(Block.soundTypeLadder).setUnlocalizedName("bonewall").setCreativeTab(SoulWarden.SWTab);
-        boneFence = new BlockFence(boneBlock.getMaterial()).setStepSound(Block.soundTypeLadder).setHardness(1.0F).setResistance(3.0F).setStepSound(Block.soundTypeLadder).setUnlocalizedName("bonefence").setCreativeTab(SoulWarden.SWTab);
+        bonePile = new BlockBonePile().setUnlocalizedName("bonepile");
+        boneBlock = new Block(Material.coral).setStepSound(Block.soundTypeLadder).setUnlocalizedName("boneblock");
+        boneWall = new BlockBoneWall(boneBlock).setStepSound(Block.soundTypeLadder).setUnlocalizedName("bonewall");
+        boneFence = new BlockFence(boneBlock.getMaterial()).setStepSound(Block.soundTypeLadder).setHardness(1.0F).setResistance(3.0F).setStepSound(Block.soundTypeLadder).setUnlocalizedName("bonefence");
 
         //Urn
-        urnlarge = new BlockUrnLarge().setUnlocalizedName("urn_large").setCreativeTab(SoulWarden.SWTab);
-        urnmedium = new BlockUrnMedium().setUnlocalizedName("urn_medium").setCreativeTab(SoulWarden.SWTab);
-        urnsmall = new BlockUrnSmall().setUnlocalizedName("urn_small").setCreativeTab(SoulWarden.SWTab);
+        urnlarge = new BlockUrnLarge().setUnlocalizedName("urn_large");
+        urnmedium = new BlockUrnMedium().setUnlocalizedName("urn_medium");
+        urnsmall = new BlockUrnSmall().setUnlocalizedName("urn_small");
+
+        //Ores
+        ore_rostygold = new BlockOre().setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("ore_rostygold");
+        ore_rostygold.setHarvestLevel("pickaxe", 2);
+        ore_pewter = new BlockOre().setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("ore_pewter");
+        ore_pewter.setHarvestLevel("pickaxe", 2);
+        ore_soulgem = new BlockSoulgemOre().setUnlocalizedName("ore_soulgem");
+        ore_soulgem_black = new BlockSoulgemBlackOre().setUnlocalizedName("ore_soulgem_black");
+        ore_hematite = new BlockHematiteOre().setUnlocalizedName("ore_hematite");
+
 
         //Soul Transport
         /*
-        soulPylon = new BlockSoulPylon().setUnlocalizedName("soulPylon").setCreativeTab(SoulWarden.SWTab);
+        soulPylon = new BlockSoulPylon().setUnlocalizedName("soulPylon");
         */
-        soulFurnace_on = new BlockSoulFurnace().setUnlocalizedName("soulfurnace_on").setCreativeTab(SoulWarden.SWTab);
-        soulFurnace_off = new BlockSoulFurnace().setUnlocalizedName("soulfurnace_on").setCreativeTab(SoulWarden.SWTab);
+        soulFurnace_on = new BlockSoulFurnace().setUnlocalizedName("soulfurnace_on");
+        soulFurnace_off = new BlockSoulFurnace().setUnlocalizedName("soulfurnace_on");
 
         registerBlocks();
     }
@@ -253,17 +271,26 @@ public class ConfigBlocks
         regMetaBlock(urnmedium);
         regMetaBlock(urnsmall);
 
+        //Ores
+        regBlock(ore_rostygold);
+        regBlock(ore_pewter);
+        regMetaBlock(ore_soulgem);
+        regBlock(ore_soulgem_black);
+        regBlock(ore_hematite);
+
         //Soul Transport
         //GameRegistry.registerBlock(soulPylon, ItemSoulPylon.class, soulPylon.getUnlocalizedName().substring(5));
     }
 
     private static void regBlock(Block block)
     {
+        block.setCreativeTab(SoulWarden.SWTab);
         GameRegistry.registerBlock(block, block.getUnlocalizedName().substring(5));
     }
 
     private static void regMetaBlock(Block block)
     {
+        block.setCreativeTab(SoulWarden.SWTab);
         GameRegistry.registerBlock(block, ItemBlockMeta.class, block.getUnlocalizedName().substring(5));
     }
 

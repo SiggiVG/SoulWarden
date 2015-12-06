@@ -1,6 +1,7 @@
 package vikinggoth.soulwarden.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -11,6 +12,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -21,77 +25,59 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by Friedrich on 12/2/2015.
- *
- * This is the base class to the urns added by Soul Warden
- *
- *
+ * Created by Friedrich on 8/18/2015.
  */
-public abstract class BlockUrn extends Block implements IMetaBlockName
+public class BlockSoulgemOre extends BlockOre implements IMetaBlockName
 {
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", EnumType.class);
 
-    public BlockUrn(Material materialIn)
+    public BlockSoulgemOre()
     {
-        super(materialIn);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumType.SOULSTONE));
+        super();
+        this.setHardness(1.5F);
+        this.setResistance(10F);
+        this.setHarvestLevel("pickaxe", 1);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumType.DEFAULT));
     }
 
+    /**
+     * Get the Item that this Block should drop when harvested.
+     *
+     * @param fortune the level of the Fortune enchantment on the player's tool
+     */
     @Override
-    public boolean isFullCube()
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return false;
-    }
-
-    @Override
-    public boolean isOpaqueCube()
-    {
-        return false;
+        return ConfigItems.soulgem;
     }
 
     /**
      * Returns the quantity of items to drop on block destruction.
      */
+    @Override
     public int quantityDropped(Random random)
     {
-        return random.nextInt(6);
+        return 1;
     }
 
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
-        return ConfigItems.bone_ash;
-    }
-
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
-    {
-        return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && World.doesBlockHaveSolidTopSurface(worldIn, pos.down());
-    }
 
     /**
-     * Convert the given metadata into a BlockState for this Block
+     * Spawns this Block's drops into the World as EntityItems.
+     *
+     * @param chance The chance that each Item is actually spawned (1.0 = always, 0.0 = never)
+     * @param fortune The player's fortune level
      */
-    public IBlockState getStateFromMeta(int meta)
+    @Override
+    public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune)
     {
-        return this.getDefaultState().withProperty(VARIANT, EnumType.byMetadata(meta));
-    }
-
-    /**
-     * Convert the BlockState into the correct metadata value
-     */
-    public int getMetaFromState(IBlockState state)
-    {
-        return ((EnumType)state.getValue(VARIANT)).getMetadata();
-    }
-
-    protected BlockState createBlockState()
-    {
-        return new BlockState(this, new IProperty[] {VARIANT});
+        super.dropBlockAsItemWithChance(worldIn, pos, state, chance, fortune);
     }
 
     @Override
-    public String getSpecialName(ItemStack stack)
+    public int getExpDrop(IBlockAccess world, BlockPos pos, int fortune)
     {
-        return EnumType.byMetadata(stack.getItemDamage()).getUnlocalizedName();
+        Random rand = world instanceof World ? ((World)world).rand : new Random();
+        return MathHelper.getRandomIntegerInRange(rand, 2, 5);
     }
 
     /**
@@ -111,13 +97,48 @@ public abstract class BlockUrn extends Block implements IMetaBlockName
         }
     }
 
+    /**
+     * Convert the given metadata into a BlockState for this Block
+     */
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(VARIANT, EnumType.byMetadata(meta));
+    }
+
+    /**
+     * Convert the BlockState into the correct metadata value
+     */
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        return ((EnumType)state.getValue(VARIANT)).getMetadata();
+    }
+
+    @Override
+    protected BlockState createBlockState()
+    {
+        return new BlockState(this, new IProperty[] {VARIANT});
+    }
+
+    @Override
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos) {
+        return new ItemStack(Item.getItemFromBlock(this), 1, this.getMetaFromState(world.getBlockState(pos)));
+    }
+
+    @Override
+    public String getSpecialName(ItemStack stack)
+    {
+        return EnumType.byMetadata(stack.getItemDamage()).getUnlocalizedName();
+    }
+
     public static enum EnumType implements IStringSerializable
     {
         //normal variants
-        SOULSTONE(0, "soulstone"),
-        PORCELAIN(1, "porcelain"),
-        CLAY(2, "clay"),
-        GREEK(3, "greek");
+        DEFAULT(0, "default"), //has a special slab with different top texture, cooked from vanilla stone in sepulter //has special slab
+        NETHER(1, "nether"),
+        NECRO(2, "necro");
+
 
         private static final EnumType[] META_LOOKUP = new EnumType[values().length];
         private final int meta;
@@ -125,8 +146,8 @@ public abstract class BlockUrn extends Block implements IMetaBlockName
 
         private EnumType(int meta, String name)
         {
-            this.meta = meta;
-            this.name = name;
+        this.meta = meta;
+        this.name = name;
         }
 
         public int getMetadata()
