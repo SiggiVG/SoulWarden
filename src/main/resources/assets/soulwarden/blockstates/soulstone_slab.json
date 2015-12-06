@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "soulwarden:half_slab_soulstone_default" },
+        "half=bottom,variant=smooth": { "model": "soulwarden:half_slab_soulstone_smooth" },
+        "half=bottom,variant=brick": { "model": "soulwarden:half_slab_soulstone_brick" },
+        "half=bottom,variant=cobble": { "model": "soulwarden:half_slab_soulstone_cobble" },
+        "half=bottom,variant=scattered": { "model": "soulwarden:half_slab_soulstone_scattered" },
+        "half=bottom,variant=small": { "model": "soulwarden:half_slab_soulstone_small" },
+        "half=top,variant=default": { "model": "soulwarden:upper_slab_soulstone_default" },
+        "half=top,variant=smooth": { "model": "soulwarden:upper_slab_soulstone_smooth" },
+        "half=top,variant=brick": { "model": "soulwarden:upper_slab_soulstone_brick" },
+        "half=top,variant=cobble": { "model": "soulwarden:upper_slab_soulstone_cobble" },
+        "half=top,variant=scattered": { "model": "soulwarden:upper_slab_soulstone_scattered" },
+        "half=top,variant=small": { "model": "soulwarden:upper_slab_soulstone_small" }
+    }
+}

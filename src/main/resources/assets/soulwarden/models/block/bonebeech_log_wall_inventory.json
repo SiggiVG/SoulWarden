@@ -1,0 +1,7 @@
+{
+  "parent": "soulwarden:block/log_wall_inventory",
+  "textures": {
+    "wall": "soulwarden:blocks/log_bonebeech",
+    "up" :  "soulwarden:blocks/log_bonebeech_top"
+  }
+}

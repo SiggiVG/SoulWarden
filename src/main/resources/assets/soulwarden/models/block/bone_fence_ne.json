@@ -1,0 +1,6 @@
+{
+    "parent": "soulwarden:block/ornate_fence_ne",
+    "textures": {
+        "texture": "soulwarden:blocks/bonepile"
+    }
+}

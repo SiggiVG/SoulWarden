@@ -22,6 +22,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.items.itemblocks.IMetaBlockName;
+import vikinggoth.soulwarden.reference.EnumWoodType;
 import vikinggoth.soulwarden.registries.ConfigBlocks;
 import vikinggoth.soulwarden.registries.ConfigItems;
 
@@ -33,21 +34,21 @@ import java.util.Random;
  */
 public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
 {
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", ConfigBlocks.WoodType.class, new Predicate()
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", EnumWoodType.class, new Predicate()
     {
-        public boolean apply(ConfigBlocks.WoodType type)
+        public boolean apply(EnumWoodType type)
         {
             return type.getMetadata() < 4;
         }
         public boolean apply(Object p_apply_1_)
         {
-            return this.apply((ConfigBlocks.WoodType)p_apply_1_);
+            return this.apply((EnumWoodType)p_apply_1_);
         }
     });
 
     public BlockLeafSW()
     {
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, ConfigBlocks.WoodType.GHOUL).withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumWoodType.GHOUL).withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
     }
 
     @SideOnly(Side.CLIENT)
@@ -59,8 +60,8 @@ public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
         }
         else
         {
-            ConfigBlocks.WoodType enumtype = (ConfigBlocks.WoodType)state.getValue(VARIANT);
-            return enumtype == ConfigBlocks.WoodType.SPRUCE ? ColorizerFoliage.getFoliageColorPine() : (enumtype == ConfigBlocks.WoodType.BIRCH ? ColorizerFoliage.getFoliageColorBirch() : super.getRenderColor(state));
+            EnumWoodType enumtype = (EnumWoodType)state.getValue(VARIANT);
+            return enumtype == EnumWoodType.SPRUCE ? ColorizerFoliage.getFoliageColorPine() : (enumtype == EnumWoodType.BIRCH ? ColorizerFoliage.getFoliageColorBirch() : super.getRenderColor(state));
         }*/
         return super.getRenderColor(state);
     }
@@ -72,14 +73,14 @@ public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
 
         if (iblockstate.getBlock() == this)
         {
-            /*ConfigBlocks.WoodType enumtype = (ConfigBlocks.WoodType)iblockstate.getValue(VARIANT);
+            /*EnumWoodType enumtype = (EnumWoodType)iblockstate.getValue(VARIANT);
 
-            if (enumtype == ConfigBlocks.WoodType.SPRUCE)
+            if (enumtype == EnumWoodType.SPRUCE)
             {
                 return ColorizerFoliage.getFoliageColorPine();
             }
 
-            if (enumtype == ConfigBlocks.WoodType.BIRCH)
+            if (enumtype == EnumWoodType.BIRCH)
             {
                 return ColorizerFoliage.getFoliageColorBirch();
             }*/
@@ -90,11 +91,11 @@ public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
 
     protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance)
     {
-        if (state.getValue(VARIANT) == ConfigBlocks.WoodType.BONEBEECH && worldIn.rand.nextInt(chance) == 0)
+        if (state.getValue(VARIANT) == EnumWoodType.BONEBEECH && worldIn.rand.nextInt(chance) == 0)
         {
             spawnAsEntity(worldIn, pos, new ItemStack(Items.bone, 1, 0)); //TODO
         }
-        else if (state.getValue(VARIANT) == ConfigBlocks.WoodType.POMEGRANATE && worldIn.rand.nextInt(chance) == 0)
+        else if (state.getValue(VARIANT) == EnumWoodType.POMEGRANATE && worldIn.rand.nextInt(chance) == 0)
         {
             spawnAsEntity(worldIn, pos, new ItemStack(ConfigItems.pomegranate, 1, 0)); //TODO
         }
@@ -102,7 +103,7 @@ public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
 
     protected int getSaplingDropChance(IBlockState state)
     {
-        return state.getValue(VARIANT) == ConfigBlocks.WoodType.BONEBEECH ? 40 : super.getSaplingDropChance(state);
+        return state.getValue(VARIANT) == EnumWoodType.BONEBEECH ? 40 : super.getSaplingDropChance(state);
     }
 
     /**
@@ -111,17 +112,17 @@ public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item itemIn, CreativeTabs tab, List list)
     {
-        list.add(new ItemStack(itemIn, 1, ConfigBlocks.WoodType.GHOUL.getMetadata()));
-        list.add(new ItemStack(itemIn, 1, ConfigBlocks.WoodType.WEEPWILLOW.getMetadata()));
-        list.add(new ItemStack(itemIn, 1, ConfigBlocks.WoodType.BONEBEECH.getMetadata()));
-        list.add(new ItemStack(itemIn, 1, ConfigBlocks.WoodType.HAND.getMetadata()));
-        list.add(new ItemStack(itemIn, 1, ConfigBlocks.WoodType.ALM.getMetadata()));
-        list.add(new ItemStack(itemIn, 1, ConfigBlocks.WoodType.POMEGRANATE.getMetadata()));
+        list.add(new ItemStack(itemIn, 1, EnumWoodType.GHOUL.getMetadata()));
+        list.add(new ItemStack(itemIn, 1, EnumWoodType.WEEPWILLOW.getMetadata()));
+        list.add(new ItemStack(itemIn, 1, EnumWoodType.BONEBEECH.getMetadata()));
+        list.add(new ItemStack(itemIn, 1, EnumWoodType.HAND.getMetadata()));
+        list.add(new ItemStack(itemIn, 1, EnumWoodType.ALM.getMetadata()));
+        list.add(new ItemStack(itemIn, 1, EnumWoodType.POMEGRANATE.getMetadata()));
     }
 
     protected ItemStack createStackedBlock(IBlockState state)
     {
-        return new ItemStack(Item.getItemFromBlock(this), 1, ((ConfigBlocks.WoodType)state.getValue(VARIANT)).getMetadata());
+        return new ItemStack(Item.getItemFromBlock(this), 1, ((EnumWoodType)state.getValue(VARIANT)).getMetadata());
     }
 
     /**
@@ -138,7 +139,7 @@ public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
     public int getMetaFromState(IBlockState state)
     {
         byte b0 = 0;
-        int i = b0 | ((ConfigBlocks.WoodType)state.getValue(VARIANT)).getMetadata();
+        int i = b0 | ((EnumWoodType)state.getValue(VARIANT)).getMetadata();
 
         if (!((Boolean)state.getValue(DECAYABLE)).booleanValue())
         {
@@ -168,7 +169,7 @@ public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
      */
     public int damageDropped(IBlockState state)
     {
-        return ((ConfigBlocks.WoodType)state.getValue(VARIANT)).getMetadata();
+        return ((EnumWoodType)state.getValue(VARIANT)).getMetadata();
     }
 
     public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity te)
@@ -187,7 +188,7 @@ public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
     public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune)
     {
         IBlockState state = world.getBlockState(pos);
-        return new java.util.ArrayList(java.util.Arrays.asList(new ItemStack(this, 1, ((ConfigBlocks.WoodType)state.getValue(VARIANT)).getMetadata())));
+        return new java.util.ArrayList(java.util.Arrays.asList(new ItemStack(this, 1, ((EnumWoodType)state.getValue(VARIANT)).getMetadata())));
     }
 
     /**
@@ -203,6 +204,6 @@ public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
     @Override
     public String getSpecialName(ItemStack stack)
     {
-        return ConfigBlocks.WoodType.byMetadata(stack.getItemDamage()).getUnlocalizedName();
+        return EnumWoodType.byMetadata(stack.getItemDamage()).getUnlocalizedName();
     }
 }

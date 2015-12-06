@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "normal": [
+            { "model": "soulwarden:gravesoil" },
+            { "model": "soulwarden:gravesoil", "y": 90 },
+            { "model": "soulwarden:gravesoil", "y": 180 },
+            { "model": "soulwarden:gravesoil", "y": 270 }
+        ]
+    }
+}

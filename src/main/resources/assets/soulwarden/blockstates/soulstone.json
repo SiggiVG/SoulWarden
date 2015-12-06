@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "variant=default": { "model":"soulwarden:soulstone_default" },
+        "variant=mossy": { "model":"soulwarden:soulstone_mossy" },
+        "variant=cracked": { "model":"soulwarden:soulstone_cracked" },
+        "variant=smooth": { "model":"soulwarden:soulstone_smooth" },
+        "variant=brick": { "model":"soulwarden:soulstone_brick" },
+        "variant=brick_mossy": { "model":"soulwarden:soulstone_brick_mossy" },
+        "variant=brick_cracked": { "model":"soulwarden:soulstone_brick_cracked" },
+        "variant=chiseled": { "model":"soulwarden:soulstone_chiseled" },
+        "variant=cobble": { "model":"soulwarden:soulstone_cobble" },
+        "variant=cobble_mossy": { "model":"soulwarden:soulstone_cobble_mossy" },
+        "variant=scattered": { "model":"soulwarden:soulstone_scattered" },
+        "variant=small": { "model":"soulwarden:soulstone_small" },
+        "variant=ghost": { "model":"soulwarden:soulstone_ghost" },
+        "variant=skull": { "model":"soulwarden:soulstone_skull" },
+        "variant=eye": { "model":"soulwarden:soulstone_eye" },
+        "variant=creeper": { "model":"soulwarden:soulstone_creeper" }
+    }
+}

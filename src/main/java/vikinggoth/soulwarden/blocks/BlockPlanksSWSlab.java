@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.SoulWarden;
+import vikinggoth.soulwarden.reference.EnumWoodType;
 import vikinggoth.soulwarden.registries.ConfigBlocks;
 
 import java.util.List;
@@ -24,7 +25,7 @@ import java.util.Random;
  */
 public abstract class BlockPlanksSWSlab extends BlockSlab
 {
-    private static final PropertyEnum VARIANT = PropertyEnum.create("variant", ConfigBlocks.WoodType.class);
+    private static final PropertyEnum VARIANT = PropertyEnum.create("variant", EnumWoodType.class);
 
     public BlockPlanksSWSlab(Material materialIn)
     {
@@ -34,7 +35,7 @@ public abstract class BlockPlanksSWSlab extends BlockSlab
         {
             blockState = blockState.withProperty(HALF, EnumBlockHalf.BOTTOM);
         }
-        this.setDefaultState(blockState.withProperty(VARIANT, ConfigBlocks.WoodType.GHOUL));
+        this.setDefaultState(blockState.withProperty(VARIANT, EnumWoodType.GHOUL));
         this.setCreativeTab(SoulWarden.SWTab);
         this.useNeighborBrightness = !this.isDouble();
     }
@@ -55,7 +56,7 @@ public abstract class BlockPlanksSWSlab extends BlockSlab
     @Override
     public String getUnlocalizedName(int meta)
     {
-        return super.getUnlocalizedName() + "." + ConfigBlocks.WoodType.byMetadata(meta).getUnlocalizedName();
+        return super.getUnlocalizedName() + "." + EnumWoodType.byMetadata(meta).getUnlocalizedName();
     }
 
     @Override
@@ -67,7 +68,7 @@ public abstract class BlockPlanksSWSlab extends BlockSlab
     @Override
     public Object getVariant(ItemStack stack)
     {
-        return ConfigBlocks.WoodType.byMetadata(stack.getMetadata() & 7);
+        return EnumWoodType.byMetadata(stack.getMetadata() & 7);
     }
 
     @SideOnly(Side.CLIENT)
@@ -75,11 +76,11 @@ public abstract class BlockPlanksSWSlab extends BlockSlab
     {
         if (itemIn != Item.getItemFromBlock(ConfigBlocks.planksSWSlabDouble))
         {
-            ConfigBlocks.WoodType[] aenumtype = ConfigBlocks.WoodType.values();
+            EnumWoodType[] aenumtype = EnumWoodType.values();
             int i = aenumtype.length;
 
             for (int j = 0; j < i; ++j) {
-                ConfigBlocks.WoodType enumtype = aenumtype[j];
+                EnumWoodType enumtype = aenumtype[j];
                 list.add(new ItemStack(itemIn, 1, enumtype.getMetadata()));
             }
         }
@@ -88,7 +89,7 @@ public abstract class BlockPlanksSWSlab extends BlockSlab
     @Override
     public IBlockState getStateFromMeta(final int meta)
     {
-        IBlockState iblockstate = this.getDefaultState().withProperty(VARIANT, ConfigBlocks.WoodType.byMetadata(meta & 7));
+        IBlockState iblockstate = this.getDefaultState().withProperty(VARIANT, EnumWoodType.byMetadata(meta & 7));
 
         if (!this.isDouble())
         {
@@ -102,7 +103,7 @@ public abstract class BlockPlanksSWSlab extends BlockSlab
     public int getMetaFromState(IBlockState state)
     {
         byte b0 = 0;
-        int i = b0 | ((ConfigBlocks.WoodType)state.getValue(VARIANT)).getMetadata();
+        int i = b0 | ((EnumWoodType)state.getValue(VARIANT)).getMetadata();
 
         if (!this.isDouble() && state.getValue(HALF) == EnumBlockHalf.TOP)
         {
@@ -120,6 +121,6 @@ public abstract class BlockPlanksSWSlab extends BlockSlab
 
     @Override
     public int damageDropped(final IBlockState state) {
-        return ((ConfigBlocks.WoodType)state.getValue(VARIANT)).getMetadata();
+        return ((EnumWoodType)state.getValue(VARIANT)).getMetadata();
     }
 }

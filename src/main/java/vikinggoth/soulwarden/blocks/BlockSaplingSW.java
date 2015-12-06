@@ -15,20 +15,20 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.items.itemblocks.IMetaBlockName;
+import vikinggoth.soulwarden.reference.EnumWoodType;
 import vikinggoth.soulwarden.registries.ConfigBlocks;
-import vikinggoth.soulwarden.registries.ConfigBlocks.WoodType;
 
 import java.util.List;
 import java.util.Random;
 
 public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockName
 {
-    public static final PropertyEnum TYPE = PropertyEnum.create("type", WoodType.class);
+    public static final PropertyEnum TYPE = PropertyEnum.create("type", EnumWoodType.class);
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
 
     public BlockSaplingSW()
     {
-        this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, WoodType.GHOUL).withProperty(STAGE, Integer.valueOf(0)));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, EnumWoodType.GHOUL).withProperty(STAGE, Integer.valueOf(0)));
         float f = 0.4F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
         //this.setCreativeTab(CreativeTabs.tabDecorations);
@@ -73,7 +73,7 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
      */
     public int damageDropped(IBlockState state)
     {
-        return ((WoodType)state.getValue(TYPE)).getMetadata();
+        return ((EnumWoodType)state.getValue(TYPE)).getMetadata();
     }
 
     /**
@@ -82,12 +82,12 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item itemIn, CreativeTabs tab, List list)
     {
-        WoodType[] aenumtype = WoodType.values();
+        EnumWoodType[] aenumtype = EnumWoodType.values();
         int i = aenumtype.length;
 
         for (int j = 0; j < i; ++j)
         {
-            WoodType enumtype = aenumtype[j];
+            EnumWoodType enumtype = aenumtype[j];
             list.add(new ItemStack(itemIn, 1, enumtype.getMetadata()));
         }
     }
@@ -115,7 +115,7 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
      */
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(TYPE, WoodType.byMetadata(meta & 7)).withProperty(STAGE, Integer.valueOf((meta & 8) >> 3));
+        return this.getDefaultState().withProperty(TYPE, EnumWoodType.byMetadata(meta & 7)).withProperty(STAGE, Integer.valueOf((meta & 8) >> 3));
     }
 
     /**
@@ -124,7 +124,7 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
     public int getMetaFromState(IBlockState state)
     {
         byte b0 = 0;
-        int i = b0 | ((WoodType)state.getValue(TYPE)).getMetadata();
+        int i = b0 | ((EnumWoodType)state.getValue(TYPE)).getMetadata();
         i |= ((Integer)state.getValue(STAGE)).intValue() << 3;
         return i;
     }
@@ -137,7 +137,7 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
     @Override
     public String getSpecialName(ItemStack stack)
     {
-        return WoodType.byMetadata(stack.getItemDamage()).getUnlocalizedName();
+        return EnumWoodType.byMetadata(stack.getItemDamage()).getUnlocalizedName();
     }
 
     /**
@@ -180,7 +180,7 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
 
         if(worldIn.getBlockState(down).getBlock().equals(ConfigBlocks.grassCemetery) || worldIn.getBlockState(down).getBlock().equals(ConfigBlocks.graveSoil))
         { //on gravesoil and on grasscemetery
-            switch((WoodType)state.getValue(TYPE))
+            switch((EnumWoodType)state.getValue(TYPE))
             {
                 case GHOUL:
                     log = ConfigBlocks.logSW.getStateFromMeta(0);
@@ -206,7 +206,7 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
         }
         else if(isDownSoil)
         { //on dirt
-            switch ((WoodType) state.getValue(TYPE))
+            switch ((EnumWoodType) state.getValue(TYPE))
             {
                 case GHOUL:
                     log = ConfigBlocks.logSW.getStateFromMeta(0);

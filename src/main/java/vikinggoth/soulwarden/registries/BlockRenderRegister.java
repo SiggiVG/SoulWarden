@@ -6,13 +6,14 @@ import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import vikinggoth.soulwarden.SoulWarden;
+import vikinggoth.soulwarden.reference.Reference;
 
 /**
  * Created by Friedrich on 8/18/2015.
  */
 public final class BlockRenderRegister
 {
-    private static String modid = SoulWarden.MODID;
+    private static String modid = Reference.MODID;
 
     public static void preInit()
     {

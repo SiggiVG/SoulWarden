@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "variant=default": { "model": "soulwarden:double_soulstone"},
+        "variant=smooth": { "model": "soulwarden:double_soulstone_smooth"},
+        "variant=brick": { "model": "soulwarden:soulstone_brick"},
+        "variant=cobble": { "model": "soulwarden:soulstone_cobble"},
+        "variant=scattered": { "model": "soulwarden:soulstone_scattered"},
+        "variant=small": { "model": "soulwarden:soulstone_small"}
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "particle": "soulwarden:blocks/gravesoil",
+        "bottom": "soulwarden:blocks/gravesoil",
+        "top": "soulwarden:blocks/grass_cemetery_top",
+        "side": "soulwarden:blocks/grass_cemetery_side_snowed"
+    }
+}

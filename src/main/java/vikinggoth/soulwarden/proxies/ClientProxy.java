@@ -8,7 +8,8 @@ import vikinggoth.soulwarden.registries.BlockRenderRegister;
 /**
  * Created by Friedrich on 8/18/2015.
  */
-public class ClientProxy extends CommonProxy{
+public class ClientProxy extends CommonProxy
+{
 
     public void preInit(FMLPreInitializationEvent e)
     {

@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "snowy=false": [
+      { "model": "soulwarden:grass_cemetery" },
+      { "model": "soulwarden:grass_cemetery", "y": 90 },
+      { "model": "soulwarden:grass_cemetery", "y": 180 },
+      { "model": "soulwarden:grass_cemetery", "y": 270 }
+    ],
+    "snowy=true":  { "model": "soulwarden:grass_cemetery_snowed" }
+  }
+}

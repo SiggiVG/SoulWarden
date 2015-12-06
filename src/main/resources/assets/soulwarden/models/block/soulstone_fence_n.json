@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_n",
+    "textures": {
+        "texture": "soulwarden:blocks/soulstone_cracked"
+    }
+}

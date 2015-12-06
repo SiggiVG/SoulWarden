@@ -10,20 +10,25 @@ import vikinggoth.soulwarden.registries.ConfigRecipes;
 /**
  * Created by Friedrich on 8/18/2015.
  */
-public class CommonProxy {
-
+public abstract class CommonProxy implements IProxy
+{
+    @Override
     public void preInit(FMLPreInitializationEvent e)
     {
+
         ConfigItems.createItems();
         ConfigBlocks.createBlocks();
     }
 
+    @Override
     public void init(FMLInitializationEvent e)
     {
         ConfigRecipes.initCrafting();
     }
 
-    public void postInit(FMLPostInitializationEvent e) {
+    @Override
+    public void postInit(FMLPostInitializationEvent e)
+    {
 
     }
 }

@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_post",
+    "textures": {
+        "wall": "soulwarden:blocks/soulstone_cracked"
+    }
+}

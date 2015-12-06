@@ -1,0 +1,8 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom": "soulwarden:blocks/planks_ghoul",
+        "top": "soulwarden:blocks/planks_ghoul",
+        "side": "soulwarden:blocks/planks_ghoul"
+    }
+}

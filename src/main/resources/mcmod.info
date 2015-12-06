@@ -1,0 +1,21 @@
+[
+    {
+        "modid": "soulwarden",
+        "name": "Soul Warden",
+        "description": "What is the Weight of a Soul?",
+        "version": "1.0.1",
+        "mcversion": "1.8",
+        "url": "",
+        "mupdateUrl": "",
+        "authorList": [
+            "VikingGoth"
+        ],
+        "credits": "",
+        "logoFile": "",
+        "screenshots": [
+        ],
+        "parent": "",
+        "dependencies": [
+        ]
+    }
+]

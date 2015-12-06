@@ -1,0 +1,23 @@
+{
+    "variants": {
+        "axis=y,variant=ghoul":  { "model": "soulwarden:ghoul_log" },
+        "axis=z,variant=ghoul":   { "model": "soulwarden:ghoul_log_side" },
+        "axis=x,variant=ghoul":   { "model": "soulwarden:ghoul_log_side", "y": 90 },
+        "axis=none,variant=ghoul": { "model": "soulwarden:ghoul_bark" },
+
+        "axis=y,variant=weepwillow":  { "model": "soulwarden:weepwillow_log" },
+        "axis=z,variant=weepwillow":   { "model": "soulwarden:weepwillow_log_side" },
+        "axis=x,variant=weepwillow":   { "model": "soulwarden:weepwillow_log_side", "y": 90 },
+        "axis=none,variant=weepwillow": { "model": "soulwarden:weepwillow_bark" },
+
+        "axis=y,variant=bonebeech":  { "model": "soulwarden:bonebeech_log" },
+        "axis=z,variant=bonebeech":   { "model": "soulwarden:bonebeech_log_side" },
+        "axis=x,variant=bonebeech":   { "model": "soulwarden:bonebeech_log_side", "y": 90 },
+        "axis=none,variant=bonebeech": { "model": "soulwarden:bonebeech_bark" },
+
+        "axis=y,variant=hand":  { "model": "soulwarden:hand_log" },
+        "axis=z,variant=hand":   { "model": "soulwarden:hand_log_side" },
+        "axis=x,variant=hand":   { "model": "soulwarden:hand_log_side", "y": 90 },
+        "axis=none,variant=hand": { "model": "soulwarden:hand_bark" }
+    }
+}

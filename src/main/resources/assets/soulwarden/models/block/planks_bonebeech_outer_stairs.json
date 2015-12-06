@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs",
+    "textures": {
+        "bottom": "soulwarden:blocks/planks_bonebeech",
+        "top": "soulwarden:blocks/planks_bonebeech",
+        "side": "soulwarden:blocks/planks_bonebeech"
+    }
+}

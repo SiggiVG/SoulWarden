@@ -9,6 +9,7 @@ import vikinggoth.soulwarden.SoulWarden;
 import vikinggoth.soulwarden.blocks.*;
 import vikinggoth.soulwarden.blocks.containers.*;
 import vikinggoth.soulwarden.items.itemblocks.*;
+import vikinggoth.soulwarden.reference.EnumWoodType;
 
 /**
  * Created by Friedrich on 8/18/2015.
@@ -153,12 +154,12 @@ public class ConfigBlocks
         //Planks
         plankSW = new BlockPlanksSW().setUnlocalizedName("plankSW").setCreativeTab(SoulWarden.SWTab);
         //Stairs
-        ghoulStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, WoodType.GHOUL)).setUnlocalizedName("planks_ghoul_stairs");
-        weepwillowStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, WoodType.WEEPWILLOW)).setUnlocalizedName("planks_weepwillow_stairs");
-        bonebeechStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, WoodType.BONEBEECH)).setUnlocalizedName("planks_bonebeech_stairs");
-        handStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, WoodType.HAND)).setUnlocalizedName("planks_hand_stairs");
-        almStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, WoodType.HAND)).setUnlocalizedName("planks_alm_stairs");
-        pomegranateStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, WoodType.HAND)).setUnlocalizedName("planks_pomegranate_stairs");
+        ghoulStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.GHOUL)).setUnlocalizedName("planks_ghoul_stairs");
+        weepwillowStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.WEEPWILLOW)).setUnlocalizedName("planks_weepwillow_stairs");
+        bonebeechStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.BONEBEECH)).setUnlocalizedName("planks_bonebeech_stairs");
+        handStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.HAND)).setUnlocalizedName("planks_hand_stairs");
+        almStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.HAND)).setUnlocalizedName("planks_alm_stairs");
+        pomegranateStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.HAND)).setUnlocalizedName("planks_pomegranate_stairs");
         //Slabs
         planksSWSlab = new BlockHalfPlanksSWSlab(Material.wood).setUnlocalizedName("plankSW_slab");
         planksSWSlabDouble = new BlockDoublePlanksSWSlab(Material.wood).setUnlocalizedName("plankSW_double_slab");
@@ -266,78 +267,6 @@ public class ConfigBlocks
     {
         GameRegistry.registerBlock(block, ItemBlockMeta.class, block.getUnlocalizedName().substring(5));
     }
-
-    public static enum WoodType implements IStringSerializable
-    {
-        GHOUL(0, "ghoul"),
-        WEEPWILLOW(1, "weepwillow"),
-        BONEBEECH(2, "bonebeech"),
-        HAND(3, "hand"), //wax hand
-        ALM(4, "alm"),
-        POMEGRANATE(5, "pomegranate");
-
-        private static final WoodType[] META_LOOKUP = new WoodType[values().length];
-        private final int meta;
-        private final String name;
-        private final String unlocalizedName;
-
-        private WoodType(int meta, String name, String unlocalizedName)
-        {
-            this.meta = meta;
-            this.name = name;
-            this.unlocalizedName = unlocalizedName;
-        }
-
-        private WoodType(int meta, String name)
-        {
-            this.meta = meta;
-            this.name = name;
-            this.unlocalizedName = name;
-        }
-
-        public int getMetadata()
-        {
-            return this.meta;
-        }
-
-        public String toString()
-        {
-            return this.name;
-        }
-
-        public static WoodType byMetadata(int meta)
-        {
-            if (meta < 0 || meta >= META_LOOKUP.length)
-            {
-                meta = 0;
-            }
-
-            return META_LOOKUP[meta];
-        }
-
-        public String getName()
-        {
-            return this.name;
-        }
-
-        public String getUnlocalizedName()
-        {
-            return this.unlocalizedName;
-        }
-
-        static
-        {
-            WoodType[] stateArray = values();
-            int var1 = stateArray.length;
-
-            for (int i = 0; i < var1; ++i)
-            {
-                WoodType metas = stateArray[i];
-                META_LOOKUP[metas.getMetadata()] = metas;
-            }
-        }
-    }
-
 
 
 

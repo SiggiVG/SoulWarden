@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.items.itemblocks.IMetaBlockName;
+import vikinggoth.soulwarden.reference.EnumWoodType;
 import vikinggoth.soulwarden.registries.ConfigBlocks;
 
 import java.util.List;
@@ -21,12 +22,12 @@ import java.util.List;
  */
 public class BlockPlanksSW extends Block implements IMetaBlockName
 {
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", ConfigBlocks.WoodType.class);
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", EnumWoodType.class);
 
     public BlockPlanksSW()
     {
         super(Material.wood);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, ConfigBlocks.WoodType.GHOUL));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumWoodType.GHOUL));
         this.setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood);
     }
 
@@ -35,7 +36,7 @@ public class BlockPlanksSW extends Block implements IMetaBlockName
      */
     public int damageDropped(IBlockState state)
     {
-        return ((ConfigBlocks.WoodType)state.getValue(VARIANT)).getMetadata();
+        return ((EnumWoodType)state.getValue(VARIANT)).getMetadata();
     }
 
     /**
@@ -44,12 +45,12 @@ public class BlockPlanksSW extends Block implements IMetaBlockName
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item itemIn, CreativeTabs tab, List list)
     {
-        ConfigBlocks.WoodType[] aenumtype = ConfigBlocks.WoodType.values();
+        EnumWoodType[] aenumtype = EnumWoodType.values();
         int i = aenumtype.length;
 
         for (int j = 0; j < i; ++j)
         {
-            ConfigBlocks.WoodType enumtype = aenumtype[j];
+            EnumWoodType enumtype = aenumtype[j];
             list.add(new ItemStack(itemIn, 1, enumtype.getMetadata()));
         }
     }
@@ -59,7 +60,7 @@ public class BlockPlanksSW extends Block implements IMetaBlockName
      */
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT, ConfigBlocks.WoodType.byMetadata(meta));
+        return this.getDefaultState().withProperty(VARIANT, EnumWoodType.byMetadata(meta));
     }
 
     /**
@@ -67,7 +68,7 @@ public class BlockPlanksSW extends Block implements IMetaBlockName
      */
     public int getMetaFromState(IBlockState state)
     {
-        return ((ConfigBlocks.WoodType)state.getValue(VARIANT)).getMetadata();
+        return ((EnumWoodType)state.getValue(VARIANT)).getMetadata();
     }
 
     protected BlockState createBlockState()
@@ -78,6 +79,6 @@ public class BlockPlanksSW extends Block implements IMetaBlockName
     @Override
     public String getSpecialName(ItemStack stack)
     {
-        return ConfigBlocks.WoodType.byMetadata(stack.getItemDamage()).getUnlocalizedName();
+        return EnumWoodType.byMetadata(stack.getItemDamage()).getUnlocalizedName();
     }
 }

@@ -1,0 +1,28 @@
+{
+    "variants": {
+        "variant=soulstone": [
+            { "model":"soulwarden:soulstone_urn_large" },
+            { "model": "soulwarden:soulstone_urn_large", "y": 90 },
+            { "model": "soulwarden:soulstone_urn_large", "y": 180 },
+            { "model": "soulwarden:soulstone_urn_large", "y": 270 }
+        ],
+        "variant=porcelain": [
+            { "model":"soulwarden:porcelain_urn_large" },
+            { "model": "soulwarden:porcelain_urn_large", "y": 90 },
+            { "model": "soulwarden:porcelain_urn_large", "y": 180 },
+            { "model": "soulwarden:porcelain_urn_large", "y": 270 }
+        ],
+        "variant=clay": [
+            { "model":"soulwarden:clay_urn_large" },
+            { "model": "soulwarden:clay_urn_large", "y": 90 },
+            { "model": "soulwarden:clay_urn_large", "y": 180 },
+            { "model": "soulwarden:clay_urn_large", "y": 270 }
+        ],
+        "variant=greek": [
+            { "model":"soulwarden:greek_urn_large" },
+            { "model": "soulwarden:greek_urn_large", "y": 90 },
+            { "model": "soulwarden:greek_urn_large", "y": 180 },
+            { "model": "soulwarden:greek_urn_large", "y": 270 }
+        ]
+    }
+}

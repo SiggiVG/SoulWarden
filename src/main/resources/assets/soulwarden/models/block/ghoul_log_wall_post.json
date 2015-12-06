@@ -1,0 +1,7 @@
+{
+  "parent": "soulwarden:block/log_wall_post",
+  "textures": {
+    "wall": "soulwarden:blocks/log_ghoul",
+    "up" :  "soulwarden:blocks/log_ghoul_top"
+  }
+}

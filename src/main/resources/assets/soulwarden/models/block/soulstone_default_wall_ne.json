@@ -1,0 +1,7 @@
+{
+  "parent": "soulwarden:block/log_wall_ne",
+  "textures": {
+    "wall": "soulwarden:blocks/soulstone",
+    "up" :  "soulwarden:blocks/soulstone_slab_top"
+  }
+}

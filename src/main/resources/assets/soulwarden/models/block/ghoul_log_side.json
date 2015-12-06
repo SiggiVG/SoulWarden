@@ -1,0 +1,7 @@
+{
+    "parent": "block/column_side",
+    "textures": {
+        "end": "soulwarden:blocks/log_ghoul_top",
+        "side": "soulwarden:blocks/log_ghoul"
+    }
+}

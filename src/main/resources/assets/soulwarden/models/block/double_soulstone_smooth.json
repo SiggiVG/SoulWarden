@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "soulwarden:blocks/soulstone_smooth",
+        "side": "soulwarden:blocks/soulstone_slab_side"
+    }
+}

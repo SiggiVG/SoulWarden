@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "soulwarden:blocks/soulstone_scattered",
+        "top": "soulwarden:blocks/soulstone_scattered",
+        "side": "soulwarden:blocks/soulstone_scattered"
+    }
+}

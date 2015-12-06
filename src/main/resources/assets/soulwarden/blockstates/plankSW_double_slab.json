@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "variant=ghoul": { "model": "soulwarden:planks_ghoul"},
+        "variant=weepwillow": { "model": "soulwarden:planks_weepwillow"},
+        "variant=bonebeech": { "model": "soulwarden:planks_bonebeech"},
+        "variant=hand": { "model": "soulwarden:planks_hand"}
+    }
+}
