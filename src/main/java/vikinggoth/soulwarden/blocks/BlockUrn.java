@@ -11,11 +11,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.items.itemblocks.IMetaBlockName;
-import vikinggoth.soulwarden.registries.ConfigItems;
+import vikinggoth.soulwarden.registries.ItemRegistry;
 
 import java.util.List;
 import java.util.Random;
@@ -31,10 +32,13 @@ public abstract class BlockUrn extends Block implements IMetaBlockName
 {
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", EnumType.class);
 
-    public BlockUrn(Material materialIn)
+    public BlockUrn()
     {
-        super(materialIn);
+        super(Material.clay);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumType.SOULSTONE));
+        this.useNeighborBrightness = true;
+        //this.setHarvestLevel();
+        this.setStepSound(Block.soundTypeGlass);
     }
 
     @Override
@@ -54,12 +58,14 @@ public abstract class BlockUrn extends Block implements IMetaBlockName
      */
     public int quantityDropped(Random random)
     {
-        return random.nextInt(6);
+        int num = random.nextInt(10) - 4;
+        if (num < 0) num = 0;
+        return num;
     }
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return ConfigItems.bone_ash;
+        return ItemRegistry.bone_ash;
     }
 
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
@@ -109,6 +115,11 @@ public abstract class BlockUrn extends Block implements IMetaBlockName
             EnumType enumtype = aenumtype[j];
             list.add(new ItemStack(itemIn, 1, enumtype.getMetadata()));
         }
+    }
+
+    @Override
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos) {
+        return new ItemStack(Item.getItemFromBlock(this), 1, this.getMetaFromState(world.getBlockState(pos)));
     }
 
     public static enum EnumType implements IStringSerializable

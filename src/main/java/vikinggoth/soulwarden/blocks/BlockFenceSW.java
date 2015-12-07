@@ -1,7 +1,6 @@
 package vikinggoth.soulwarden.blocks;
 
 import net.minecraft.block.BlockFence;
-import net.minecraft.block.BlockLog;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -16,7 +15,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.items.itemblocks.IMetaBlockName;
 import vikinggoth.soulwarden.reference.EnumWoodType;
-import vikinggoth.soulwarden.registries.ConfigBlocks;
 
 import java.util.List;
 

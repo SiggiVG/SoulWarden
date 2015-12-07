@@ -23,7 +23,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.items.itemblocks.IMetaBlockName;
 import vikinggoth.soulwarden.reference.EnumWoodType;
-import vikinggoth.soulwarden.registries.ConfigItems;
+import vikinggoth.soulwarden.registries.ItemRegistry;
 
 import java.util.List;
 import java.util.Random;
@@ -96,7 +96,7 @@ public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
         }
         else if (state.getValue(VARIANT) == EnumWoodType.POMEGRANATE && worldIn.rand.nextInt(chance) == 0)
         {
-            spawnAsEntity(worldIn, pos, new ItemStack(ConfigItems.pomegranate, 1, 0)); //TODO
+            spawnAsEntity(worldIn, pos, new ItemStack(ItemRegistry.pomegranate, 1, 0)); //TODO
         }
     }
 

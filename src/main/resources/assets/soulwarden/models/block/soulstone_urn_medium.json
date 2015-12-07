@@ -2,9 +2,9 @@
     "parent": "soulwarden:block/urn_medium",
     "textures": {
         "texture": "soulwarden:blocks/soulstone_smooth",
-        "side": "soulwarden:blocks/soulstone_brick",
+        "side": "soulwarden:blocks/soulstone_smooth",
         "bottom": "soulwarden:blocks/soulstone_cracked",
         "mouth": "soulwarden:blocks/soulstone_cracked",
-        "front": "soulwarden:blocks/soulstone_brick"
+        "front": "soulwarden:blocks/soulstone_cracked"
     }
 }

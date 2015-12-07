@@ -14,7 +14,7 @@ import vikinggoth.soulwarden.reference.EnumWoodType;
 /**
  * Created by Friedrich on 8/18/2015.
  */
-public class ConfigBlocks
+public class BlockRegistry
 {
     //Decorative and Building
     public static Block soulGravel;
@@ -93,6 +93,14 @@ public class ConfigBlocks
     public static Block ore_rostygold;
     public static Block ore_pewter;
     public static Block ore_hematite;
+
+    //Portal
+    public static Block portalNecro;
+    /**
+     * this is a twisted version of the smlla brick variant of soulstone
+     * it formas when the portal is made
+     */
+    public static Block soulstone_twisted;
 
     //Soul Transport
     /*
@@ -200,6 +208,8 @@ public class ConfigBlocks
         ore_soulgem_black = new BlockSoulgemBlackOre().setUnlocalizedName("ore_soulgem_black");
         ore_hematite = new BlockHematiteOre().setUnlocalizedName("ore_hematite");
 
+        //Portal
+        portalNecro = new BlockPortalNecro().setUnlocalizedName("portal_necro");
 
         //Soul Transport
         /*
@@ -277,6 +287,10 @@ public class ConfigBlocks
         regMetaBlock(ore_soulgem);
         regBlock(ore_soulgem_black);
         regBlock(ore_hematite);
+
+        //Portal
+        regBlock(portalNecro);
+        //GameRegistry.registerBlock(portal_necro, portal_necro.getUnlocalizedName().substring(5));
 
         //Soul Transport
         //GameRegistry.registerBlock(soulPylon, ItemSoulPylon.class, soulPylon.getUnlocalizedName().substring(5));

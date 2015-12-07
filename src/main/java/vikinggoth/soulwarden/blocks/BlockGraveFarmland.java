@@ -12,7 +12,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vikinggoth.soulwarden.registries.ConfigBlocks;
+import vikinggoth.soulwarden.registries.BlockRegistry;
 
 import java.util.Iterator;
 import java.util.Random;
@@ -41,7 +41,7 @@ public class BlockGraveFarmland extends BlockFarmland
             }
             else if (!this.hasCrops(worldIn, pos))
             {
-                worldIn.setBlockState(pos, ConfigBlocks.graveSoil.getDefaultState());
+                worldIn.setBlockState(pos, BlockRegistry.graveSoil.getDefaultState());
             }
         }
         else if (i < 7)
@@ -66,7 +66,7 @@ public class BlockGraveFarmland extends BlockFarmland
                     return;
                 }
 
-                worldIn.setBlockState(pos, ConfigBlocks.graveSoil.getDefaultState());
+                worldIn.setBlockState(pos, BlockRegistry.graveSoil.getDefaultState());
             }
 
             entityIn.fall(fallDistance, 1.0F);
@@ -108,7 +108,7 @@ public class BlockGraveFarmland extends BlockFarmland
 
         if (worldIn.getBlockState(pos.up()).getBlock().getMaterial().isSolid())
         {
-            worldIn.setBlockState(pos, ConfigBlocks.graveSoil.getDefaultState());
+            worldIn.setBlockState(pos, BlockRegistry.graveSoil.getDefaultState());
         }
     }
 
@@ -120,14 +120,14 @@ public class BlockGraveFarmland extends BlockFarmland
      */
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return ConfigBlocks.graveSoil.getItemDropped(ConfigBlocks.graveSoil.getDefaultState(), rand, fortune);
+        return BlockRegistry.graveSoil.getItemDropped(BlockRegistry.graveSoil.getDefaultState(), rand, fortune);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World worldIn, BlockPos pos)
     {
-        return Item.getItemFromBlock(ConfigBlocks.graveSoil);
+        return Item.getItemFromBlock(BlockRegistry.graveSoil);
     }
 
 

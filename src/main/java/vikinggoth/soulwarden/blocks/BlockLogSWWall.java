@@ -8,11 +8,9 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IStringSerializable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.reference.EnumWoodType;
-import vikinggoth.soulwarden.registries.ConfigBlocks;
 
 import java.util.List;
 
@@ -26,7 +24,7 @@ public class BlockLogSWWall extends BlockWallBase
     public BlockLogSWWall(Block modelBlock)
     {
         super(modelBlock);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.valueOf(false)).withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false)).withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)).withProperty(VARIANT, EnumWoodType.GHOUL));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(UP, false).withProperty(NORTH, false).withProperty(EAST, false).withProperty(SOUTH, false).withProperty(WEST, false).withProperty(VARIANT, EnumWoodType.GHOUL));
 
     }
 
@@ -40,8 +38,7 @@ public class BlockLogSWWall extends BlockWallBase
         EnumWoodType[] aenumtype = EnumWoodType.values();
         int i = aenumtype.length;
 
-        for (int j = 0; j < i; ++j) {
-            EnumWoodType enumtype = aenumtype[j];
+        for (EnumWoodType enumtype : aenumtype) {
             list.add(new ItemStack(itemIn, 1, enumtype.getMetadata()));
         }
     }

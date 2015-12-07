@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.configuration.ConfigurationHandler;
 import vikinggoth.soulwarden.proxies.CommonProxy;
 import vikinggoth.soulwarden.reference.Reference;
-import vikinggoth.soulwarden.registries.ConfigBlocks;
+import vikinggoth.soulwarden.registries.BlockRegistry;
 
 
 /**
@@ -34,7 +34,7 @@ public class SoulWarden
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem()
         {
-            return Item.getItemFromBlock(ConfigBlocks.logSW);
+            return Item.getItemFromBlock(BlockRegistry.logSW);
         }
 
         @Override

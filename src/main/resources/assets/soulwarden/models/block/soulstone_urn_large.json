@@ -5,6 +5,6 @@
         "side": "soulwarden:blocks/soulstone_smooth",
         "bottom": "soulwarden:blocks/soulstone_cracked",
         "mouth": "soulwarden:blocks/soulstone_cracked",
-        "front": "soulwarden:blocks/soulstone_brick"
+        "front": "soulwarden:blocks/soulstone_cracked"
     }
 }

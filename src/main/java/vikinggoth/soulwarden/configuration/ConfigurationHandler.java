@@ -10,6 +10,7 @@ import java.io.File;
 public class ConfigurationHandler
 {
     //static boolean configValue;
+    public static int dimNecroID;
 
     public static void init(File configFile)
     {
@@ -22,6 +23,7 @@ public class ConfigurationHandler
             config.load();
 
             //Read in properties from the configuration file
+            dimNecroID = config.getInt(Configuration.CATEGORY_GENERAL, "dimNecroID", 42, 2, 256, "The ID of the Necropolis Dimension");
             //configValue = config.get(Configuration.CATEGORY_GENERAL, "configValue", true, "This is an Example Config File").getBoolean();
         }
         catch (Exception e)

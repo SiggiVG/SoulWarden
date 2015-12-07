@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.SoulWarden;
 import vikinggoth.soulwarden.reference.EnumWoodType;
-import vikinggoth.soulwarden.registries.ConfigBlocks;
+import vikinggoth.soulwarden.registries.BlockRegistry;
 
 import java.util.List;
 import java.util.Random;
@@ -45,14 +45,14 @@ public abstract class BlockPlanksSWSlab extends BlockSlab
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(ConfigBlocks.soulStoneSlab);
+        return Item.getItemFromBlock(BlockRegistry.soulStoneSlab);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World worldIn, BlockPos pos)
     {
-        return Item.getItemFromBlock(ConfigBlocks.planksSWSlab);
+        return Item.getItemFromBlock(BlockRegistry.planksSWSlab);
     }
 
     @Override
@@ -76,7 +76,7 @@ public abstract class BlockPlanksSWSlab extends BlockSlab
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item itemIn, CreativeTabs tab, List list)
     {
-        if (itemIn != Item.getItemFromBlock(ConfigBlocks.planksSWSlabDouble))
+        if (itemIn != Item.getItemFromBlock(BlockRegistry.planksSWSlabDouble))
         {
             EnumWoodType[] aenumtype = EnumWoodType.values();
             int i = aenumtype.length;

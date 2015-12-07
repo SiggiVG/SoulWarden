@@ -1,8 +1,6 @@
 package vikinggoth.soulwarden.blocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockOre;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
@@ -19,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.items.itemblocks.IMetaBlockName;
-import vikinggoth.soulwarden.registries.ConfigItems;
+import vikinggoth.soulwarden.registries.ItemRegistry;
 
 import java.util.List;
 import java.util.Random;
@@ -48,7 +46,7 @@ public class BlockSoulgemOre extends BlockOre implements IMetaBlockName
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return ConfigItems.soulgem;
+        return ItemRegistry.soulgem;
     }
 
     /**

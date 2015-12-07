@@ -1,11 +1,13 @@
 package vikinggoth.soulwarden.registries;
 
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import vikinggoth.soulwarden.SoulWarden;
 
 /**
  * Created by Friedrich on 8/18/2015.
  */
-public class ConfigItems
+public class ItemRegistry
 {
     //Materials
     public static Item soulgem;
@@ -84,13 +86,23 @@ public class ConfigItems
 
     public static void createItems()
     {
-
+        soulgem = new Item().setUnlocalizedName("soulgem");
+        soulgem_black = new Item().setUnlocalizedName("soulgem_black");
+        bone_ash = new Item().setUnlocalizedName("ash_bone");
 
         registerItems();
     }
 
     public static void registerItems()
     {
+        regItem(soulgem);
+        regItem(soulgem_black);
+        regItem(bone_ash);
+    }
 
+    private static void regItem(Item item)
+    {
+        item.setCreativeTab(SoulWarden.SWTab);
+        GameRegistry.registerItem(item, item.getUnlocalizedName().substring(5));
     }
 }
