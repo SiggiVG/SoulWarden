@@ -3,7 +3,7 @@ package vikinggoth.soulwarden.world.genlayer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import vikinggoth.soulwarden.world.biomes.BiomeRegistry;
+import vikinggoth.soulwarden.world.biome.BiomeRegistry;
 
 /**
  * Created by Friedrich on 12/6/2015.

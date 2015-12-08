@@ -3,12 +3,8 @@ package vikinggoth.soulwarden.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.*;
 import net.minecraft.world.IBlockAccess;
@@ -16,6 +12,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.registries.BlockRegistry;
+import vikinggoth.soulwarden.world.dimension.DimensionRegistry;
 
 import java.util.Random;
 
@@ -24,8 +21,6 @@ import java.util.Random;
  */
 public class BlockPortalNecro extends BlockBreakable
 {
-    private static final String __OBFID = "CL_00000284";
-
     public BlockPortalNecro()
     {
         super(Material.portal, false);
@@ -259,7 +254,7 @@ public class BlockPortalNecro extends BlockBreakable
     {
         if (entityIn.ridingEntity == null && entityIn.riddenByEntity == null)
         {
-            //entityIn.setInPortal();
+            entityIn.travelToDimension(DimensionRegistry.DIM_NECRO_ID);
         }
     }
 

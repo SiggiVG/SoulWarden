@@ -26,33 +26,33 @@ public class WorldChunkManagerNecro extends net.minecraft.world.biome.WorldChunk
     private GenLayer biomeIndexLayer;
     /**The BiomeCache object for the world*/
     private BiomeCache biomeCache;
-    /**A List of biomes that the player can spaen in */
+    /**A List of biome that the player can spaen in */
     private List<BiomeGenBase> biomesToSpawnIn;
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    public WorldChunkManagerNecro()
+    public WorldChunkManagerNecro(List<BiomeGenBase> biomes)
     {
         this.biomeCache = new BiomeCache(this);
         this.biomesToSpawnIn = new ArrayList();
-        this.biomesToSpawnIn.addAll(allowedBiomes); //TODO change this
+        this.biomesToSpawnIn.addAll(biomes); //TODO change this
     }
 
-    public WorldChunkManagerNecro(long seed, WorldType worldType)
+    public WorldChunkManagerNecro(long seed, WorldType worldType, List<BiomeGenBase> biomes)
     {
-        this();
+        this(biomes);
         GenLayer[] aGenLayer = GenLayerNecro.genWorld(seed, worldType);
         aGenLayer = getModdedBiomeGenerators(worldType, seed, aGenLayer);
         this.genBiomes = aGenLayer[0];
         this.biomeIndexLayer = aGenLayer[1];
     }
 
-    public WorldChunkManagerNecro(World world)
+    public WorldChunkManagerNecro(World world, List<BiomeGenBase> biomes)
     {
-        this(world.getSeed(), world.getWorldInfo().getTerrainType());
+        this(world.getSeed(), world.getWorldInfo().getTerrainType(), biomes);
     }
 
     /**
-     * Gets the list of valid biomes for the player to spawn in.
+     * Gets the list of valid biome for the player to spawn in.
      */
     @Override
     public List<BiomeGenBase> getBiomesToSpawnIn()
@@ -107,7 +107,7 @@ public class WorldChunkManagerNecro extends net.minecraft.world.biome.WorldChunk
 
 
     /**
-     * Return a list of biomes for the specified blocks. Args: listToReuse, x, y, width, length, cacheFlag (if false,
+     * Return a list of biome for the specified blocks. Args: listToReuse, x, y, width, length, cacheFlag (if false,
      * don't check biomeCache to avoid infinite loop in BiomeCacheBlock)
      */
     @Override
@@ -183,7 +183,7 @@ public class WorldChunkManagerNecro extends net.minecraft.world.biome.WorldChunk
 
     /**
      * Finds a valid position within a range, that is in one of the listed
-     * biomes. Searches {par1,par2} +-par3 blocks. Strongly favors positive y
+     * biome. Searches {par1,par2} +-par3 blocks. Strongly favors positive y
      * positions.
      */
     @Override

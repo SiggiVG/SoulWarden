@@ -9,26 +9,26 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vikinggoth.soulwarden.world.biome.BiomeRegistry;
 
 /**
  * Created by Friedrich on 12/6/2015.
  */
 public class WorldProviderNecropolis extends WorldProvider
 {
-
-    @Override
-    /** tells Minecraft to use our new Terrain Generator */
-    public IChunkProvider createChunkGenerator() {
-        return new ChunkProviderNecro(this.worldObj, this.worldObj.getSeed(), true);
-    }
-
     @Override
     public void registerWorldChunkManager()
     {
         //can be overworld or hell??? TODO Make our own
-        this.worldChunkMgr = new WorldChunkManagerNecro();
+        this.worldChunkMgr = new WorldChunkManagerNecro(BiomeRegistry.getNecroBiomeList());
         this.dimensionId = DimensionRegistry.DIM_NECRO_ID;
         this.hasNoSky = true;
+    }
+
+    @Override
+    /** tells Minecraft to use our new Terrain Generator */
+    public IChunkProvider createChunkGenerator() {
+        return new ChunkProviderNecro(this.worldObj, this.worldObj.getSeed(), true, "");
     }
 
     /** Get Provider for Dimension **/
@@ -36,6 +36,8 @@ public class WorldProviderNecropolis extends WorldProvider
     {
         return DimensionManager.createProviderFor(DimensionRegistry.DIM_NECRO_ID);
     }
+
+
 
     @Override
     public String getDimensionName() {

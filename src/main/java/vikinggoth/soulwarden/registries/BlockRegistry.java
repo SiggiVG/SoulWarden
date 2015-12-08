@@ -95,12 +95,12 @@ public class BlockRegistry
     public static Block ore_hematite;
 
     //Portal
+    public static Block soulstone_twisted;
     public static Block portalNecro;
     /**
      * this is a twisted version of the smlla brick variant of soulstone
      * it formas when the portal is made
      */
-    public static Block soulstone_twisted;
 
     //Soul Transport
     /*
@@ -209,6 +209,7 @@ public class BlockRegistry
         ore_hematite = new BlockHematiteOre().setUnlocalizedName("ore_hematite");
 
         //Portal
+        soulstone_twisted = new BlockSoulstoneTwisted().setUnlocalizedName("soulstone_twisted");
         portalNecro = new BlockPortalNecro().setUnlocalizedName("portal_necro");
 
         //Soul Transport
@@ -289,6 +290,7 @@ public class BlockRegistry
         regBlock(ore_hematite);
 
         //Portal
+        regBlock(soulstone_twisted);
         regBlock(portalNecro);
         //GameRegistry.registerBlock(portal_necro, portal_necro.getUnlocalizedName().substring(5));
 
