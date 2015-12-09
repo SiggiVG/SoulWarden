@@ -2,6 +2,7 @@ package vikinggoth.soulwarden.world.dimension;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
+import net.minecraft.block.BlockPortal;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -23,8 +24,12 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import vikinggoth.soulwarden.configuration.ConfigurationHandler;
+import vikinggoth.soulwarden.perlin.NoiseModule;
+import vikinggoth.soulwarden.perlin.generator.Gradient;
 import vikinggoth.soulwarden.registries.BlockRegistry;
+import vikinggoth.soulwarden.world.biome.BiomeRegistry;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -37,78 +42,72 @@ import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.Ev
 /**
  * Created by Friedrich on 12/6/2015.
  */
-public class ChunkProviderNecro implements IChunkProvider
+public class ChunkProviderNecro extends ChunkProviderGenerate
 {
-    /** the World Object*/
-    private World worldObj;
-    /** are map structures going to be generated (e.g. strongholds) */
-    private final boolean mapFeaturesEnabled; //based off the option when you first create a world
-    private WorldType worldType;
+
+    /** What the Oceans are made of */
+    final Block liquidBlock = Blocks.water;
+    final int seaLevel = ConfigurationHandler.seaLevelNecro;
+    /** What the Land is made of */
+    final Block fillBlock = BlockRegistry.soulStone;
+    final byte fillBlockMeta = 0;
+    final Block veinBlock = BlockRegistry.soulStone;
+    final byte veinBlockMeta = 2;
+    final Block dirtBlock = BlockRegistry.graveSoil;
+    final Block grassBlock = BlockRegistry.grassCemetery;
 
     /** RNG */
     private Random rand;
-    private NoiseGeneratorOctaves noiseGen1;
-    private NoiseGeneratorOctaves noiseGen2;
-    private NoiseGeneratorOctaves noiseGen3;
-    private NoiseGeneratorPerlin noisePer4;
-    /** NoiseGeneratorOctaves used in generating terrain */
-    public NoiseGeneratorOctaves noiseGen5;
-    /** NoiseGeneratorOctaves used in generating terrain */
-    public NoiseGeneratorOctaves noiseGen6;
-    public NoiseGeneratorOctaves mobSpawnerNoise; //If I want Mob Spawners
 
-    private final double[] noiseArray;
-    private double[] stoneNoise = new double[256];
-    private final float[] parabolicField;
-    private ChunkProviderSettings settings;
-    /** What the Oceans are made of */
-    private Block liquidBlock;
-    private int seaLevel;
-    /** What the Land is made of */
-    private Block groundBlock;
-    /** if I want caves */
-    private MapGenBase caveGenerator;
-    /** custom MapGenCity extends MapGenBase */
-    //private MapGenCity caveGenerator = new MapGenCity();
-    /** Scattered Features such as Witch Huts, Desert and Jungle Temples */
-    private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
-    /** The biome that are used to generate the chunk */
-    private BiomeGenBase[] biomesForGeneration;
-    /** A double array that hold terrain noise */
-    double[] noise1;
-    double[] noise2;
-    double[] noise3;
-    double[] noise4;
+    private final NoiseModule noiseGen1;
+    private final NoiseModule noiseGen2;
+    private final NoiseModule noiseGen3;
+    private final NoiseModule noiseGen4;
 
-    public ChunkProviderNecro(World worldObj, long seed, boolean mapFeaturesEnabled, String s)
+    //BiomeDecorator Here
+
+    private final World worldObj;
+    private final WorldType worldType;
+    public final boolean mapFeaturesEnabled;
+
+    //private MapGenCaves caveGenerator;
+
+    //MapGenVillage Here
+
+    //MapGenDungeon Here
+
+    private BiomeGenBase[] biomesForGeneration = {BiomeRegistry.biomeStygianSea};
+
+    private static final int MID_HEIGHT = 127;
+    private static final int CHUNK_SIZE_X = 16;
+    private static final int CHUNK_SIZE_Y = 256;
+    private static final int CHUNK_SIZE_Z = 16;
+
+
+    public ChunkProviderNecro(World worldObj, long seed, boolean mapFeaturesEnabled)
     {
-        this.liquidBlock =  Blocks.water;
-        this.seaLevel = ConfigurationHandler.seaLevelNecro;
-        this.groundBlock = BlockRegistry.soulStone;
 
-        this.caveGenerator = new MapGenCaves();
+        super(worldObj, seed, mapFeaturesEnabled, null);
+
+        /*this.caveGenerator = new MapGenCaves();
         {
             //Cave
             caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
             //TODO create my own version
             //scatteredFeatureGenerator = (MapGenScatteredFeature) TerrainGen.getModdedMapGen(scatteredFeatureGenerator, SCATTERED_FEATURE);
-        }
+        }*/
 
         this.worldObj = worldObj;
         this.mapFeaturesEnabled = mapFeaturesEnabled;
         this.worldType = worldObj.getWorldInfo().getTerrainType();
         this.rand = new Random(seed);
 
-        this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
-        this.noiseGen2 = new NoiseGeneratorOctaves(this.rand, 16);
-        this.noiseGen3 = new NoiseGeneratorOctaves(this.rand, 8);
-        this.noisePer4 = new NoiseGeneratorPerlin(this.rand, 4);
-        this.noiseGen5 = new NoiseGeneratorOctaves(this.rand, 10);
-        this.noiseGen6 = new NoiseGeneratorOctaves(this.rand, 16);
-        this.mobSpawnerNoise = new NoiseGeneratorOctaves(this.rand, 8);
-        this.noiseArray = new double[825];
-        this.parabolicField = new float[25];
+        this.noiseGen1 = new Gradient(this.rand.nextLong(), 4, 0.25F);
+        this.noiseGen2 = new Gradient(this.rand.nextLong(), 4, 0.25F);
+        this.noiseGen3 = new Gradient(this.rand.nextLong(), 1, 0.25F);
+        this.noiseGen4 = new Gradient(this.rand.nextLong(), 1, 0.25F);
 
+        /*
         for (int j = -2; j <= 2; ++j)
         {
             for (int k = -2; k <= 2; ++k)
@@ -122,7 +121,7 @@ public class ChunkProviderNecro implements IChunkProvider
         {
             /**
              * No clue what this does, I assume it is due to custom game worlds
-             */
+
             this.settings = ChunkProviderSettings.Factory.func_177865_a(s).func_177864_b();
             //this.liquidBlock = this.settings.useLavaOceans ? Blocks.lava : this.liquidBlock;
         }
@@ -136,9 +135,185 @@ public class ChunkProviderNecro implements IChunkProvider
         this.noiseGen5 = (NoiseGeneratorOctaves)noiseGens[4];
         this.noiseGen6 = (NoiseGeneratorOctaves)noiseGens[5];
         this.mobSpawnerNoise = (NoiseGeneratorOctaves)noiseGens[6];
+        */
+    }
+
+    public void generateTerrain(int chunkX, int chunkZ, ChunkPrimer chunkprimer)
+    {
+        this.noiseGen1.setFrequency(0.0125F);
+        this.noiseGen2.setFrequency(0.015F);
+        this.noiseGen3.setFrequency(0.01F);
+        this.noiseGen4.setFrequency(0.02F);
+
+        for (int x = 0; x < ChunkProviderNecro.CHUNK_SIZE_X; x++)
+        {
+            for (int z = 0; z < ChunkProviderNecro.CHUNK_SIZE_Z; z++)
+            {
+                final double d = this.noiseGen1.getNoise(x + chunkX * 16, z + chunkZ * 16) * 8;
+                final double d2 = this.noiseGen2.getNoise(x + chunkX * 16, z + chunkZ * 16) * 24;
+                double d3 = this.noiseGen3.getNoise(x + chunkX * 16, z + chunkZ * 16) - 0.1;
+                d3 *= 4;
+
+                double yDev = 0;
+
+                if (d3 < 0.0D)
+                {
+                    yDev = d;
+                }
+                else if (d3 > 1.0D)
+                {
+                    yDev = d2;
+                }
+                else
+                {
+                    yDev = d + (d2 - d) * d3;
+                }
+
+                for (int y = 0; y < ChunkProviderNecro.CHUNK_SIZE_Y; y++)
+                {
+                    if (y < ChunkProviderNecro.MID_HEIGHT + yDev)
+                    {
+                        idArray[this.getIndex(x, y, z)] = this.lowerBlockID;
+                        metaArray[this.getIndex(x, y, z)] = this.lowerBlockMeta;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void func_180517_a(int chunkX, int chunkZ, ChunkPrimer chunkPrimer, BiomeGenBase[] arrayOfBiomeGenBase)
+    {
+        ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent(.ReplaceBiomeBlocks(chunkX, chunkZ, chunkPrimer, this.worldObj);
+        MinecraftForge.EVENT_BUS.post(event);
+        if(event.getResult() == Event.Result.DENY) return;
+
+        for (int x = 0; x < CHUNK_SIZE_X; x++)
+        {
+            for (int z = 0; z < CHUNK_SIZE_Z; z++)
+            {
+                final int var1
+            }
+        }
+    }
+
+    @Override
+    public Chunk provideChunk(int chunkX, int chunkZ)
+    {
+        this.rand.setSeed(chunkX * 341873128712L + chunkZ * 132897987541L);
+        ChunkPrimer chunkprimer = new ChunkPrimer();
+
+
+        Arrays.fill(ids, Blocks.air);
+        this.generateTerrain(chunkX, chunkZ, ids, meta);
+        this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, chunkX * 16, chunkZ * 16, 16, 16);
+        //this.createCraters(chunkX, chunkZ, ids, meta);
+        this.func_180517_a(chunkX, chunkZ, chunkprimer, this.biomesForGeneration);
+        //this.caveGenerator.generate(this, this.worldObj, chunkX, chunkZ, ids, meta);
+        //this.dungeonGenerator.generateUsingArrays(this.worldObj, this.worldObj.getSeed(), chunkX * 16, 25, chunkZ * 16, chunkX, chunkZ, ids, meta);
+        //TODO make this use a chunkprimer
+        final Chunk chunk = new Chunk(this.worldObj, ids, meta, chunkX, chunkZ);
+
+        chunk.generateSkylightMap();
+        return chunk;
+    }
+
+    @Override
+    public boolean chunkExists(int par1, int par2)
+    {
+        return true;
+    }
+
+    @Override
+    public boolean unloadQueuedChunks()
+    {
+        return false;
+    }
+
+    @Override
+    public int getLoadedChunkCount()
+    {
+        return 0;
+    }
+
+    private int getIndex(int x, int y, int z)
+    {
+        return (x * 16 + z) * 256 + y;
+    }
+
+    @Override
+    public void populate(IChunkProvider par1IChunkProvider, int par2, int par3)
+    {
+        BlockFalling.fallInstantly = true;
+        final int var4 = par2 * 16;
+        final int var5 = par3 * 16;
+        this.worldObj.getBiomeGenForCoords(var4 + 16, var5 + 16);
+        this.rand.setSeed(this.worldObj.getSeed());
+        final long var7 = this.rand.nextLong() / 2L * 2L + 1L;
+        final long var9 = this.rand.nextLong() / 2L * 2L + 1L;
+        this.rand.setSeed(par2 * var7 + par3 * var9 ^ this.worldObj.getSeed());
+
+        //this.dungeonGenerator.handleTileEntities(this.rand);
+        //TODO caves
+
+        //if (!ConfigManagerCore.disableMoonVillageGen)
+        {
+            //this.villageGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
+        }
+
+        //this.decoratePlanet(this.worldObj, this.rand, var4, var5);
+        BlockFalling.fallInstantly = false;
+    }
+
+    @Override
+    public boolean saveChunks(boolean par1, IProgressUpdate par2IProgressUpdate)
+    {
+        return true;
+    }
+
+    @Override
+    public boolean canSave()
+    {
+        return true;
+    }
+
+    @Override
+    public String makeString()
+    {
+        return "MoonLevelSource";
+    }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @Override
+    public List func_177458_a(EnumCreatureType creatureType, BlockPos blockpos)
+    {
+        /*if (creatureType == EnumCreatureType.monster)
+        {
+            final List monsters = new ArrayList();
+            monsters.add(new SpawnListEntry(EntityEvolvedZombie.class, 8, 2, 3));
+            monsters.add(new SpawnListEntry(EntityEvolvedSpider.class, 8, 2, 3));
+            monsters.add(new SpawnListEntry(EntityEvolvedSkeleton.class, 8, 2, 3));
+            monsters.add(new SpawnListEntry(EntityEvolvedCreeper.class, 8, 2, 3));
+            return monsters;
+        }
+        else*/
+        {
+            return null;
+        }
+    }
+
+    @Override
+    public void recreateStructures(Chunk chunk, int chunkX, int chunkZ)
+    {
+        //if (!ConfigManagerCore.disableMoonVillageGen)
+        {
+            //this.villageGenerator.func_151539_a(this, this.worldObj, par1, par2, (Block[]) null);
+        }
     }
 
 
+
+    /*
     @Override
     public boolean chunkExists(int chunkX, int chunkZ) {
         return true;
@@ -147,7 +322,7 @@ public class ChunkProviderNecro implements IChunkProvider
     /**
      * Will return back a chunk, if it doesn't exist and its not a MP client it will generates all the blocks for the
      * specified chunk from the map seed and chunk seed
-     */
+     *
     @Override
     public Chunk provideChunk(int chunkX, int chunkZ) {
         this.rand.setSeed((long)chunkX * 341873128712L + (long)chunkZ * 132897987541L);
@@ -157,7 +332,7 @@ public class ChunkProviderNecro implements IChunkProvider
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(biomesForGeneration, chunkX * 16, chunkZ * 16, 16, 16);
         this.replaceBiomeBlocks(chunkX, chunkZ, chunkprimer, this.biomesForGeneration);
 
-        //cave generator TODO make a big open caves one???
+        //cave generator TOD make a big open caves one???
         if (this.settings.useCaves)
         {
             this.caveGenerator.func_175792_a(this, this.worldObj, chunkX, chunkZ, chunkprimer);
@@ -186,13 +361,13 @@ public class ChunkProviderNecro implements IChunkProvider
 
         /**
          * has something to do with noise
-         */
+         *
         double d0 = 0.03125D;
         this.stoneNoise = this.noisePer4.func_151599_a(this.stoneNoise, (double)(chunkX * 16), (double)(chunkZ * 16), 16, 16, d0 * 2.0D, d0 * 2.0D, 1.0D);
 
         /**
          * generates terrain based on biome
-         */
+         *
         for (int k = 0; k < 16; ++k)
         {
             for (int l = 0; l < 16; ++l)
@@ -208,11 +383,11 @@ public class ChunkProviderNecro implements IChunkProvider
      * @param chunkX
      * @param chunkZ
      * @param chunkPrimer
-     */
+     *
     private void setBlocksInChunk(int chunkX, int chunkZ, ChunkPrimer chunkPrimer)
     {
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, chunkX * 4 - 2, chunkZ * 4 - 2, 10, 10);
-        this.genBiomes(chunkX * 4, 0, chunkZ * 4);
+        this.initializeNoiseField(chunkX * 4, 0, chunkZ * 4);
 
         for (int k = 0; k < 4; ++k)
         {
@@ -278,7 +453,7 @@ public class ChunkProviderNecro implements IChunkProvider
         }
     }
 
-    private void genBiomes(int chunkX, int y, int chunkZ)
+    private void initializeNoiseField(int chunkX, int y, int chunkZ)
     {
         this.noise4 = this.noiseGen6.generateNoiseOctaves(this.noise4, chunkX, chunkZ, 5, 5, (double)this.settings.depthNoiseScaleX, (double)this.settings.depthNoiseScaleZ, (double)this.settings.depthNoiseScaleExponent);
         float f = this.settings.coordinateScale;
@@ -409,7 +584,7 @@ public class ChunkProviderNecro implements IChunkProvider
      * seems important to tell if it is allowed to generate or not
      * Use EventType.Custom
      *
-     */
+     *
     @Override
     public void populate(IChunkProvider chunkProvider, int chunkX, int chunkZ)
     {
@@ -430,8 +605,8 @@ public class ChunkProviderNecro implements IChunkProvider
          * TerrainGen.populate(IChunkProvider chunkProvider, World world, Random rand, int chunkX, int chunkZ, boolean hasVillageGenerated, Populate.EventType type)
          * seems important to tell if it is allowed to generate or not
          * Use EventType.Custom
-         */
-
+         *
+         *
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(chunkProvider, worldObj, rand, chunkX, chunkZ, hasVillageGenerated));
 
         if(mapFeaturesEnabled)
@@ -455,7 +630,7 @@ public class ChunkProviderNecro implements IChunkProvider
             k1 = this.rand.nextInt(16) + 8;
             l1 = this.rand.nextInt(256);
             i2 = this.rand.nextInt(16) + 8;
-            //TODO change this to ConfigBlocks.waterStygia
+            //TOD change this to ConfigBlocks.waterStygia
             (new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, blockpos.add(k1, l1, i2));
         }
 
@@ -507,7 +682,7 @@ public class ChunkProviderNecro implements IChunkProvider
      * @param creatureType
      * @param pos
      * @return
-     */
+     *
     @Override
     public List func_177458_a(EnumCreatureType creatureType, BlockPos pos) {
         BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(pos);
@@ -534,4 +709,5 @@ public class ChunkProviderNecro implements IChunkProvider
 
     @Override
     public void saveExtraData() {}
+    */
 }

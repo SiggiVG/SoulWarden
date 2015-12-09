@@ -29,6 +29,7 @@ public class BlockSoulPylon extends BlockContainer
     public BlockSoulPylon()
     {
         super(Material.rock);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumType.BASE).withProperty(HASPINNACLE, false));
     }
 
     @Override
@@ -37,10 +38,6 @@ public class BlockSoulPylon extends BlockContainer
         if(meta == 0)
         {
             //return new tilesoulpylon
-        }
-        else if (meta == 3)
-        {
-            //retuen new tilesoulpinnacle
         }
         return null;
     }
@@ -108,8 +105,7 @@ public class BlockSoulPylon extends BlockContainer
         //normal variants
         BASE(0, "base"),
         MIDDLE(1, "middle"),
-        TOP(2, "top"),
-        PINNACLE(3, "pinnacle");
+        TOP(2, "top");
 
         private static final EnumType[] META_LOOKUP = new EnumType[values().length];
         private final int meta;

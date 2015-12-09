@@ -10,6 +10,7 @@ import net.minecraft.world.biome.BiomeCache;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import vikinggoth.soulwarden.world.biome.BiomeRegistry;
 import vikinggoth.soulwarden.world.genlayer.GenLayerNecro;
 
 import java.util.ArrayList;
@@ -30,25 +31,24 @@ public class WorldChunkManagerNecro extends net.minecraft.world.biome.WorldChunk
     private List<BiomeGenBase> biomesToSpawnIn;
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    public WorldChunkManagerNecro(List<BiomeGenBase> biomes)
+    public WorldChunkManagerNecro()
     {
         this.biomeCache = new BiomeCache(this);
         this.biomesToSpawnIn = new ArrayList();
-        this.biomesToSpawnIn.addAll(biomes); //TODO change this
+        this.biomesToSpawnIn.addAll(BiomeRegistry.getNecroBiomeList()); //TODO change this
     }
 
-    public WorldChunkManagerNecro(long seed, WorldType worldType, List<BiomeGenBase> biomes)
+    public WorldChunkManagerNecro(long seed, WorldType worldType)
     {
-        this(biomes);
         GenLayer[] aGenLayer = GenLayerNecro.genWorld(seed, worldType);
         aGenLayer = getModdedBiomeGenerators(worldType, seed, aGenLayer);
         this.genBiomes = aGenLayer[0];
         this.biomeIndexLayer = aGenLayer[1];
     }
 
-    public WorldChunkManagerNecro(World world, List<BiomeGenBase> biomes)
+    public WorldChunkManagerNecro(World world)
     {
-        this(world.getSeed(), world.getWorldInfo().getTerrainType(), biomes);
+        this(world.getSeed(), world.getWorldInfo().getTerrainType());
     }
 
     /**

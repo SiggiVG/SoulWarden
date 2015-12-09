@@ -1,12 +1,9 @@
 package vikinggoth.soulwarden.world.dimension;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.world.biome.BiomeRegistry;
@@ -16,11 +13,12 @@ import vikinggoth.soulwarden.world.biome.BiomeRegistry;
  */
 public class WorldProviderNecropolis extends WorldProvider
 {
+
     @Override
     public void registerWorldChunkManager()
     {
         //can be overworld or hell??? TODO Make our own
-        this.worldChunkMgr = new WorldChunkManagerNecro(BiomeRegistry.getNecroBiomeList());
+        this.worldChunkMgr = new WorldChunkManagerNecro();
         this.dimensionId = DimensionRegistry.DIM_NECRO_ID;
         this.hasNoSky = true;
     }
@@ -31,13 +29,11 @@ public class WorldProviderNecropolis extends WorldProvider
         return new ChunkProviderNecro(this.worldObj, this.worldObj.getSeed(), true, "");
     }
 
-    /** Get Provider for Dimension **/
+    /** Get Provider for Dimension **
     public static WorldProvider getProviderForDimension(int id)
     {
         return DimensionManager.createProviderFor(DimensionRegistry.DIM_NECRO_ID);
-    }
-
-
+    }*/
 
     @Override
     public String getDimensionName() {
