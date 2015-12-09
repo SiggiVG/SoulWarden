@@ -1,23 +1,25 @@
 package vikinggoth.soulwarden.blocks.containers;
 
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import vikinggoth.soulwarden.tileentitites.TileSoulFurnace;
 
 /**
  * Created by Friedrich on 8/18/2015.
  */
-public class BlockSoulFurnace extends BlockContainer
+public class BlockSoulFurnace extends BlockFurnace
 {
-    public BlockSoulFurnace()
+    public BlockSoulFurnace(boolean isBurning)
     {
-        super(Material.rock);
+        super(isBurning);
     }
 
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta)
     {
-        return null;
+        return new TileSoulFurnace();
     }
 }
