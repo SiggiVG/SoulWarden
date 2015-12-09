@@ -32,7 +32,7 @@ public class BlockSoulTrans extends BlockContainer
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta)
     {
-        return null;
+        return new TileSoulTrans();
     }
 
     /**

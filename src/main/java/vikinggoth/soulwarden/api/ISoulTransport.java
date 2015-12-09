@@ -22,7 +22,7 @@ public interface ISoulTransport
     public boolean canSideConnectToPylon(EnumFacing side);
 
     /**
-     * if a side can connect to a soulTransport network and can either
+     * if a side is currently connected to a soulTransport network and can either
      * Input Soul
      * Output Soul
      * or Both

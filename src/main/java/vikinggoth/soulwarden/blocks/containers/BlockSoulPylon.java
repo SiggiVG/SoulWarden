@@ -16,6 +16,7 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import vikinggoth.soulwarden.tileentitites.TileSoulPylon;
 
 /**
  * Created by Friedrich on 8/18/2015.
@@ -37,7 +38,7 @@ public class BlockSoulPylon extends BlockContainer
     {
         if(meta == 0)
         {
-            //return new tilesoulpylon
+            return new TileSoulPylon();
         }
         return null;
     }
@@ -91,6 +92,8 @@ public class BlockSoulPylon extends BlockContainer
         int meta = state.getBlock().getMetaFromState(state);
         pos = pos.offset(EnumFacing.DOWN, meta);
         state = worldIn.getBlockState(pos);
+
+
 
         breakBlock(worldIn, pos, state);
         worldIn.setBlockToAir(pos);

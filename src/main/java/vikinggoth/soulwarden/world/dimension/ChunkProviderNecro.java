@@ -184,7 +184,7 @@ public class ChunkProviderNecro extends ChunkProviderGenerate
     @Override
     public void func_180517_a(int chunkX, int chunkZ, ChunkPrimer chunkPrimer, BiomeGenBase[] arrayOfBiomeGenBase)
     {
-        ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent(.ReplaceBiomeBlocks(chunkX, chunkZ, chunkPrimer, this.worldObj);
+        ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent(ReplaceBiomeBlocks(chunkX, chunkZ, chunkPrimer, this.worldObj);
         MinecraftForge.EVENT_BUS.post(event);
         if(event.getResult() == Event.Result.DENY) return;
 

@@ -12,6 +12,7 @@ public class ConfigurationHandler
     //static boolean configValue;
     public static int dimNecroID;
     public static int seaLevelNecro;
+    public static int pylonTickRate = 180;
 
     public static void init(File configFile)
     {

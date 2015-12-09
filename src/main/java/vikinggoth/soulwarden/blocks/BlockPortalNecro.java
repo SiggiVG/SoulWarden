@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.registries.BlockRegistry;
-import vikinggoth.soulwarden.world.dimension.DimensionRegistry;
 
 import java.util.Random;
 
@@ -254,7 +253,7 @@ public class BlockPortalNecro extends BlockBreakable
     {
         if (entityIn.ridingEntity == null && entityIn.riddenByEntity == null)
         {
-            entityIn.travelToDimension(DimensionRegistry.DIM_NECRO_ID);
+            //entityIn.travelToDimension(DimensionRegistry.DIM_NECRO_ID);
         }
     }
 

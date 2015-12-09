@@ -128,16 +128,16 @@ public abstract class BlockSoulStoneSlab extends BlockSlab
     {
         //normal variants
         DEFAULT(0, "default"), //1x3 default or cooked from vanilla stoneslab in sepulter //has special slab
-        SMOOTH(1, "smooth"), //1x3 smooth //has slab, wall
+        CRACKED(1, "cracked"), //1x3 cracked
+        SMOOTH(2, "smooth"), //1x3 smooth //has slab, wall
         //brick variants
-        BRICK(2, "brick"), //1x3 brick or cooked from brickslab in sepulter = 4 brick, cooked from stone bricks in sepulter //has stair, slab, wall
+        BRICK(3, "brick"), //1x3 brick or cooked from brickslab in sepulter = 4 brick, cooked from stone bricks in sepulter //has stair, slab, wall
         //cobble variants
-        COBBLE(3, "cobble"), //1x3 soulcobble, cooked from cobblestoneslab in sepulter //has stair, slab, wall
-        SCATTERED(4, "scattered"), //1x3 scattered //has stair, slab, wall
-        SMALL(5, "small"), //1x3 small //has stair, slab, wall
+        COBBLE(4, "cobble"), //1x3 soulcobble, cooked from cobblestoneslab in sepulter //has stair, slab, wall
+        SCATTERED(5, "scattered"), //1x3 scattered //has stair, slab, wall
+        SMALL(6, "small"), //1x3 small //has stair, slab, wall
         //special variants
-        OTHER(6, "unused"),
-        OTHER2(7, "unused2");
+        OTHER(7, "unused");
 
         private static final EnumType[] META_LOOKUP = new EnumType[values().length];
         private final int meta;

@@ -143,6 +143,8 @@ public class BlockRegistry
         graveSoilTilled = new BlockGraveFarmland().setUnlocalizedName("grave_farmland");//;
         grassCemetery = new BlockGrassCemetery().setUnlocalizedName("grass_cemetery");
         soulGravel = new BlockSoulGravel().setUnlocalizedName("soulgravel");
+
+        //SoulStone
         soulStone = new BlockSoulStone().setUnlocalizedName("soulstone");
         //SoulStoneStairs
         soulStoneBrickStairs = new BlockStairsSW(soulStone.getDefaultState().withProperty(BlockSoulStone.VARIANT, BlockSoulStone.EnumType.BRICK)).setUnlocalizedName("soulstone_brick_stairs");
@@ -178,6 +180,9 @@ public class BlockRegistry
         //Slabs
         planksSWSlab = new BlockHalfPlanksSWSlab(Material.wood).setUnlocalizedName("plankSW_slab");
         planksSWSlabDouble = new BlockDoublePlanksSWSlab(Material.wood).setUnlocalizedName("plankSW_double_slab");
+        //logSWSlab = new BlockHalfLogSWSlab(Material.wood).setUnlocalizedName("plankSW_slab");
+        //logSWSlabDouble = new BlockDoubleLogSWSlab(Material.wood).setUnlocalizedName("plankSW_double_slab");
+        //8 variants, 2 top/bottom, 4 X/Y/Z/BARK //I'm going to have to create a custom ItemBlock to place these
         //Fences
         fenceSW = new BlockFenceSW().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setUnlocalizedName("fenceSW");
         //Doors TODO
@@ -216,8 +221,8 @@ public class BlockRegistry
         /*
         soulPylon = new BlockSoulPylon().setUnlocalizedName("soulPylon");
         */
-        soulFurnace_on = new BlockSoulFurnace().setUnlocalizedName("soulfurnace_on");
-        soulFurnace_off = new BlockSoulFurnace().setUnlocalizedName("soulfurnace_on");
+        soulFurnace_on = new BlockSoulFurnace(true).setUnlocalizedName("soulfurnace_on");
+        soulFurnace_off = new BlockSoulFurnace(false).setUnlocalizedName("soulfurnace_on");
 
         registerBlocks();
     }

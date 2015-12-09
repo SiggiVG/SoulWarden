@@ -71,7 +71,10 @@ public class TileSoulFurnace extends TileEntityLockable implements ISoulTranspor
 
         if(side == front.getOpposite())
         {
-            return true;
+            if(this.worldObj.getTileEntity(this.pos.offset(side)) instanceof ISoulTransport)
+            {
+                return true;
+            }
         }
 
         return false;
