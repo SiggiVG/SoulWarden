@@ -14,7 +14,7 @@ import vikinggoth.soulwarden.reference.EnumWoodType;
 /**
  * Created by Friedrich on 8/18/2015.
  */
-public class BlockRegistry
+public class BlockRegister
 {
     //Decorative and Building
     public static Block soulGravel;

@@ -77,7 +77,7 @@ public class BlockSoulPylon extends BlockContainer
         /*
         for(int i = 0; i < 4; ++i) {
             BlockPos currentPos = new BlockPos(pos);
-            if (worldIn.getBlockState(currentPos).getBlock() == BlockRegistry.soulPylon && ((BlockSoulPylon.EnumType)worldIn.getBlockState(currentPos).getValue(VARIANT)).getMetadata() == 3)
+            if (worldIn.getBlockState(currentPos).getBlock() == BlockRegister.soulPylon && ((BlockSoulPylon.EnumType)worldIn.getBlockState(currentPos).getValue(VARIANT)).getMetadata() == 3)
             {
                 return state.withProperty(HASPINNACLE, true);
             }

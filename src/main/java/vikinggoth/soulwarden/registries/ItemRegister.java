@@ -7,7 +7,7 @@ import vikinggoth.soulwarden.SoulWarden;
 /**
  * Created by Friedrich on 8/18/2015.
  */
-public class ItemRegistry
+public class ItemRegister
 {
     //Materials
     public static Item soulgem;

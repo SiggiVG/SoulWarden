@@ -11,7 +11,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vikinggoth.soulwarden.registries.BlockRegistry;
+import vikinggoth.soulwarden.registries.BlockRegister;
 
 import java.util.Random;
 
@@ -131,7 +131,7 @@ public class BlockPortalNecro extends BlockBreakable
         byte b1 = 1;
 
         //check if on x axis by looking to sides
-        if((worldIn.getBlockState(pos.west()).getBlock() == BlockRegistry.soulstone_twisted || worldIn.getBlockState(pos.east()).getBlock() == BlockRegistry.soulstone_twisted) ||
+        if((worldIn.getBlockState(pos.west()).getBlock() == BlockRegister.soulstone_twisted || worldIn.getBlockState(pos.east()).getBlock() == BlockRegister.soulstone_twisted) ||
                 (worldIn.getBlockState(pos.west()).getBlock() == this || worldIn.getBlockState(pos.east()).getBlock() == this))
         {
             b0 = 1;
@@ -144,7 +144,7 @@ public class BlockPortalNecro extends BlockBreakable
         {
 
         }
-        if(worldIn.getBlockState(pos.down()) != BlockRegistry.soulstone_twisted)
+        if(worldIn.getBlockState(pos.down()) != BlockRegister.soulstone_twisted)
         {
             worldIn.setBlockToAir(pos);
         }

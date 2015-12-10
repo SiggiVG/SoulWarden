@@ -74,13 +74,17 @@ public class TileSoulPylon extends TileEntity implements ISoulTransport, IUpdate
         }
     }
 
+    private int attemptTransferSoul(EnumFacing side) {
+        return 0;
+    }
+
     /**
      * sends soul down
      * @return amount sent down
      */
     private int attemptBurySoul()
     {
-
+        return 0;
     }
 
     @Override

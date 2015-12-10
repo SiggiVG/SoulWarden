@@ -7,7 +7,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import vikinggoth.soulwarden.registries.ItemRegistry;
+import vikinggoth.soulwarden.registries.ItemRegister;
 
 import java.util.Random;
 
@@ -33,7 +33,7 @@ public class BlockHematiteOre extends BlockOre
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return ItemRegistry.hematite;
+        return ItemRegister.hematite;
     }
 
     /**

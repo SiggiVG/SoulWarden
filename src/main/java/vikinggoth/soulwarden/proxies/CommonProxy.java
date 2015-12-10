@@ -3,8 +3,8 @@ package vikinggoth.soulwarden.proxies;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import vikinggoth.soulwarden.registries.BlockRegistry;
-import vikinggoth.soulwarden.registries.ItemRegistry;
+import vikinggoth.soulwarden.registries.BlockRegister;
+import vikinggoth.soulwarden.registries.ItemRegister;
 import vikinggoth.soulwarden.registries.RecipeRegistry;
 
 /**
@@ -16,8 +16,8 @@ public abstract class CommonProxy implements IProxy
     public void preInit(FMLPreInitializationEvent e)
     {
 
-        ItemRegistry.createItems();
-        BlockRegistry.createBlocks();
+        ItemRegister.createItems();
+        BlockRegister.createBlocks();
 
         //BiomeRegistry.init();
         //DimensionRegistry.init();

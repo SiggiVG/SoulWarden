@@ -4,6 +4,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import vikinggoth.soulwarden.registries.BlockRenderRegister;
+import vikinggoth.soulwarden.registries.ItemRenderRegister;
 
 /**
  * Created by Friedrich on 8/18/2015.
@@ -16,6 +17,7 @@ public class ClientProxy extends CommonProxy
         super.preInit(e);
 
         BlockRenderRegister.preInit();
+        ItemRenderRegister.preInit();
     }
 
     public void init(FMLInitializationEvent e)
@@ -24,6 +26,7 @@ public class ClientProxy extends CommonProxy
 
         //ItemRenderRegister.
         BlockRenderRegister.registerBlockRenderer();
+        ItemRenderRegister.registerItemRenderer();
     }
 
     public void postInit(FMLPostInitializationEvent e)

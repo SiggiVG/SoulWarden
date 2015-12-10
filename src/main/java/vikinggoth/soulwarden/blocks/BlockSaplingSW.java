@@ -17,7 +17,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.items.itemblocks.IMetaBlockName;
 import vikinggoth.soulwarden.reference.EnumWoodType;
-import vikinggoth.soulwarden.registries.BlockRegistry;
+import vikinggoth.soulwarden.registries.BlockRegister;
 
 import java.util.List;
 import java.util.Random;
@@ -177,31 +177,31 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
         IBlockState logWall;
         IBlockState leaf;
         IBlockState knot;
-        boolean isDownSoil = worldIn.getBlockState(down).getBlock().canSustainPlant(worldIn, down, EnumFacing.UP, (BlockSaplingSW) BlockRegistry.saplingSW);
+        boolean isDownSoil = worldIn.getBlockState(down).getBlock().canSustainPlant(worldIn, down, EnumFacing.UP, (BlockSaplingSW) BlockRegister.saplingSW);
 
-        if(worldIn.getBlockState(down).getBlock().equals(BlockRegistry.grassCemetery) || worldIn.getBlockState(down).getBlock().equals(BlockRegistry.graveSoil))
+        if(worldIn.getBlockState(down).getBlock().equals(BlockRegister.grassCemetery) || worldIn.getBlockState(down).getBlock().equals(BlockRegister.graveSoil))
         { //on gravesoil and on grasscemetery
             switch((EnumWoodType)state.getValue(TYPE))
             {
                 case GHOUL:
-                    log = BlockRegistry.logSW.getStateFromMeta(0);
-                    logWall = BlockRegistry.log_wallSW.getStateFromMeta(0);
-                    leaf = BlockRegistry.leafSW.getStateFromMeta(0);
+                    log = BlockRegister.logSW.getStateFromMeta(0);
+                    logWall = BlockRegister.log_wallSW.getStateFromMeta(0);
+                    leaf = BlockRegister.leafSW.getStateFromMeta(0);
                     break;
                 case WEEPWILLOW:
-                    log = BlockRegistry.logSW.getStateFromMeta(1);
-                    logWall = BlockRegistry.log_wallSW.getStateFromMeta(1);
-                    leaf = BlockRegistry.leafSW.getStateFromMeta(1);
+                    log = BlockRegister.logSW.getStateFromMeta(1);
+                    logWall = BlockRegister.log_wallSW.getStateFromMeta(1);
+                    leaf = BlockRegister.leafSW.getStateFromMeta(1);
                     break;
                 case BONEBEECH:
-                    log = BlockRegistry.logSW.getStateFromMeta(2);
-                    logWall = BlockRegistry.log_wallSW.getStateFromMeta(2);
-                    leaf = BlockRegistry.leafSW.getStateFromMeta(2);
+                    log = BlockRegister.logSW.getStateFromMeta(2);
+                    logWall = BlockRegister.log_wallSW.getStateFromMeta(2);
+                    leaf = BlockRegister.leafSW.getStateFromMeta(2);
                     break;
                 case HAND:
-                    log = BlockRegistry.logSW.getStateFromMeta(2);
-                    logWall = BlockRegistry.log_wallSW.getStateFromMeta(2);
-                    leaf = BlockRegistry.leafSW.getStateFromMeta(2);
+                    log = BlockRegister.logSW.getStateFromMeta(2);
+                    logWall = BlockRegister.log_wallSW.getStateFromMeta(2);
+                    leaf = BlockRegister.leafSW.getStateFromMeta(2);
                     break;
             }
         }
@@ -210,24 +210,24 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
             switch ((EnumWoodType) state.getValue(TYPE))
             {
                 case GHOUL:
-                    log = BlockRegistry.logSW.getStateFromMeta(0);
-                    logWall = BlockRegistry.log_wallSW.getStateFromMeta(0);
-                    leaf = BlockRegistry.leafSW.getStateFromMeta(0);
+                    log = BlockRegister.logSW.getStateFromMeta(0);
+                    logWall = BlockRegister.log_wallSW.getStateFromMeta(0);
+                    leaf = BlockRegister.leafSW.getStateFromMeta(0);
                     break;
                 case WEEPWILLOW:
-                    log = BlockRegistry.logSW.getStateFromMeta(1);
-                    logWall = BlockRegistry.log_wallSW.getStateFromMeta(1);
-                    leaf = BlockRegistry.leafSW.getStateFromMeta(1);
+                    log = BlockRegister.logSW.getStateFromMeta(1);
+                    logWall = BlockRegister.log_wallSW.getStateFromMeta(1);
+                    leaf = BlockRegister.leafSW.getStateFromMeta(1);
                     break;
                 case BONEBEECH:
-                    log = BlockRegistry.logSW.getStateFromMeta(2);
-                    logWall = BlockRegistry.log_wallSW.getStateFromMeta(2);
-                    leaf = BlockRegistry.leafSW.getStateFromMeta(2);
+                    log = BlockRegister.logSW.getStateFromMeta(2);
+                    logWall = BlockRegister.log_wallSW.getStateFromMeta(2);
+                    leaf = BlockRegister.leafSW.getStateFromMeta(2);
                     break;
                 case HAND:
-                    log = BlockRegistry.logSW.getStateFromMeta(2);
-                    logWall = BlockRegistry.log_wallSW.getStateFromMeta(2);
-                    leaf = BlockRegistry.leafSW.getStateFromMeta(2);
+                    log = BlockRegister.logSW.getStateFromMeta(2);
+                    logWall = BlockRegister.log_wallSW.getStateFromMeta(2);
+                    leaf = BlockRegister.leafSW.getStateFromMeta(2);
                     break;
             }
         }

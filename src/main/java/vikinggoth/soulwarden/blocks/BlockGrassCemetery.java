@@ -8,7 +8,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import vikinggoth.soulwarden.registries.BlockRegistry;
+import vikinggoth.soulwarden.registries.BlockRegister;
 
 import java.util.Random;
 
@@ -47,7 +47,7 @@ public class BlockGrassCemetery extends BlockGrass
         {
             if (worldIn.getLightFromNeighbors(pos.up()) < 4 && worldIn.getBlockState(pos.up()).getBlock().getLightOpacity(worldIn, pos.up()) > 2)
             {
-                worldIn.setBlockState(pos, BlockRegistry.graveSoil.getDefaultState());
+                worldIn.setBlockState(pos, BlockRegister.graveSoil.getDefaultState());
             }
             else
             {
@@ -59,9 +59,9 @@ public class BlockGrassCemetery extends BlockGrass
                         Block block = worldIn.getBlockState(blockpos1.up()).getBlock();
                         IBlockState iblockstate1 = worldIn.getBlockState(blockpos1);
 
-                        if (iblockstate1.getBlock() == BlockRegistry.graveSoil && worldIn.getLightFromNeighbors(blockpos1.up()) >= 4 && block.getLightOpacity(worldIn, blockpos1.up()) <= 2)
+                        if (iblockstate1.getBlock() == BlockRegister.graveSoil && worldIn.getLightFromNeighbors(blockpos1.up()) >= 4 && block.getLightOpacity(worldIn, blockpos1.up()) <= 2)
                         {
-                            worldIn.setBlockState(blockpos1, BlockRegistry.grassCemetery.getDefaultState());
+                            worldIn.setBlockState(blockpos1, BlockRegister.grassCemetery.getDefaultState());
                         }
                     }
                 }
@@ -76,7 +76,7 @@ public class BlockGrassCemetery extends BlockGrass
      */
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Blocks.dirt.getItemDropped(BlockRegistry.graveSoil.getDefaultState(), rand, fortune);
+        return Blocks.dirt.getItemDropped(BlockRegister.graveSoil.getDefaultState(), rand, fortune);
     }
 
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
@@ -95,7 +95,7 @@ public class BlockGrassCemetery extends BlockGrass
                 {
                     blockpos2 = blockpos2.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
 
-                    if (worldIn.getBlockState(blockpos2.down()).getBlock() == BlockRegistry.graveSoil && !worldIn.getBlockState(blockpos2).getBlock().isNormalCube())
+                    if (worldIn.getBlockState(blockpos2.down()).getBlock() == BlockRegister.graveSoil && !worldIn.getBlockState(blockpos2).getBlock().isNormalCube())
                     {
                         ++j;
                         continue;
