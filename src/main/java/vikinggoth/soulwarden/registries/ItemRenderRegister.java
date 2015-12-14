@@ -21,6 +21,7 @@ public class ItemRenderRegister
     {
         regItem(ItemRegister.soulgem);
         regItem(ItemRegister.soulgem_black);
+        regItem(ItemRegister.hematite);
     }
 
     private static void regItem(Item item)

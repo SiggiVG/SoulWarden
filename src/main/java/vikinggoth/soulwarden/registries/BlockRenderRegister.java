@@ -194,6 +194,11 @@ public final class BlockRenderRegister
         regBlock(BlockRegister.ore_soulgem, 1, "ore_soulgem_nether");
         regBlock(BlockRegister.ore_soulgem, 2, "ore_soulgem_necro");
 
+        //Metals
+        regBlock(BlockRegister.block_soulgem);
+        regBlock(BlockRegister.block_soulgem_black);
+        regBlock(BlockRegister.block_hematite);
+
     }
 
     private static void regBlock(Block block)

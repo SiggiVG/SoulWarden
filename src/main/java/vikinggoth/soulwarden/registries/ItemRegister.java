@@ -116,13 +116,15 @@ public class ItemRegister
 
     public static void createItems()
     {
-        soulgem = new Item().setUnlocalizedName("soulgem");
-        soulgem_black = new Item().setUnlocalizedName("soulgem_black");
+
         bone_ash = new Item().setUnlocalizedName("ash_bone");
         bone_shard = new Item().setUnlocalizedName("shard_bone");
-        shard_stygian = new Item().setUnlocalizedName("shard_stygian");
+
         ember = new Item().setUnlocalizedName("coal_ember");
 
+        soulgem = new Item().setUnlocalizedName("soulgem");
+        soulgem_black = new Item().setUnlocalizedName("soulgem_black");
+        hematite = new Item().setUnlocalizedName("hematite");
         //flask_essence = new ItemFlask().setUnlocalizedName("flask_essence");
 
         registerItems();
@@ -132,6 +134,9 @@ public class ItemRegister
     {
         regItem(soulgem);
         regItem(soulgem_black);
+
+        regItem(hematite);
+
         regItem(bone_ash);
     }
 

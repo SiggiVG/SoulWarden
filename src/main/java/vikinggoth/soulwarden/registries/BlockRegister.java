@@ -1,8 +1,10 @@
 package vikinggoth.soulwarden.registries;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCompressed;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockOre;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import vikinggoth.soulwarden.SoulWarden;
@@ -93,6 +95,17 @@ public class BlockRegister
     public static Block ore_rostygold;
     public static Block ore_pewter;
     public static Block ore_hematite;
+
+    //Metals
+    public static Block block_soulgem;
+    public static Block block_soulgem_black;
+    public static Block block_rostygold;
+    public static Block block_pewter;
+    public static Block block_hematite;
+    public static Block block_silver;
+    public static Block block_copper;
+    public static Block block_tin;
+    public static Block block_bronze;
 
     //Portal
     public static Block soulstone_twisted;
@@ -213,6 +226,11 @@ public class BlockRegister
         ore_soulgem_black = new BlockSoulgemBlackOre().setUnlocalizedName("ore_soulgem_black");
         ore_hematite = new BlockHematiteOre().setUnlocalizedName("ore_hematite");
 
+        //Metals
+        block_soulgem = new BlockSoulgem().setUnlocalizedName("block_soulgem");
+        block_soulgem_black = new BlockSoulgem().setUnlocalizedName("block_soulgem_black");
+        block_hematite = new BlockCompressed(MapColor.redColor).setUnlocalizedName("block_hematite");
+
         //Portal
         soulstone_twisted = new BlockSoulstoneTwisted().setUnlocalizedName("soulstone_twisted");
         portalNecro = new BlockPortalNecro().setUnlocalizedName("portal_necro");
@@ -293,6 +311,11 @@ public class BlockRegister
         regMetaBlock(ore_soulgem);
         regBlock(ore_soulgem_black);
         regBlock(ore_hematite);
+
+        //Metals
+        regBlock(block_soulgem);
+        regBlock(block_soulgem_black);
+        regBlock(block_hematite);
 
         //Portal
         regBlock(soulstone_twisted);
