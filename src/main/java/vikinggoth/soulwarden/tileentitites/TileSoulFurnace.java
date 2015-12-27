@@ -13,6 +13,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
 import vikinggoth.soulwarden.api.ISoulTransport;
 import vikinggoth.soulwarden.blocks.containers.BlockSoulFurnace;
+import vikinggoth.soulwarden.registries.ItemRegister;
 
 /**
  * Created by Friedrich on 8/19/2015.
@@ -23,7 +24,7 @@ public class TileSoulFurnace extends TileEntityLockable implements ISoulTranspor
      * Soul Energy Stuff
      */
     private int soulAmount;
-    final int MAX_SOUL_AMOUNT = 1280;
+    final int MAX_SOUL_AMOUNT = 1024;
 
     /**
      * The hopper input/output slots
@@ -153,6 +154,8 @@ public class TileSoulFurnace extends TileEntityLockable implements ISoulTranspor
     @Override
     public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction)
     {
+        //TODO: handle refillables
+        /*
         if (direction == EnumFacing.DOWN && index == 1)
         {
             Item item = stack.getItem();
@@ -162,43 +165,93 @@ public class TileSoulFurnace extends TileEntityLockable implements ISoulTranspor
                 return false;
             }
         }
-
+        */
         return true;
+
     }
 
     @Override
     public int getSizeInventory() {
-        return 0;
+        return this.furnaceItemStacks.length;
     }
 
     @Override
     public ItemStack getStackInSlot(int index) {
-        return null;
+        return this.furnaceItemStacks[index];
     }
 
     @Override
     public ItemStack decrStackSize(int index, int count) {
-        return null;
+        if (this.furnaceItemStacks[index] != null)
+        {
+            ItemStack itemstack;
+
+            if (this.furnaceItemStacks[index].stackSize <= count)
+            {
+                itemstack = this.furnaceItemStacks[index];
+                this.furnaceItemStacks[index] = null;
+                return itemstack;
+            }
+            else
+            {
+                itemstack = this.furnaceItemStacks[index].splitStack(count);
+
+                if (this.furnaceItemStacks[index].stackSize == 0)
+                {
+                    this.furnaceItemStacks[index] = null;
+                }
+
+                return itemstack;
+            }
+        }
+        else
+        {
+            return null;
+        }
     }
 
     @Override
     public ItemStack getStackInSlotOnClosing(int index) {
-        return null;
+        if (this.furnaceItemStacks[index] != null)
+        {
+            ItemStack itemstack = this.furnaceItemStacks[index];
+            this.furnaceItemStacks[index] = null;
+            return itemstack;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     @Override
-    public void setInventorySlotContents(int index, ItemStack stack) {
+    public void setInventorySlotContents(int index, ItemStack stack)
+    {
+        /*
+        boolean flag = stack != null && stack.isItemEqual(this.furnaceItemStacks[index]) && ItemStack.areItemStackTagsEqual(stack, this.furnaceItemStacks[index]);
+        this.furnaceItemStacks[index] = stack;
 
+        if (stack != null && stack.stackSize > this.getInventoryStackLimit())
+        {
+            stack.stackSize = this.getInventoryStackLimit();
+        }
+
+        if (index == 0 && !flag)
+        {
+            this.totalCookTime = this.func_174904_a(stack);
+            this.cookTime = 0;
+            this.markDirty();
+        }*/
     }
 
     @Override
     public int getInventoryStackLimit() {
-        return 0;
+        return 64;
     }
 
     @Override
     public boolean isUseableByPlayer(EntityPlayer player) {
-        return false;
+        return this.worldObj.getTileEntity(this.pos) != this ? false : player.getDistanceSq((double)this.pos.getX() + 0.5D, (double)this.pos.getY() + 0.5D, (double)this.pos.getZ() + 0.5D) <= 64.0D;
     }
 
     @Override
@@ -213,6 +266,19 @@ public class TileSoulFurnace extends TileEntityLockable implements ISoulTranspor
 
     @Override
     public boolean isItemValidForSlot(int index, ItemStack stack) {
+        return index == 2 ? false : (index != 1 ? true : isItemFuel(stack));
+    }
+
+    private boolean isItemFuel(ItemStack stack)
+    {
+        if(stack.getItem().equals(ItemRegister.soulgem) || stack.getItem().equals(ItemRegister.soulgem_black))
+        {
+            //TODO: check if soultype NBTData is present
+            if(stack.getTagCompound().getTag("soultype") != null)
+            {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -233,7 +299,10 @@ public class TileSoulFurnace extends TileEntityLockable implements ISoulTranspor
 
     @Override
     public void clear() {
-
+        for (int i = 0; i < this.furnaceItemStacks.length; ++i)
+        {
+            this.furnaceItemStacks[i] = null;
+        }
     }
 
     @Override
@@ -243,12 +312,12 @@ public class TileSoulFurnace extends TileEntityLockable implements ISoulTranspor
 
     @Override
     public String getName() {
-        return null;
+        return this.hasCustomName() ? this.furnaceCustomName : "container.furnace";
     }
 
     @Override
     public boolean hasCustomName() {
-        return false;
+        return this.furnaceCustomName != null && this.furnaceCustomName.length() > 0;
     }
 
     @Override
