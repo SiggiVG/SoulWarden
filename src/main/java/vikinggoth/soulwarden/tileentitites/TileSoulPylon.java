@@ -3,10 +3,8 @@ package vikinggoth.soulwarden.tileentitites;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import vikinggoth.soulwarden.api.ISoulTransport;
-import vikinggoth.soulwarden.blocks.containers.BlockSoulPylon;
 import vikinggoth.soulwarden.configuration.ConfigurationHandler;
 
 /**

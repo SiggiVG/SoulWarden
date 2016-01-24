@@ -1,8 +1,6 @@
 package vikinggoth.soulwarden.blocks.containers;
 
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockFurnace;
-import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import vikinggoth.soulwarden.tileentitites.TileSoulFurnace;

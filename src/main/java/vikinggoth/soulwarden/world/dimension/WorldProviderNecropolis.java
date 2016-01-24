@@ -6,7 +6,6 @@ import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vikinggoth.soulwarden.world.biome.BiomeRegistry;
 
 /**
  * Created by Friedrich on 12/6/2015.

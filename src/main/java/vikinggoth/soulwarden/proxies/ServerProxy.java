@@ -3,7 +3,6 @@ package vikinggoth.soulwarden.proxies;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import vikinggoth.soulwarden.registries.BlockRenderRegister;
 
 /**
  * Created by Friedrich on 12/5/2015.

@@ -1,6 +1,5 @@
 package vikinggoth.soulwarden.items;
 
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 /**

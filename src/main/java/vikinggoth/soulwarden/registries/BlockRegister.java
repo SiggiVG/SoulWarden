@@ -9,8 +9,10 @@ import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import vikinggoth.soulwarden.SoulWarden;
 import vikinggoth.soulwarden.blocks.*;
-import vikinggoth.soulwarden.blocks.containers.*;
-import vikinggoth.soulwarden.items.itemblocks.*;
+import vikinggoth.soulwarden.blocks.containers.BlockSoulFurnace;
+import vikinggoth.soulwarden.items.itemblocks.ItemBlockMeta;
+import vikinggoth.soulwarden.items.itemblocks.ItemPlanksSWSlab;
+import vikinggoth.soulwarden.items.itemblocks.ItemSoulStoneSlab;
 import vikinggoth.soulwarden.reference.EnumWoodType;
 
 /**
