@@ -78,6 +78,8 @@ public class BlockRegister
     public static Block alnwickDoor;
     public static Block pomegranateDoor;
 
+    public static Block boneboo;
+
     //Bone
     public static Block bonePile; //gravity block
     public static Block boneBlock; //full block
@@ -129,6 +131,7 @@ public class BlockRegister
     public static Block soulExhumer; //unmakes soulcharged blocks, fills soul transport system*/
     public static Block soulFurnace_on; //a furnace that runs on souls
     public static Block soulFurnace_off; //a furnace that runs on souls
+
     /*public static Block boneGrinder; //ore doubler(by making <ore> dust), bonus bonemeal, skeleton head source
     public static Block soulForge; //multiblock, craft advanced items and bone construct components
     public static Block soulCircle; //multiblock, for assembling constructs
@@ -182,7 +185,7 @@ public class BlockRegister
         //Leaves
         leafSW = new BlockLeafSW().setUnlocalizedName("leafSW");
         //Sapling
-        //saplingSW = new BlockSaplingSW().setUnlocalizedName("saplingSW");
+        saplingSW = new BlockSaplingSW().setUnlocalizedName("saplingSW");
         //Planks
         plankSW = new BlockPlanksSW().setUnlocalizedName("plankSW");
         //Stairs
@@ -207,6 +210,9 @@ public class BlockRegister
         handDoor = new BlockDoorSW().setUnlocalizedName("door_hand");
         alnwickDoor = new BlockDoorSW().setUnlocalizedName("door_alm");
         pomegranateDoor = new BlockDoorSW().setUnlocalizedName("door_pomegranate");
+
+        //Plants TODO make boneboo spawn (sapling) craftable by crafting a soulgem with boneboo
+        boneboo = new BlockBamboo().setUnlocalizedName("boneboo");
 
         //Bone
         bonePile = new BlockBonePile().setUnlocalizedName("bonepile");
@@ -291,10 +297,13 @@ public class BlockRegister
         //Fences
         regMetaBlock(fenceSW);
         //Doors TODO
-        GameRegistry.registerBlock(ghoulDoor, ghoulDoor.getUnlocalizedName().substring(5));
-        GameRegistry.registerBlock(weepwillowDoor, weepwillowDoor.getUnlocalizedName().substring(5));
-        GameRegistry.registerBlock(bonebeechDoor, bonebeechDoor.getUnlocalizedName().substring(5));
-        GameRegistry.registerBlock(handDoor, handDoor.getUnlocalizedName().substring(5));
+        //GameRegistry.registerBlock(ghoulDoor, ghoulDoor.getUnlocalizedName().substring(5));
+        //GameRegistry.registerBlock(weepwillowDoor, weepwillowDoor.getUnlocalizedName().substring(5));
+        //GameRegistry.registerBlock(bonebeechDoor, bonebeechDoor.getUnlocalizedName().substring(5));
+        //GameRegistry.registerBlock(handDoor, handDoor.getUnlocalizedName().substring(5));
+
+        //Plants
+        regBlock(boneboo);
 
         //Bone
         regBlock(bonePile);

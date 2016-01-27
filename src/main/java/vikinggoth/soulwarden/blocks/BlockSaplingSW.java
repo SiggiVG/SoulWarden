@@ -12,11 +12,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.items.itemblocks.IMetaBlockName;
-import vikinggoth.soulwarden.reference.EnumWoodType;
 import vikinggoth.soulwarden.registries.BlockRegister;
 
 import java.util.List;
@@ -24,12 +24,12 @@ import java.util.Random;
 
 public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockName
 {
-    public static final PropertyEnum TYPE = PropertyEnum.create("type", EnumWoodType.class);
+    public static final PropertyEnum TYPE = PropertyEnum.create("type", EnumType.class);
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
 
     public BlockSaplingSW()
     {
-        this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, EnumWoodType.GHOUL).withProperty(STAGE, Integer.valueOf(0)));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, EnumType.GHOUL).withProperty(STAGE, Integer.valueOf(0)));
         float f = 0.4F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
         //this.setCreativeTab(CreativeTabs.tabDecorations);
@@ -74,7 +74,7 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
      */
     public int damageDropped(IBlockState state)
     {
-        return ((EnumWoodType)state.getValue(TYPE)).getMetadata();
+        return ((EnumType)state.getValue(TYPE)).getMetadata();
     }
 
     /**
@@ -83,12 +83,12 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item itemIn, CreativeTabs tab, List list)
     {
-        EnumWoodType[] aenumtype = EnumWoodType.values();
+        EnumType[] aenumtype = EnumType.values();
         int i = aenumtype.length;
 
         for (int j = 0; j < i; ++j)
         {
-            EnumWoodType enumtype = aenumtype[j];
+            EnumType enumtype = aenumtype[j];
             list.add(new ItemStack(itemIn, 1, enumtype.getMetadata()));
         }
     }
@@ -116,7 +116,7 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
      */
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(TYPE, EnumWoodType.byMetadata(meta & 7)).withProperty(STAGE, Integer.valueOf((meta & 8) >> 3));
+        return this.getDefaultState().withProperty(TYPE, EnumType.byMetadata(meta & 7)).withProperty(STAGE, Integer.valueOf((meta & 8) >> 3));
     }
 
     /**
@@ -125,7 +125,7 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
     public int getMetaFromState(IBlockState state)
     {
         byte b0 = 0;
-        int i = b0 | ((EnumWoodType)state.getValue(TYPE)).getMetadata();
+        int i = b0 | ((EnumType)state.getValue(TYPE)).getMetadata();
         i |= ((Integer)state.getValue(STAGE)).intValue() << 3;
         return i;
     }
@@ -138,7 +138,7 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
     @Override
     public String getSpecialName(ItemStack stack)
     {
-        return EnumWoodType.byMetadata(stack.getItemDamage()).getUnlocalizedName();
+        return EnumType.byMetadata(stack.getItemDamage()).getUnlocalizedName();
     }
 
     /**
@@ -181,7 +181,7 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
 
         if(worldIn.getBlockState(down).getBlock().equals(BlockRegister.grassCemetery) || worldIn.getBlockState(down).getBlock().equals(BlockRegister.graveSoil))
         { //on gravesoil and on grasscemetery
-            switch((EnumWoodType)state.getValue(TYPE))
+            switch((EnumType)state.getValue(TYPE))
             {
                 case GHOUL:
                     log = BlockRegister.logSW.getStateFromMeta(0);
@@ -207,7 +207,7 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
         }
         else if(isDownSoil)
         { //on dirt
-            switch ((EnumWoodType) state.getValue(TYPE))
+            switch ((EnumType) state.getValue(TYPE))
             {
                 case GHOUL:
                     log = BlockRegister.logSW.getStateFromMeta(0);
@@ -408,4 +408,75 @@ public class BlockSaplingSW extends BlockBush implements IGrowable, IMetaBlockNa
 
     }
 
+    public enum EnumType implements IStringSerializable
+    {
+        GHOUL(0, "ghoul"),
+        WEEPWILLOW(1, "weepwillow"),
+        BONEBEECH(2, "bonebeech"),
+        HAND(3, "hand"), //wax hand
+        ALNWICK(4, "alnwick"),
+        POMEGRANATE(5, "pomegranate"),
+        BONEBOO(6, "boneboo"); //This one will change into a Boneboo block when grown. Boneboo grows upto 5 in overworld, and even taller in Stygia.
+
+        private static final EnumType[] META_LOOKUP = new EnumType[values().length];
+        private final int meta;
+        private final String name;
+        private final String unlocalizedName;
+
+        private EnumType(int meta, String name, String unlocalizedName)
+        {
+            this.meta = meta;
+            this.name = name;
+            this.unlocalizedName = unlocalizedName;
+        }
+
+        private EnumType(int meta, String name)
+        {
+            this.meta = meta;
+            this.name = name;
+            this.unlocalizedName = name;
+        }
+
+        public int getMetadata()
+        {
+            return this.meta;
+        }
+
+        public String toString()
+        {
+            return this.name;
+        }
+
+        public static EnumType byMetadata(int meta)
+        {
+            if (meta < 0 || meta >= META_LOOKUP.length)
+            {
+                meta = 0;
+            }
+
+            return META_LOOKUP[meta];
+        }
+
+        public String getName()
+        {
+            return this.name;
+        }
+
+        public String getUnlocalizedName()
+        {
+            return this.unlocalizedName;
+        }
+
+        static
+        {
+            EnumType[] stateArray = values();
+            int var1 = stateArray.length;
+
+            for (int i = 0; i < var1; ++i)
+            {
+                EnumType metas = stateArray[i];
+                META_LOOKUP[metas.getMetadata()] = metas;
+            }
+        }
+    }
 }
