@@ -312,12 +312,9 @@ public class BlockRegister
         //GameRegistry.registerBlock(weepwillowDoor, weepwillowDoor.getUnlocalizedName().substring(5));
         //GameRegistry.registerBlock(bonebeechDoor, bonebeechDoor.getUnlocalizedName().substring(5));
         //GameRegistry.registerBlock(handDoor, handDoor.getUnlocalizedName().substring(5));
-<<<<<<< HEAD
-=======
 
         //Plants
         regBlock(boneboo);
->>>>>>> d3384764ea740dec302d386e91c1413b38a9a65b
 
         //Bone
         regBlock(bonePile);

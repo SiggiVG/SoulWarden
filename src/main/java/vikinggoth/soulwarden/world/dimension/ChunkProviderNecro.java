@@ -17,9 +17,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import vikinggoth.soulwarden.configuration.ConfigurationHandler;
-import vikinggoth.soulwarden.perlin.NoiseModule;
-import vikinggoth.soulwarden.perlin.generator.Gradient;
-import vikinggoth.soulwarden.registries.BlockRegistry;
 import vikinggoth.soulwarden.world.biome.BiomeRegistry;
 
 import java.util.Arrays;
@@ -175,7 +172,7 @@ public class ChunkProviderNecro extends ChunkProviderGenerate
     @Override
     public void func_180517_a(int chunkX, int chunkZ, ChunkPrimer chunkPrimer, BiomeGenBase[] arrayOfBiomeGenBase)
     {
-        ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent(ReplaceBiomeBlocks(chunkX, chunkZ, chunkPrimer, this.worldObj);
+        ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent(ReplaceBiomeBlocks(chunkX, chunkZ, chunkPrimer, this.worldObj));
         MinecraftForge.EVENT_BUS.post(event);
         if(event.getResult() == Event.Result.DENY) return;
 
@@ -183,7 +180,7 @@ public class ChunkProviderNecro extends ChunkProviderGenerate
         {
             for (int z = 0; z < CHUNK_SIZE_Z; z++)
             {
-                final int var1
+                final int var1;
             }
         }
     }
