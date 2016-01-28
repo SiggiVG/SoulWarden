@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "variant=sodalite": { "model":"soulwarden:sodalite" },
+    "variant=sodalite_smooth": { "model":"soulwarden:sodalite_smooth" }
+  }
+}

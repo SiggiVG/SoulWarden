@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "normal": [
+	    { "model": "emerald_block" },
+	    { "model": "emerald_block", "y": 90 },
+	    { "model": "emerald_block", "y": 180 },
+	    { "model": "emerald_block", "y": 270 }
+	]
+    }
+}

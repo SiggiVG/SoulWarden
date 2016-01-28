@@ -1,9 +1,6 @@
 package vikinggoth.soulwarden.registries;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockCompressed;
-import net.minecraft.block.BlockFence;
-import net.minecraft.block.BlockOre;
+import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -25,6 +22,7 @@ public class BlockRegister
     public static Block graveSoil; //deathly dirt
     public static Block grassCemetery; //grass block that spreads along graveSoil //TODO for 1.9 make shovels make paths
     public static Block graveSoilTilled; //tilled graveSoil TODO make hoes till it
+
     //SoulStone //default, mossysmooth, cracked, smooth, brick, mossybrick, crackedbrick, chiseled, cobble, mossycobble, brickscattered, bricksmall
     public static Block soulStone;
     //SoulStoneStairs //come in brick, cobble, brickscattered, and bricksmall
@@ -39,6 +37,10 @@ public class BlockRegister
     //Walls //first 12 variants, cracked has a fence
     public static Block soulStoneWall; //first 12 variants
     public static Block soulStoneFence; //is just the cracked variant //"#", "#", '#', new ItemStack(soulstone, 1, 2); //a cracked on top of a cracked
+
+    //Stones
+    //  Sodalite - a blue version of stone, crafted by combining diorite and Lapis Lazuli
+    public static Block stoneSW;
 
     //Wood
     //Logs
@@ -110,12 +112,15 @@ public class BlockRegister
     public static Block block_bronze;
 
     //Portal
-    public static Block soulstone_twisted;
-    public static Block portalNecro;
     /**
      * this is a twisted version of the smlla brick variant of soulstone
      * it formas when the portal is made
      */
+    public static Block soulstone_twisted;
+    public static Block portalNecro;
+
+    //Crops + Flowers
+    //TODO: Boneboo - farmable bones.
 
     //Soul Transport
     /*
@@ -172,6 +177,9 @@ public class BlockRegister
         //Walls
         soulStoneWall = new BlockSoulStoneWall(soulStone).setUnlocalizedName("soulstone_wall");
         soulStoneFence = new BlockFence(soulStone.getMaterial()).setHardness(1.5F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("soulstone_fence");
+
+        //Stones
+        stoneSW = new BlockStoneSW().setUnlocalizedName("stoneSW");
 
         //Wood
         //Logs
@@ -267,6 +275,9 @@ public class BlockRegister
         regMetaBlock(soulStoneWall);
         regBlock(soulStoneFence);
 
+        //Stones
+        regMetaBlock(stoneSW);
+
         //Wood
         //Logs
         regMetaBlock(logSW);
@@ -291,10 +302,10 @@ public class BlockRegister
         //Fences
         regMetaBlock(fenceSW);
         //Doors TODO
-        GameRegistry.registerBlock(ghoulDoor, ghoulDoor.getUnlocalizedName().substring(5));
-        GameRegistry.registerBlock(weepwillowDoor, weepwillowDoor.getUnlocalizedName().substring(5));
-        GameRegistry.registerBlock(bonebeechDoor, bonebeechDoor.getUnlocalizedName().substring(5));
-        GameRegistry.registerBlock(handDoor, handDoor.getUnlocalizedName().substring(5));
+        //GameRegistry.registerBlock(ghoulDoor, ghoulDoor.getUnlocalizedName().substring(5));
+        //GameRegistry.registerBlock(weepwillowDoor, weepwillowDoor.getUnlocalizedName().substring(5));
+        //GameRegistry.registerBlock(bonebeechDoor, bonebeechDoor.getUnlocalizedName().substring(5));
+        //GameRegistry.registerBlock(handDoor, handDoor.getUnlocalizedName().substring(5));
 
         //Bone
         regBlock(bonePile);

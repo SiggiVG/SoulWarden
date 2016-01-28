@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "normal": [
+	    { "model": "redstone_block" },
+	    { "model": "redstone_block", "y": 90 },
+	    { "model": "redstone_block", "y": 180 },
+	    { "model": "redstone_block", "y": 270 }
+	]
+    }
+}

@@ -1,5 +1,22 @@
 {
   "variants": {
-    "normal": { "model":"soulwarden:bonepile" }
+    "normal": [
+      { "model":"soulwarden:bonepile" },
+      { "model":"soulwarden:bonepile", "y":90 },
+      { "model":"soulwarden:bonepile", "y":180 },
+      { "model":"soulwarden:bonepile", "y":270 },
+      { "model":"soulwarden:bonepile", "x":90 },
+      { "model":"soulwarden:bonepile", "x":180 },
+      { "model":"soulwarden:bonepile", "x":270 },
+      { "model":"soulwarden:bonepile", "y":90, "x":90 },
+      { "model":"soulwarden:bonepile", "y":180, "x":90  },
+      { "model":"soulwarden:bonepile", "y":270, "x":90 },
+      { "model":"soulwarden:bonepile", "y":90, "x":180 },
+      { "model":"soulwarden:bonepile", "y":180, "x":180  },
+      { "model":"soulwarden:bonepile", "y":270, "x":180 },
+      { "model":"soulwarden:bonepile", "y":90, "x":270 },
+      { "model":"soulwarden:bonepile", "y":180, "x":270  },
+      { "model":"soulwarden:bonepile", "y":270, "x":270 }
+      ]
   }
 }

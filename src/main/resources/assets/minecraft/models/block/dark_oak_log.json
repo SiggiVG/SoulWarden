@@ -1,0 +1,7 @@
+{
+  "parent": "block/log_round",
+  "textures": {
+    "side": "blocks/log_big_oak",
+    "end": "blocks/log_big_oak_top"
+  }
+}

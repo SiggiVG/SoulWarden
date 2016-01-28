@@ -16,7 +16,7 @@ public final class BlockRenderRegister
 
     public static void preInit()
     {
-        //Do I even need any of this?
+
         ModelBakery.addVariantName(Item.getItemFromBlock(BlockRegister.soulStone),
                 modid + ":soulstone_default", modid + ":soulstone_mossy", modid + ":soulstone_cracked", modid + ":soulstone_smooth",
                 modid + ":soulstone_brick", modid + ":soulstone_brick_mossy", modid + ":soulstone_brick_cracked", modid + ":soulstone_chiseled",
@@ -33,6 +33,11 @@ public final class BlockRenderRegister
                 modid + ":soulstone_default_wall", modid + ":soulstone_mossy_wall", modid + ":soulstone_cracked_wall", modid + ":soulstone_smooth_wall",
                 modid + ":soulstone_brick_wall", modid + ":soulstone_brick_mossy_wall", modid + ":soulstone_brick_cracked_wall", modid + ":soulstone_chiseled_wall",
                 modid + ":soulstone_cobble_wall", modid + ":soulstone_cobble_mossy_wall", modid + ":soulstone_scattered_wall", modid + ":soulstone_small_wall"
+        );
+
+        //Ores
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockRegister.stoneSW),
+                modid + ":sodalite", modid + ":sodalite_smooth"
         );
 
         ModelBakery.addVariantName(Item.getItemFromBlock(BlockRegister.logSW),
@@ -71,6 +76,7 @@ public final class BlockRenderRegister
         );
     }
 
+    //These are the item models for the blocks
     public static void registerBlockRenderer()
     {
         regBlock(BlockRegister.graveSoil);
@@ -120,6 +126,9 @@ public final class BlockRenderRegister
         regBlock(BlockRegister.soulStoneWall, 10, "soulstone_scattered_wall");
         regBlock(BlockRegister.soulStoneWall, 11, "soulstone_small_wall");
         regBlock(BlockRegister.soulStoneFence);
+
+        regBlock(BlockRegister.stoneSW, 0, "sodalite");
+        regBlock(BlockRegister.stoneSW, 1, "sodalite_smooth");
 
         regBlock(BlockRegister.logSW, 0, "log_ghoul");
         regBlock(BlockRegister.logSW, 1, "log_weepwillow");

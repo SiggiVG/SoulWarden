@@ -1,0 +1,7 @@
+{
+  "parent": "block/log_round",
+  "textures": {
+    "side": "blocks/log_jungle",
+    "end": "blocks/log_jungle_top"
+  }
+}
