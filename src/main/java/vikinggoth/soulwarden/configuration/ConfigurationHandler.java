@@ -1,5 +1,6 @@
 package vikinggoth.soulwarden.configuration;
 
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
@@ -25,8 +26,8 @@ public class ConfigurationHandler
             config.load();
 
             //Read in properties from the configuration file
-            dimNecroID = config.getInt(Configuration.CATEGORY_GENERAL, "dimNecroID", 12, 1, 255, "The ID of the Necropolis Dimension");
-            seaLevelNecro = config.getInt(Configuration.CATEGORY_GENERAL, "dimNecroID", 32, 1, 255, "The ID of the Necropolis Dimension");
+            dimNecroID = config.getInt(Configuration.CATEGORY_GENERAL, "dimStygiaID", DimensionManager.getNextFreeDimId(), 1, 255, "The ID of the Necropolis Dimension");
+            seaLevelNecro = config.getInt(Configuration.CATEGORY_GENERAL, "seaLevelStygia", 32, 1, 255, "The Sea Level in the Stygian Dimension");
             //configValue = config.get(Configuration.CATEGORY_GENERAL, "configValue", true, "This is an Example Config File").getBoolean();
         }
         catch (Exception e)
