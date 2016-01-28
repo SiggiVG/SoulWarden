@@ -1,0 +1,7 @@
+{
+    "parent": "block/log_round",
+    "textures": {
+        "end": "blocks/quartz_block_lines_top",
+        "side": "blocks/quartz_block_lines"
+    }
+}

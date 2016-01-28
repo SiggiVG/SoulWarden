@@ -17,7 +17,7 @@ public class DimensionRegistry
 
     public static void registerDimension()
     {
-        DimensionManager.registerProviderType(DIM_NECRO_ID, WorldProviderNecropolis.class, false);
+        DimensionManager.registerProviderType(DIM_NECRO_ID, WorldProviderStygia.class, false);
         DimensionManager.registerDimension(DIM_NECRO_ID, DIM_NECRO_ID);
     }
 }

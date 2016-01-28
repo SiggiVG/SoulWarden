@@ -10,14 +10,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * Created by Friedrich on 12/6/2015.
  */
-public class WorldProviderNecropolis extends WorldProvider
+public class WorldProviderStygia extends WorldProvider
 {
 
     @Override
     public void registerWorldChunkManager()
     {
         //can be overworld or hell??? TODO Make our own
-        this.worldChunkMgr = new WorldChunkManagerNecro();
+        this.worldChunkMgr = new WorldChunkManagerStygia();
         this.dimensionId = DimensionRegistry.DIM_NECRO_ID;
         this.hasNoSky = true;
     }
@@ -25,7 +25,7 @@ public class WorldProviderNecropolis extends WorldProvider
     @Override
     /** tells Minecraft to use our new Terrain Generator */
     public IChunkProvider createChunkGenerator() {
-        return new ChunkProviderNecro(this.worldObj, this.worldObj.getSeed(), true, "");
+        return new ChunkProviderStygia(this.worldObj, this.worldObj.getSeed(), worldObj.getWorldInfo().isMapFeaturesEnabled(), null);
     }
 
     /** Get Provider for Dimension **

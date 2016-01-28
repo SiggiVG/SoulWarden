@@ -20,7 +20,7 @@ import java.util.Random;
 /**
  * Created by Friedrich on 12/6/2015.
  */
-public class WorldChunkManagerNecro extends net.minecraft.world.biome.WorldChunkManager
+public class WorldChunkManagerStygia extends net.minecraft.world.biome.WorldChunkManager
 {
     private GenLayer genBiomes;
     /**A GenLayer containing the indices into BiomGenBase.biomeList[]*/
@@ -31,14 +31,14 @@ public class WorldChunkManagerNecro extends net.minecraft.world.biome.WorldChunk
     private List<BiomeGenBase> biomesToSpawnIn;
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    public WorldChunkManagerNecro()
+    public WorldChunkManagerStygia()
     {
         this.biomeCache = new BiomeCache(this);
         this.biomesToSpawnIn = new ArrayList();
         this.biomesToSpawnIn.addAll(BiomeRegistry.getNecroBiomeList()); //TODO change this
     }
 
-    public WorldChunkManagerNecro(long seed, WorldType worldType)
+    public WorldChunkManagerStygia(long seed, WorldType worldType)
     {
         GenLayer[] aGenLayer = GenLayerNecro.genWorld(seed, worldType);
         aGenLayer = getModdedBiomeGenerators(worldType, seed, aGenLayer);
@@ -46,7 +46,7 @@ public class WorldChunkManagerNecro extends net.minecraft.world.biome.WorldChunk
         this.biomeIndexLayer = aGenLayer[1];
     }
 
-    public WorldChunkManagerNecro(World world)
+    public WorldChunkManagerStygia(World world)
     {
         this(world.getSeed(), world.getWorldInfo().getTerrainType());
     }

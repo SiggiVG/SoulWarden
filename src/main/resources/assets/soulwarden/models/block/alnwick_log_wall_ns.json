@@ -1,0 +1,6 @@
+{
+  "parent": "soulwarden:block/log_wall_ns",
+  "textures": {
+    "wall": "soulwarden:blocks/log_alnwick"
+  }
+}
