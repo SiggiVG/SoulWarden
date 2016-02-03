@@ -1,0 +1,29 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+gradlew.bat
+.getignore
+build.gradle
+forge-1.8-11.14.4.1563-mdk.zip
+gradle/*
+gradlew

@@ -10,10 +10,11 @@ import net.minecraft.world.biome.BiomeCache;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import vikinggoth.soulwarden.world.biome.BiomeRegistry;
-import vikinggoth.soulwarden.world.genlayer.GenLayerNecro;
+import vikinggoth.soulwarden.world.biome.BiomeGenStygia;
+import vikinggoth.soulwarden.world.genlayer.GenLayerStygia;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -35,12 +36,12 @@ public class WorldChunkManagerStygia extends net.minecraft.world.biome.WorldChun
     {
         this.biomeCache = new BiomeCache(this);
         this.biomesToSpawnIn = new ArrayList();
-        this.biomesToSpawnIn.addAll(BiomeRegistry.getNecroBiomeList()); //TODO change this
+        Collections.addAll(this.biomesToSpawnIn, BiomeGenStygia.getBiomeGenArray()); //TODO change this
     }
 
     public WorldChunkManagerStygia(long seed, WorldType worldType)
     {
-        GenLayer[] aGenLayer = GenLayerNecro.genWorld(seed, worldType);
+        GenLayer[] aGenLayer = GenLayerStygia.genWorld(seed, worldType);
         aGenLayer = getModdedBiomeGenerators(worldType, seed, aGenLayer);
         this.genBiomes = aGenLayer[0];
         this.biomeIndexLayer = aGenLayer[1];

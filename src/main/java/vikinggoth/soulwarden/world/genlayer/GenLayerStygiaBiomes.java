@@ -3,23 +3,23 @@ package vikinggoth.soulwarden.world.genlayer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import vikinggoth.soulwarden.world.biome.BiomeRegistry;
+import vikinggoth.soulwarden.world.biome.BiomeGenStygia;
 
 /**
  * Created by Friedrich on 12/6/2015.
  */
-public class GenLayerNecroBiomes extends GenLayer
+public class GenLayerStygiaBiomes extends GenLayer
 {
     //TODO temperatures
     protected BiomeGenBase[] allowedBiomes = {
-            BiomeRegistry.biomeStygianSea
+            BiomeGenStygia.biomeStygianSea
             };
 
-    public GenLayerNecroBiomes(long seed) {
+    public GenLayerStygiaBiomes(long seed) {
         super(seed);
     }
 
-    public GenLayerNecroBiomes(long seed, GenLayer genLayer) {
+    public GenLayerStygiaBiomes(long seed, GenLayer genLayer) {
         super(seed);
         this.parent = genLayer;
     }

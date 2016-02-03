@@ -8,18 +8,18 @@ import net.minecraft.world.gen.layer.GenLayerZoom;
 /**
  * Created by Friedrich on 12/6/2015.
  */
-public class GenLayerNecro extends GenLayer
+public class GenLayerStygia extends GenLayer
 {
 
 
-    public GenLayerNecro(long seed)
+    public GenLayerStygia(long seed)
     {
         super(seed);
     }
 
     public static GenLayer[] genWorld(long seed, WorldType type)
     {
-        GenLayer biomes = new GenLayerNecroBiomes(1L); //the seed is set to 1??/
+        GenLayer biomes = new GenLayerStygiaBiomes(1L); //the seed is set to 1??/
         biomes = new GenLayerZoom(1000L, biomes);
         biomes = new GenLayerZoom(1001L, biomes);
         biomes = new GenLayerZoom(1002L, biomes);

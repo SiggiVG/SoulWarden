@@ -101,6 +101,7 @@ public class BlockRegister
     public static Block ore_rostygold;
     public static Block ore_pewter;
     public static Block ore_hematite;
+    public static Block ore_ember;
 
     //Metals
     public static Block block_soulgem;
@@ -241,6 +242,7 @@ public class BlockRegister
         ore_soulgem = new BlockSoulgemOre().setUnlocalizedName("ore_soulgem");
         ore_soulgem_black = new BlockSoulgemBlackOre().setUnlocalizedName("ore_soulgem_black");
         ore_hematite = new BlockHematiteOre().setUnlocalizedName("ore_hematite");
+        ore_ember = new BlockOre().setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setUnlocalizedName("ore_ember");
 
         //Metals
         block_soulgem = new BlockSoulgem().setUnlocalizedName("block_soulgem");
@@ -333,6 +335,7 @@ public class BlockRegister
         regMetaBlock(ore_soulgem);
         regBlock(ore_soulgem_black);
         regBlock(ore_hematite);
+        regBlock(ore_ember);
 
         //Metals
         regBlock(block_soulgem);

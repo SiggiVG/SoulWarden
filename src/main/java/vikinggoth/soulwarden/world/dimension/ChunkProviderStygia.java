@@ -25,7 +25,7 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import vikinggoth.soulwarden.configuration.ConfigurationHandler;
 import vikinggoth.soulwarden.registries.BlockRegister;
-import vikinggoth.soulwarden.world.biome.BiomeRegistry;
+import vikinggoth.soulwarden.world.biome.BiomeGenStygia;
 
 import java.util.List;
 import java.util.Random;
@@ -80,14 +80,14 @@ public class ChunkProviderStygia implements IChunkProvider
 
     //MapGenDungeon Here
 
-    private BiomeGenBase[] biomesForGeneration = {BiomeRegistry.biomeStygianSea};
+    private BiomeGenBase[] biomesForGeneration = {BiomeGenStygia.biomeStygianSea};
 
     double[] field_147427_d;
     double[] field_147428_e;
     double[] field_147425_f;
     double[] field_147426_g;
 
-    private static final int MID_HEIGHT = 127;
+    private static final int MID_HEIGHT = 128;
     private static final int CHUNK_SIZE_X = 16;
     private static final int CHUNK_SIZE_Y = 256;
     private static final int CHUNK_SIZE_Z = 16;
