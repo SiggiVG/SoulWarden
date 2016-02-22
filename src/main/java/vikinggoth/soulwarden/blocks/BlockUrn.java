@@ -7,6 +7,8 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
@@ -65,7 +67,12 @@ public abstract class BlockUrn extends Block implements IMetaBlockName
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return ItemRegister.bone_ash;
+        return Items.dye;
+    }
+
+    public int damageDropped(IBlockState state)
+    {
+        return EnumDyeColor.WHITE.getDyeDamage();
     }
 
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)

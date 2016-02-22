@@ -96,7 +96,7 @@ public class BlockLeafSW extends BlockLeaves implements IMetaBlockName
         }
         else if (state.getValue(VARIANT) == EnumWoodType.POMEGRANATE && worldIn.rand.nextInt(chance) == 0)
         {
-            spawnAsEntity(worldIn, pos, new ItemStack(ItemRegister.pomegranate, 1, 0)); //TODO
+            //spawnAsEntity(worldIn, pos, new ItemStack(ItemRegister.pomegranate, 1, 0)); //TODO
         }
     }
 

@@ -9,10 +9,10 @@ import java.util.Random;
 /**
  * Created by Friedrich on 1/28/2016.
  */
-public class BiomeGenGenStygianSea extends BiomeGenStygia
+public class BiomGenStygianSea extends BiomeGenStygia
 {
 
-    public BiomeGenGenStygianSea(int biomeId)
+    public BiomGenStygianSea(int biomeId)
     {
         super(biomeId);
         this.spawnableCreatureList.clear();

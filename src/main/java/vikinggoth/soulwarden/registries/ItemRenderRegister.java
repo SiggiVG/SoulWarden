@@ -21,7 +21,18 @@ public class ItemRenderRegister
     {
         regItem(ItemRegister.soulgem);
         regItem(ItemRegister.soulgem_black);
+        regItem(ItemRegister.ember);
         regItem(ItemRegister.hematite);
+
+        regItem(ItemRegister.ingot_rostygold);
+        regItem(ItemRegister.ingot_pewter);
+        regItem(ItemRegister.nugget_iron);
+        regItem(ItemRegister.nugget_rostygold);
+        regItem(ItemRegister.nugget_pewter);
+
+        regItem(ItemRegister.clay_porcelain);
+        regItem(ItemRegister.bone_shard);
+        regItem(ItemRegister.feather_beetle);
     }
 
     private static void regItem(Item item)
