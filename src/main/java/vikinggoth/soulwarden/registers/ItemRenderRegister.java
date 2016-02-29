@@ -1,4 +1,4 @@
-package vikinggoth.soulwarden.registries;
+package vikinggoth.soulwarden.registers;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;

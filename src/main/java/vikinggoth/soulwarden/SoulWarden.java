@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.configuration.ConfigurationHandler;
 import vikinggoth.soulwarden.proxies.CommonProxy;
 import vikinggoth.soulwarden.reference.Reference;
-import vikinggoth.soulwarden.registries.BlockRegister;
+import vikinggoth.soulwarden.registers.BlockRegister;
 
 
 /**

@@ -3,8 +3,8 @@ package vikinggoth.soulwarden.blocks;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-import vikinggoth.soulwarden.registries.BlockRegister;
-import vikinggoth.soulwarden.registries.ItemRegister;
+import vikinggoth.soulwarden.registers.BlockRegister;
+import vikinggoth.soulwarden.registers.ItemRegister;
 
 /**
  * Created by Friedrich on 11/15/2015.

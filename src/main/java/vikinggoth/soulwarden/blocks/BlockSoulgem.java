@@ -10,7 +10,7 @@ import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vikinggoth.soulwarden.registries.BlockRegister;
+import vikinggoth.soulwarden.registers.BlockRegister;
 
 /**
  * Created by Friedrich on 12/10/2015.

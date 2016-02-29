@@ -7,7 +7,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import vikinggoth.soulwarden.registries.ItemRegister;
+import vikinggoth.soulwarden.registers.ItemRegister;
 
 import java.util.Random;
 

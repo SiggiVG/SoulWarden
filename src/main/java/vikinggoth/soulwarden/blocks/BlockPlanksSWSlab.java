@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.SoulWarden;
 import vikinggoth.soulwarden.reference.EnumWoodType;
-import vikinggoth.soulwarden.registries.BlockRegister;
+import vikinggoth.soulwarden.registers.BlockRegister;
 
 import java.util.List;
 import java.util.Random;

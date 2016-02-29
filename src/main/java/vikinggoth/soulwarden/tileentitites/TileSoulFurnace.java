@@ -11,7 +11,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
 import vikinggoth.soulwarden.api.ISoulTransport;
 import vikinggoth.soulwarden.blocks.containers.BlockSoulFurnace;
-import vikinggoth.soulwarden.registries.ItemRegister;
+import vikinggoth.soulwarden.registers.ItemRegister;
 
 /**
  * Created by Friedrich on 8/19/2015.

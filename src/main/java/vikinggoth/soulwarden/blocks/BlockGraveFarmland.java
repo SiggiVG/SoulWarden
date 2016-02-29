@@ -12,7 +12,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vikinggoth.soulwarden.registries.BlockRegister;
+import vikinggoth.soulwarden.registers.BlockRegister;
 
 import java.util.Iterator;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package vikinggoth.soulwarden.registries;
+package vikinggoth.soulwarden.registers;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 /**
  * Created by Friedrich on 8/18/2015.
  */
-public class RecipeRegistry
+public class RecipeRegister
 {
     public static void initCrafting()
     {

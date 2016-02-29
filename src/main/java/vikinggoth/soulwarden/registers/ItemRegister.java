@@ -1,4 +1,4 @@
-package vikinggoth.soulwarden.registries;
+package vikinggoth.soulwarden.registers;
 
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -12,7 +12,6 @@ public class ItemRegister
     //Materials
     public static Item soulgem;
     public static Item soulgem_black;
-    //public static Item shard_stygian;
     public static Item ember;
 
     //Metals
@@ -43,6 +42,9 @@ public class ItemRegister
     public static Item dust_pewter;
     //public static Item dust_copper;
     //public static Item dust_tin;
+    //Darksteel - only source is Daksteel Knights
+    public static Item shard_darksteel; //like nuggets/dust
+    public static Item chunk_darksteel; //like ingots
 
     public static Item clay_porcelain;
     //public static Item bone_ash;
@@ -132,6 +134,9 @@ public class ItemRegister
         nugget_iron = new Item().setUnlocalizedName("nugget_iron");
         nugget_rostygold = new Item().setUnlocalizedName("nugget_rostygold");
         nugget_pewter = new Item().setUnlocalizedName("nugget_pewter");
+        //Darksteel
+        shard_darksteel = new Item().setUnlocalizedName("shard_darksteel");
+        chunk_darksteel = new Item().setUnlocalizedName("chunk_darksteel");
 
         clay_porcelain = new Item().setUnlocalizedName("clay_porcelain");
         //bone_ash = new Item().setUnlocalizedName("ash_bone");

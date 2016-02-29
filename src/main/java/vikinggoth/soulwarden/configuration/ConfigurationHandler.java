@@ -11,7 +11,7 @@ import java.io.File;
 public class ConfigurationHandler
 {
     //static boolean configValue;
-    public static int dimNecroID;
+    public static int dimStygiaID;
     public static int seaLevelNecro;
     public static int pylonTickRate = 180;
 
@@ -26,7 +26,7 @@ public class ConfigurationHandler
             config.load();
 
             //Read in properties from the configuration file
-            dimNecroID = config.getInt(Configuration.CATEGORY_GENERAL, "dimStygiaID", DimensionManager.getNextFreeDimId(), 1, 255, "The ID of the Necropolis Dimension");
+            dimStygiaID = config.getInt(Configuration.CATEGORY_GENERAL, "dimStygiaID", DimensionManager.getNextFreeDimId(), 1, 255, "The ID of the Necropolis Dimension");
             seaLevelNecro = config.getInt(Configuration.CATEGORY_GENERAL, "seaLevelStygia", 127, 1, 255, "The Sea Level in the Stygian Dimension");
             //configValue = config.get(Configuration.CATEGORY_GENERAL, "configValue", true, "This is an Example Config File").getBoolean();
         }

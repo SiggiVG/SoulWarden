@@ -1,4 +1,4 @@
-package vikinggoth.soulwarden.registries;
+package vikinggoth.soulwarden.registers;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
@@ -45,7 +45,10 @@ public class BlockRegister
     //Wood
     //Logs
     public static Block logSW;
+    public static Block logSWRot;
     public static Block logSW2;
+    public static Block logSW2Rot;
+
     /*
     All the varieties have at least 2 different growth algorithms
     1 for being grown on vanilla ground, these will generate like vanilla trees
@@ -53,12 +56,14 @@ public class BlockRegister
      */
     //Walls
     public static Block log_wallSW;
+    public static Block log_wallSWRot;
     //Leaves
     public static Block leafSW;
     //Saplings
     public static Block saplingSW;
     //Planks
     public static Block plankSW;
+    public static Block plankSWROT;
     //Stairs
     public static Block ghoulStairs;
     public static Block weepwillowStairs;
@@ -66,12 +71,21 @@ public class BlockRegister
     public static Block handStairs;
     public static Block alnwickStairs;
     public static Block pomegranateStairs;
+    public static Block ghoulStairsRot;
+    public static Block weepwillowStairsRot;
+    public static Block bonebeechStairsRot;
+    public static Block handStairsRot;
+    public static Block alnwickStairsRot;
+    public static Block pomegranateStairsRot;
 
     //Slabs
     public static Block planksSWSlab;
     public static Block planksSWSlabDouble;
+    public static Block planksSWSlabRot;
+    public static Block planksSWSlabDoubleRot;
     //Fences
     public static Block fenceSW;
+    public static Block fenceSWRot;
     //Doors TODO
     public static Block ghoulDoor;
     public static Block weepwillowDoor;
@@ -83,8 +97,8 @@ public class BlockRegister
     public static Block boneboo;
 
     //Bone
-    public static Block bonePile; //gravity block
-    public static Block boneBlock; //full block
+    public static Block bonePile; //gravity block, compress to make boneBlock
+    public static Block boneBlock; //full block, compress to mate itemNetherQuartz
     public static Block boneWall; //connectable wall
     public static Block boneFence; //connectable fence
     public static Block bonePillar; //wall width block, rotatable column
@@ -135,8 +149,8 @@ public class BlockRegister
     //Production
     public static Block soulSepulter; //makes soulcharged blocks
     public static Block soulExhumer; //unmakes soulcharged blocks, fills soul transport system*/
-    public static Block soulFurnace_on; //a furnace that runs on souls
-    public static Block soulFurnace_off; //a furnace that runs on souls
+    //public static Block soulFurnace_on; //a furnace that runs on souls
+    //public static Block soulFurnace_off; //a furnace that runs on souls
 
     /*public static Block boneGrinder; //ore doubler(by making <ore> dust), bonus bonemeal, skeleton head source
     public static Block soulForge; //multiblock, craft advanced items and bone construct components
@@ -254,8 +268,8 @@ public class BlockRegister
         /*
         soulPylon = new BlockSoulPylon().setUnlocalizedName("soulPylon");
         */
-        soulFurnace_on = new BlockSoulFurnace(true).setUnlocalizedName("soulfurnace_on");
-        soulFurnace_off = new BlockSoulFurnace(false).setUnlocalizedName("soulfurnace_on");
+        //soulFurnace_on = new BlockSoulFurnace(true).setUnlocalizedName("soulfurnace_on");
+        //soulFurnace_off = new BlockSoulFurnace(false).setUnlocalizedName("soulfurnace_on");
 
         registerBlocks();
     }

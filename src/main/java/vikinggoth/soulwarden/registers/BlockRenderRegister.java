@@ -1,4 +1,4 @@
-package vikinggoth.soulwarden.registries;
+package vikinggoth.soulwarden.registers;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
