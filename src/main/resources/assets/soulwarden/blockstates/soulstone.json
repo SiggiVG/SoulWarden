@@ -12,9 +12,9 @@
         "variant=cobble_mossy": { "model":"soulwarden:soulstone_cobble_mossy" },
         "variant=scattered": { "model":"soulwarden:soulstone_scattered" },
         "variant=small": { "model":"soulwarden:soulstone_small" },
-        "variant=ghost": { "model":"soulwarden:soulstone_ghost" },
-        "variant=skull": { "model":"soulwarden:soulstone_skull" },
-        "variant=eye": { "model":"soulwarden:soulstone_eye" },
-        "variant=creeper": { "model":"soulwarden:soulstone_creeper" }
+        "variant=sodalite": { "model":"soulwarden:sodalite" },
+        "variant=sodalite_smooth": { "model":"soulwarden:sodalite_smooth" },
+        "variant=nachtite": { "model":"soulwarden:nachtite" },
+        "variant=nachtite_smooth": { "model":"soulwarden:nachtite_smooth" }
     }
 }

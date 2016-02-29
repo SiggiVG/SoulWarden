@@ -21,7 +21,7 @@ public final class BlockRenderRegister
                 modid + ":soulstone_default", modid + ":soulstone_mossy", modid + ":soulstone_cracked", modid + ":soulstone_smooth",
                 modid + ":soulstone_brick", modid + ":soulstone_brick_mossy", modid + ":soulstone_brick_cracked", modid + ":soulstone_chiseled",
                 modid + ":soulstone_cobble", modid + ":soulstone_cobble_mossy", modid + ":soulstone_scattered", modid + ":soulstone_small",
-                modid + ":soulstone_ghost", modid + ":soulstone_skull", modid + ":soulstone_eye", modid + ":soulstone_creeper"
+                modid + ":sodalite", modid + ":sodalite_smooth", modid + ":nachtite", modid + ":nachtite_smooth"
                 );
 
         ModelBakery.addVariantName(Item.getItemFromBlock(BlockRegister.soulStoneSlab),
@@ -33,11 +33,6 @@ public final class BlockRenderRegister
                 modid + ":soulstone_default_wall", modid + ":soulstone_mossy_wall", modid + ":soulstone_cracked_wall", modid + ":soulstone_smooth_wall",
                 modid + ":soulstone_brick_wall", modid + ":soulstone_brick_mossy_wall", modid + ":soulstone_brick_cracked_wall", modid + ":soulstone_chiseled_wall",
                 modid + ":soulstone_cobble_wall", modid + ":soulstone_cobble_mossy_wall", modid + ":soulstone_scattered_wall", modid + ":soulstone_small_wall"
-        );
-
-        //Ores
-        ModelBakery.addVariantName(Item.getItemFromBlock(BlockRegister.stoneSW),
-                modid + ":sodalite", modid + ":sodalite_smooth"
         );
 
         ModelBakery.addVariantName(Item.getItemFromBlock(BlockRegister.logSW),
@@ -96,10 +91,10 @@ public final class BlockRenderRegister
         regBlock(BlockRegister.soulStone, 9, "soulstone_cobble_mossy");
         regBlock(BlockRegister.soulStone, 10, "soulstone_scattered");
         regBlock(BlockRegister.soulStone, 11, "soulstone_small");
-        regBlock(BlockRegister.soulStone, 12, "soulstone_ghost");
-        regBlock(BlockRegister.soulStone, 13, "soulstone_skull");
-        regBlock(BlockRegister.soulStone, 14, "soulstone_eye");
-        regBlock(BlockRegister.soulStone, 15, "soulstone_creeper");
+        regBlock(BlockRegister.soulStone, 12, "sodalite");
+        regBlock(BlockRegister.soulStone, 13, "sodalite_smooth");
+        regBlock(BlockRegister.soulStone, 14, "nachtite");
+        regBlock(BlockRegister.soulStone, 15, "nachtite_smooth");
 
         regBlock(BlockRegister.soulStoneBrickStairs);
         regBlock(BlockRegister.soulStoneCobbleStairs);

@@ -182,9 +182,6 @@ public class BlockRegister
         soulStoneWall = new BlockSoulStoneWall(soulStone).setUnlocalizedName("soulstone_wall");
         soulStoneFence = new BlockFence(soulStone.getMaterial()).setHardness(1.5F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("soulstone_fence");
 
-        //Stones
-        stoneSW = new BlockStoneSW().setUnlocalizedName("stoneSW");
-
         //Wood
         //Logs
         logSW = new BlockLogSW().setUnlocalizedName("logSW");
@@ -282,9 +279,6 @@ public class BlockRegister
         //Walls
         regMetaBlock(soulStoneWall);
         regBlock(soulStoneFence);
-
-        //Stones
-        regMetaBlock(stoneSW);
 
         //Wood
         //Logs

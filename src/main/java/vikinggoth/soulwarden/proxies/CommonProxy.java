@@ -6,6 +6,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import vikinggoth.soulwarden.registries.BlockRegister;
 import vikinggoth.soulwarden.registries.ItemRegister;
 import vikinggoth.soulwarden.registries.RecipeRegistry;
+import vikinggoth.soulwarden.world.biome.BiomeGenStygia;
+import vikinggoth.soulwarden.world.dimension.DimensionRegistry;
 
 /**
  * Created by Friedrich on 8/18/2015.
@@ -19,8 +21,8 @@ public abstract class CommonProxy implements IProxy
         ItemRegister.createItems();
         BlockRegister.createBlocks();
 
-        //BiomeRegistry.init();
-        //DimensionRegistry.init();
+        //BiomeGenStygia.init();
+        DimensionRegistry.init();
     }
 
     @Override

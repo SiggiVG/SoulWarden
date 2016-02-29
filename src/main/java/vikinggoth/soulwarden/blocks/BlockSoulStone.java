@@ -52,7 +52,7 @@ public class BlockSoulStone extends Block implements IMetaBlockName
     public void getSubBlocks(Item itemIn, CreativeTabs tab, List list)
     {
         EnumType[] aenumtype = EnumType.values();
-        int i = aenumtype.length - 4;
+        int i = aenumtype.length;
 
         for (int j = 0; j < i; ++j)
         {
@@ -113,11 +113,11 @@ public class BlockSoulStone extends Block implements IMetaBlockName
         COBBLE_MOSSY(9, "cobble_mossy"), //has wall, recipe: cobble + vine //has a wall
         SCATTERED(10, "scattered"), //smallstone, cooked from BRICK_SMALL in furnace //has stair, slab, wall
         SMALL(11, "small"), //has slab, recipe: 2x2 cobble = 4 smallbrick //has stair, slab, wall
-        //special variants
-        GHOST(12, "ghost"), //any ghost essence surrounded with any other type
-        SKULL(13, "skull"), //skeleton skull surrounded with any other type, keep skull(?) //has a wall
-        EYE(14, "eye"), //endereye(pearl?) surrounded with any other type
-        CREEPER(15, "creeper"); //creeper skull surrounded with any other type, keep skull(?)
+        //stone variants
+        SODALITE(12, "sodalite"),
+        SODALITE_POLISHED(13, "sodalite_smooth"),
+        NACHTITE(14, "nachtite"),
+        NACHTITE_POLISHED(15, "nachtite_smooth");
 
         private static final EnumType[] META_LOOKUP = new EnumType[values().length];
         private final int meta;
