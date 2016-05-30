@@ -1,10 +1,13 @@
 {
-  "parent":"soulwarden:block/half_slab_plankSW_alm",
+  "parent":"soulwarden:block/planks_alnwick_stairs",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],
       "translation": [ 0, 1.5, -2.75 ],
       "scale": [ 0.375, 0.375, 0.375 ]
+    },
+    "gui": {
+      "rotation": [ 0, 180, 0 ]
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "parent":"soulwarden:block/alm_log",
+  "parent":"soulwarden:block/half_slab_plankSW_alnwick",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],

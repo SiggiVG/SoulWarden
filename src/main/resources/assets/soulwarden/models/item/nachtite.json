@@ -1,5 +1,5 @@
 {
-  "parent":"soulwarden:block/stone_nachtite",
+  "parent":"soulwarden:block/nachtite",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],

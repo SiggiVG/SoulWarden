@@ -1,5 +1,5 @@
 {
-  "parent":"soulwarden:block/alm_log_wall_inventory",
+  "parent":"soulwarden:block/half_slab_soulstone_unused",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],

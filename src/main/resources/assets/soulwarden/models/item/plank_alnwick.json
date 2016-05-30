@@ -1,5 +1,5 @@
 {
-  "parent":"soulwarden:block/alm_fence_inventory",
+  "parent":"soulwarden:block/planks_alnwick",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],

@@ -25,8 +25,8 @@ public final class BlockRenderRegister
                 );
 
         ModelBakery.addVariantName(Item.getItemFromBlock(BlockRegister.soulStoneSlab),
-                modid + ":soulstone_default_slab", modid + ":soulstone_smooth_slab", modid + ":soulstone_brick_slab",
-                modid + ":soulstone_cobble_slab", modid + ":soulstone_scattered_slab", modid + ":soulstone_small_slab"
+                modid + ":soulstone_default_slab", modid + ":soulstone_cracked_slab", modid + ":soulstone_smooth_slab", modid + ":soulstone_brick_slab",
+                modid + ":soulstone_cobble_slab", modid + ":soulstone_scattered_slab", modid + ":soulstone_small_slab", modid + ":soulstone_unused_slab"
                 );
 
         ModelBakery.addVariantName(Item.getItemFromBlock(BlockRegister.soulStoneWall),
@@ -102,11 +102,13 @@ public final class BlockRenderRegister
         regBlock(BlockRegister.soulStoneBrickSmallStairs);
 
         regBlock(BlockRegister.soulStoneSlab, 0, "soulstone_default_slab");
-        regBlock(BlockRegister.soulStoneSlab, 1, "soulstone_smooth_slab");
-        regBlock(BlockRegister.soulStoneSlab, 2, "soulstone_brick_slab");
-        regBlock(BlockRegister.soulStoneSlab, 3, "soulstone_cobble_slab");
-        regBlock(BlockRegister.soulStoneSlab, 4, "soulstone_scattered_slab");
-        regBlock(BlockRegister.soulStoneSlab, 5, "soulstone_small_slab");
+        regBlock(BlockRegister.soulStoneSlab, 1, "soulstone_cracked_slab");
+        regBlock(BlockRegister.soulStoneSlab, 2, "soulstone_smooth_slab");
+        regBlock(BlockRegister.soulStoneSlab, 3, "soulstone_brick_slab");
+        regBlock(BlockRegister.soulStoneSlab, 4, "soulstone_cobble_slab");
+        regBlock(BlockRegister.soulStoneSlab, 5, "soulstone_scattered_slab");
+        regBlock(BlockRegister.soulStoneSlab, 6, "soulstone_small_slab");
+        regBlock(BlockRegister.soulStoneSlab, 7, "soulstone_unused_slab");
 
         regBlock(BlockRegister.soulStoneWall, 0, "soulstone_default_wall");
         regBlock(BlockRegister.soulStoneWall, 1, "soulstone_mossy_wall");
@@ -121,9 +123,6 @@ public final class BlockRenderRegister
         regBlock(BlockRegister.soulStoneWall, 10, "soulstone_scattered_wall");
         regBlock(BlockRegister.soulStoneWall, 11, "soulstone_small_wall");
         regBlock(BlockRegister.soulStoneFence);
-
-        regBlock(BlockRegister.stoneSW, 0, "sodalite");
-        regBlock(BlockRegister.stoneSW, 1, "sodalite_smooth");
 
         regBlock(BlockRegister.logSW, 0, "log_ghoul");
         regBlock(BlockRegister.logSW, 1, "log_weepwillow");

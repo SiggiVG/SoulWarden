@@ -1,5 +1,5 @@
 {
-  "parent":"soulwarden:block/stone_sodalite",
+  "parent":"soulwarden:block/sodalite",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],

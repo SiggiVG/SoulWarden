@@ -62,7 +62,7 @@ public abstract class BlockSoulStoneSlab extends BlockSlab
     @Override
     public IProperty getVariantProperty()
     {
-        return this.VARIANT;
+        return VARIANT;
     }
 
     @Override
@@ -77,7 +77,7 @@ public abstract class BlockSoulStoneSlab extends BlockSlab
         if (itemIn != Item.getItemFromBlock(BlockRegister.soulStoneSlabDouble))
         {
             EnumType[] aenumtype = EnumType.values();
-            int i = aenumtype.length - 2;
+            int i = aenumtype.length;
 
             for (int j = 0; j < i; ++j) {
                 EnumType enumtype = aenumtype[j];

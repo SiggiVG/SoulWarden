@@ -1,5 +1,5 @@
 {
-  "parent":"soulwarden:block/sodalite_smooth",
+  "parent":"soulwarden:block/half_slab_soulstone_cracked",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],

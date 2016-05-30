@@ -213,7 +213,7 @@ public class BlockRegister
         weepwillowStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.WEEPWILLOW)).setUnlocalizedName("planks_weepwillow_stairs");
         bonebeechStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.BONEBEECH)).setUnlocalizedName("planks_bonebeech_stairs");
         handStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.HAND)).setUnlocalizedName("planks_hand_stairs");
-        alnwickStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.ALNWICK)).setUnlocalizedName("planks_alm_stairs");
+        alnwickStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.ALNWICK)).setUnlocalizedName("planks_alnwick_stairs");
         pomegranateStairs = new BlockStairsSW(plankSW.getDefaultState().withProperty(BlockPlanksSW.VARIANT, EnumWoodType.POMEGRANATE)).setUnlocalizedName("planks_pomegranate_stairs");
         //Slabs
         planksSWSlab = new BlockHalfPlanksSWSlab(Material.wood).setUnlocalizedName("plankSW_slab");
@@ -228,7 +228,7 @@ public class BlockRegister
         weepwillowDoor = new BlockDoorSW().setUnlocalizedName("door_weepwillow");
         bonebeechDoor = new BlockDoorSW().setUnlocalizedName("door_bonebeech");
         handDoor = new BlockDoorSW().setUnlocalizedName("door_hand");
-        alnwickDoor = new BlockDoorSW().setUnlocalizedName("door_alm");
+        alnwickDoor = new BlockDoorSW().setUnlocalizedName("door_alnwick");
         pomegranateDoor = new BlockDoorSW().setUnlocalizedName("door_pomegranate");
 
         //Plants TODO make boneboo spawn (sapling) craftable by crafting a soulgem with boneboo

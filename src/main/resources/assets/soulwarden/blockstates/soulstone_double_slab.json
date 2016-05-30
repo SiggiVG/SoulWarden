@@ -1,10 +1,12 @@
 {
     "variants": {
         "variant=default": { "model": "soulwarden:double_soulstone"},
+        "variant=cracked": { "model": "soulwarden:soulstone_cracked"},
         "variant=smooth": { "model": "soulwarden:double_soulstone_smooth"},
         "variant=brick": { "model": "soulwarden:soulstone_brick"},
         "variant=cobble": { "model": "soulwarden:soulstone_cobble"},
         "variant=scattered": { "model": "soulwarden:soulstone_scattered"},
-        "variant=small": { "model": "soulwarden:soulstone_small"}
+        "variant=small": { "model": "soulwarden:soulstone_small"},
+        "variant=unused": { "model": "soulwarden:soulstone_default"}
     }
 }
