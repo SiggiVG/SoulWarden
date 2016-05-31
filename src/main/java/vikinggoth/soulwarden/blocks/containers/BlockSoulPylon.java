@@ -16,7 +16,6 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import vikinggoth.soulwarden.tileentitites.TileSoulPylon;
 
 /**
  * Created by Friedrich on 8/18/2015.
@@ -38,7 +37,7 @@ public class BlockSoulPylon extends BlockContainer
     {
         if(meta == 0)
         {
-            return new TileSoulPylon();
+            //return new TileSoulPylon();
         }
         return null;
     }

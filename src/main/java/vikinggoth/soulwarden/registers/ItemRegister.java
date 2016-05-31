@@ -19,7 +19,7 @@ public class ItemRegister
     //public static Item dust_silver;
     //public static Item dust_bronze;
     //ingots
-    public static Item ingot_rostygold;
+    //public static Item ingot_rostygold;
     public static Item ingot_pewter;
     //public static Item ingot_copper;
     //public static Item ingot_tin;
@@ -29,7 +29,7 @@ public class ItemRegister
     //public static Item coin_pewter;
     //nuggets
     public static Item nugget_iron;
-    public static Item nugget_rostygold;
+    //public static Item nugget_rostygold;
     public static Item nugget_pewter;
     //public static Item nugget_copper;
     //public static Item nugget_tin;
@@ -38,7 +38,7 @@ public class ItemRegister
     //dusts
     public static Item dust_iron;
     public static Item dust_gold;
-    public static Item dust_rostygold;
+    //public static Item dust_rostygold;
     public static Item dust_pewter;
     //public static Item dust_copper;
     //public static Item dust_tin;
@@ -123,16 +123,16 @@ public class ItemRegister
         ember = new Item().setUnlocalizedName("coal_ember");
         hematite = new Item().setUnlocalizedName("hematite");
         //Ore  ingots
-        ingot_rostygold = new Item().setUnlocalizedName("ingot_rostygold");
+        //ingot_rostygold = new Item().setUnlocalizedName("ingot_rostygold");
         ingot_pewter = new Item().setUnlocalizedName("ingot_pewter");
         //Ore Dusts
         dust_iron = new Item().setUnlocalizedName("dust_iron");
         dust_gold = new Item().setUnlocalizedName("dust_gold");
-        dust_rostygold = new Item().setUnlocalizedName("dust_rostygold");
+        //dust_rostygold = new Item().setUnlocalizedName("dust_rostygold");
         dust_pewter = new Item().setUnlocalizedName("dust_pewter");
         //Ore Nuggets
         nugget_iron = new Item().setUnlocalizedName("nugget_iron");
-        nugget_rostygold = new Item().setUnlocalizedName("nugget_rostygold");
+        //nugget_rostygold = new Item().setUnlocalizedName("nugget_rostygold");
         nugget_pewter = new Item().setUnlocalizedName("nugget_pewter");
         //Darksteel
         shard_darksteel = new Item().setUnlocalizedName("shard_darksteel");
@@ -156,17 +156,17 @@ public class ItemRegister
         regItem(ember);
         regItem(hematite);
 
-        regItem(ingot_rostygold);
+        //regItem(ingot_rostygold);
         regItem(ingot_pewter);
 
         //TODO: textures
         regItem(dust_iron);
         regItem(dust_gold);
-        regItem(dust_rostygold);
+        //regItem(dust_rostygold);
         regItem(dust_pewter);
 
         regItem(nugget_iron);
-        regItem(nugget_rostygold);
+        //regItem(nugget_rostygold);
         regItem(nugget_pewter);
 
         regItem(clay_porcelain);

@@ -112,7 +112,7 @@ public class BlockRegister
     //Ores
     public static Block ore_soulgem;
     public static Block ore_soulgem_black;
-    public static Block ore_rostygold;
+    //public static Block ore_rostygold;
     public static Block ore_pewter;
     public static Block ore_hematite;
     public static Block ore_ember;
@@ -120,7 +120,7 @@ public class BlockRegister
     //Metals
     public static Block block_soulgem;
     public static Block block_soulgem_black;
-    public static Block block_rostygold;
+    //public static Block block_rostygold;
     public static Block block_pewter;
     public static Block block_hematite;
     public static Block block_silver;
@@ -246,8 +246,8 @@ public class BlockRegister
         urnsmall = new BlockUrnSmall().setUnlocalizedName("urn_small");
 
         //Ores
-        ore_rostygold = new BlockOre().setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("ore_rostygold");
-        ore_rostygold.setHarvestLevel("pickaxe", 2);
+        //ore_rostygold = new BlockOre().setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("ore_rostygold");
+        //ore_rostygold.setHarvestLevel("pickaxe", 2);
         ore_pewter = new BlockOre().setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("ore_pewter");
         ore_pewter.setHarvestLevel("pickaxe", 2);
         ore_soulgem = new BlockSoulgemOre().setUnlocalizedName("ore_soulgem");
@@ -258,7 +258,7 @@ public class BlockRegister
         //Metals
         block_soulgem = new BlockSoulgem().setUnlocalizedName("block_soulgem");
         block_soulgem_black = new BlockSoulgem().setUnlocalizedName("block_soulgem_black");
-        block_hematite = new BlockCompressed(MapColor.redColor).setUnlocalizedName("block_hematite");
+        block_hematite = new Block(Material.rock, MapColor.redColor).setUnlocalizedName("block_hematite");
 
         //Portal
         soulstone_twisted = new BlockSoulstoneTwisted().setUnlocalizedName("soulstone_twisted");
@@ -338,7 +338,7 @@ public class BlockRegister
         regMetaBlock(urnsmall);
 
         //Ores
-        regBlock(ore_rostygold);
+        //regBlock(ore_rostygold);
         regBlock(ore_pewter);
         regMetaBlock(ore_soulgem);
         regBlock(ore_soulgem_black);

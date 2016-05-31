@@ -1,5 +1,10 @@
 {
   "variants": {
-    "normal": { "model":"soulwarden:ore_soulgem_black" }
+    "normal": [
+      { "model":"soulwarden:ore_soulgem_black" },
+      { "model":"soulwarden:ore_soulgem_black", "y": 90 },
+      { "model":"soulwarden:ore_soulgem_black", "y": 180 },
+      { "model":"soulwarden:ore_soulgem_black", "y": 270 }
+      ]
   }
 }

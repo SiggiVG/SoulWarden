@@ -189,7 +189,7 @@ public final class BlockRenderRegister
         regBlock(BlockRegister.urnsmall, 3, "urnsmall_greek");
 
         //Ores
-        regBlock(BlockRegister.ore_rostygold);
+        //regBlock(BlockRegister.ore_rostygold);
         regBlock(BlockRegister.ore_pewter);
         regBlock(BlockRegister.ore_soulgem_black);
         regBlock(BlockRegister.ore_hematite);

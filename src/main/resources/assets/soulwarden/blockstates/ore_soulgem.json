@@ -1,7 +1,22 @@
 {
   "variants": {
-    "variant=default": { "model":"soulwarden:ore_soulgem" },
-    "variant=nether": { "model":"soulwarden:ore_soulgem_nether" },
-    "variant=necro": { "model":"soulwarden:ore_soulgem_necro" }
+    "variant=default": [
+      { "model":"soulwarden:ore_soulgem" },
+      { "model":"soulwarden:ore_soulgem", "y": 90 },
+      { "model":"soulwarden:ore_soulgem", "y": 180 },
+      { "model":"soulwarden:ore_soulgem", "y": 270 }
+    ],
+    "variant=nether":[
+      { "model":"soulwarden:ore_soulgem_nether" },
+      { "model":"soulwarden:ore_soulgem_nether", "y": 90 },
+      { "model":"soulwarden:ore_soulgem_nether", "y": 180 },
+      { "model":"soulwarden:ore_soulgem_nether", "y": 270 }
+    ],
+    "variant=necro":[
+      { "model":"soulwarden:ore_soulgem_necro" },
+      { "model":"soulwarden:ore_soulgem_necro", "y": 90 },
+      { "model":"soulwarden:ore_soulgem_necro", "y": 180 },
+      { "model":"soulwarden:ore_soulgem_necro", "y": 270 }
+    ]
   }
 }
