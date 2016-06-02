@@ -12,8 +12,11 @@ public class ConfigurationHandler
 {
     //static boolean configValue;
     public static int dimStygiaID;
-    public static int seaLevelNecro;
-    public static int pylonTickRate = 180;
+
+    public static int biomeStygiaSeaID;
+    public static int biomeBoneBeachID;
+
+    public static int enchIDSoulSteal;
 
     public static void init(File configFile)
     {
@@ -26,9 +29,18 @@ public class ConfigurationHandler
             config.load();
 
             //Read in properties from the configuration file
-            dimStygiaID = config.getInt(Configuration.CATEGORY_GENERAL, "dimStygiaID", DimensionManager.getNextFreeDimId(), 1, 255, "The ID of the Necropolis Dimension");
-            seaLevelNecro = config.getInt(Configuration.CATEGORY_GENERAL, "seaLevelStygia", 127, 1, 255, "The Sea Level in the Stygian Dimension");
             //configValue = config.get(Configuration.CATEGORY_GENERAL, "configValue", true, "This is an Example Config File").getBoolean();
+
+            //Dimension
+            dimStygiaID = config.getInt(Configuration.CATEGORY_GENERAL, "dimStygiaID", DimensionManager.getNextFreeDimId(), 1, 255, "The ID of the Stygia Dimension");
+
+            //Biomes
+            biomeStygiaSeaID = config.getInt(Configuration.CATEGORY_GENERAL, "biomeStygiaSeaID", 71, 40, 255, "The ID of the StygianSea Biome");
+            biomeBoneBeachID = config.getInt(Configuration.CATEGORY_GENERAL, "biomeBoneBeachID", 71, 40, 255, "The ID of the BoneBeach Biome");
+
+            //Enchantments
+            enchIDSoulSteal = config.getInt(Configuration.CATEGORY_GENERAL, "enchIDSoulSteal", 71, 63, 255, "The ID of the Soul Steal Enchantment");
+
         }
         catch (Exception e)
         {

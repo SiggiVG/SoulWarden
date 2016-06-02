@@ -19,8 +19,12 @@ public class ItemRenderRegister
 
     public static void registerItemRenderer()
     {
+        regItem(ItemRegister.soul_dagger);
+
         regItem(ItemRegister.soulgem);
         regItem(ItemRegister.soulgem_black);
+        regItem(ItemRegister.soulgem_charged);
+        regItem(ItemRegister.soulgem_black_charged);
         regItem(ItemRegister.ember);
         regItem(ItemRegister.hematite);
 
@@ -30,9 +34,11 @@ public class ItemRenderRegister
         //regItem(ItemRegister.nugget_rostygold);
         regItem(ItemRegister.nugget_pewter);
 
-        regItem(ItemRegister.clay_porcelain);
-        regItem(ItemRegister.bone_shard);
-        regItem(ItemRegister.feather_beetle);
+        //regItem(ItemRegister.clay_porcelain);
+        //regItem(ItemRegister.bone_shard);
+        //regItem(ItemRegister.feather_beetle);
+
+        regItem(ItemRegister.bonebooFruit);
     }
 
     private static void regItem(Item item)

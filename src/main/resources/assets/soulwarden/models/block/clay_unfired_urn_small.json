@@ -1,0 +1,10 @@
+{
+    "parent": "soulwarden:block/urn_small",
+    "textures": {
+        "texture": "blocks/clay",
+        "side": "blocks/clay",
+        "bottom": "blocks/clay",
+        "mouth": "blocks/clay",
+        "front": "blocks/clay"
+    }
+}

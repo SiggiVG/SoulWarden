@@ -11,6 +11,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vikinggoth.soulwarden.configuration.ConfigurationHandler;
 import vikinggoth.soulwarden.registers.BlockRegister;
 
 import java.util.Random;
@@ -251,9 +252,12 @@ public class BlockPortalNecro extends BlockBreakable
      */
     public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
     {
-        if (entityIn.ridingEntity == null && entityIn.riddenByEntity == null)
+        if(worldIn.isRemote)
         {
-            //entityIn.travelToDimension(DimensionRegistry.DIM_NECRO_ID);
+            if (entityIn.ridingEntity == null && entityIn.riddenByEntity == null)
+            {
+                entityIn.travelToDimension(ConfigurationHandler.dimStygiaID);
+            }
         }
     }
 

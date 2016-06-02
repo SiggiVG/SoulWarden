@@ -7,6 +7,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
@@ -62,6 +63,18 @@ public abstract class BlockUrn extends Block implements IMetaBlockName
         int num = random.nextInt(10) - 4;
         if (num < 0) num = 0;
         return num;
+    }
+
+    @Override
+    protected boolean canSilkHarvest()
+    {
+        return true;
+    }
+
+    @Override
+    public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player)
+    {
+        return true;
     }
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
@@ -128,13 +141,23 @@ public abstract class BlockUrn extends Block implements IMetaBlockName
         return new ItemStack(Item.getItemFromBlock(this), 1, this.getMetaFromState(world.getBlockState(pos)));
     }
 
+    /**
+     * In the future, there are 2 choices for Urns
+     * 1: the current 8 varieties + 8 more varieties of Urn in 3 sizes with 1 special face each, on a random side
+     * OR
+     * 2: only the current 8 varieties of Urn in 3 sizes with 2 special faces on opposite sides, orientation base upon player facing when place
+     */
     public static enum EnumType implements IStringSerializable
     {
         //normal variants
-        SOULSTONE(0, "soulstone"),
-        PORCELAIN(1, "porcelain"),
-        CLAY(2, "clay"),
-        GREEK(3, "greek");
+        SOULSTONE(0, "soulstone"), //clay in sepulter
+        PORCELAIN(1, "porcelain"), //cook porcelain_unfired //TODO create porcelain texture
+        CLAY(2, "clay"), //cook clay_unfired
+        GREEK(3, "greek"), //clay + ink sack
+        CLAY_UNFIRED(4, "clay_unfired"), //crafted from clay
+        PORCELAIN_UNFIRED(5, "porcelain_unfired"), //crafted from porcelain clay
+        ENAMELED_GOLD(6, "enameled_gold"), //porcelain + gold nuggets //TODO create enameled porcelain texture + front texture
+        ENAMELED_PEWTER(7, "enameled_pewter"); //soulstone + pewter nuggets //TODO create enameled soulstone texture + front texture
 
         private static final EnumType[] META_LOOKUP = new EnumType[values().length];
         private final int meta;

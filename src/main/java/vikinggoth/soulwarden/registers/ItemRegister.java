@@ -1,17 +1,37 @@
 package vikinggoth.soulwarden.registers;
 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import vikinggoth.soulwarden.SoulWarden;
+import vikinggoth.soulwarden.configuration.ConfigurationHandler;
+import vikinggoth.soulwarden.items.enchants.EnchantmentSoulSteal;
 
 /**
  * Created by Friedrich on 8/18/2015.
  */
 public class ItemRegister
 {
+    //Enchantments
+    public static Enchantment soulSteal = new EnchantmentSoulSteal(ConfigurationHandler.enchIDSoulSteal, new ResourceLocation("soulsteal"), 2, EnumEnchantmentType.WEAPON);
+
+    //Tools
+    public static Item.ToolMaterial SOULGEM = EnumHelper.addToolMaterial("SOULGEM", 2, 90, 5.0F, -0.5F, 18);
+
+    public static Item soul_dagger;
+
     //Materials
     public static Item soulgem;
     public static Item soulgem_black;
+    public static Item soulgem_charged;
+    public static Item soulgem_black_charged;
     public static Item ember;
 
     //Metals
@@ -43,17 +63,18 @@ public class ItemRegister
     //public static Item dust_copper;
     //public static Item dust_tin;
     //Darksteel - only source is Daksteel Knights
-    public static Item shard_darksteel; //like nuggets/dust
-    public static Item chunk_darksteel; //like ingots
+    //public static Item shard_darksteel; //like nuggets/dust
+    //public static Item chunk_darksteel; //like ingots
 
-    public static Item clay_porcelain;
+    //public static Item clay_porcelain;
     //public static Item bone_ash;
-    public static Item bone_shard;
-    public static Item feather_beetle; // a scarab wing, can by used to make feathers
+    //public static Item bone_shard;
+    //public static Item feather_beetle; // a scarab wing, can by used to make feathers
     //public static Item hide_subtle; //leather cow
     //public static Item hibe_chitin; //use to make chitin armor
 
     //Food
+    public static Item bonebooFruit;
     //public static Item flesh_milk; //milkgrub cow
     //public static Item flesh_silk; //silkworm sheep
     //public static Item flesh_pill; //pillbug pig
@@ -117,42 +138,63 @@ public class ItemRegister
 
     public static void createItems()
     {
+        //Tools
+        soul_dagger = new ItemSword(SOULGEM).setUnlocalizedName("soul_dagger").setNoRepair();
+
         //Ore items
         soulgem = new Item().setUnlocalizedName("soulgem");
         soulgem_black = new Item().setUnlocalizedName("soulgem_black");
+        soulgem_charged = new Item(){
+            @Override
+            public boolean hasEffect(ItemStack stack)
+            {
+                return true;
+            }
+        }.setUnlocalizedName("soulgem_charged");
+        soulgem_black_charged = new Item(){
+            @Override
+            public boolean hasEffect(ItemStack stack)
+            {
+                return true;
+            }
+        }.setUnlocalizedName("soulgem_black_charged");
         ember = new Item().setUnlocalizedName("coal_ember");
         hematite = new Item().setUnlocalizedName("hematite");
         //Ore  ingots
         //ingot_rostygold = new Item().setUnlocalizedName("ingot_rostygold");
         ingot_pewter = new Item().setUnlocalizedName("ingot_pewter");
         //Ore Dusts
-        dust_iron = new Item().setUnlocalizedName("dust_iron");
-        dust_gold = new Item().setUnlocalizedName("dust_gold");
+        dust_iron = new Item().setUnlocalizedName("dust_iron").setCreativeTab(CreativeTabs.tabMaterials);
+        dust_gold = new Item().setUnlocalizedName("dust_gold").setCreativeTab(CreativeTabs.tabMaterials);
         //dust_rostygold = new Item().setUnlocalizedName("dust_rostygold");
         dust_pewter = new Item().setUnlocalizedName("dust_pewter");
         //Ore Nuggets
-        nugget_iron = new Item().setUnlocalizedName("nugget_iron");
+        nugget_iron = new Item().setUnlocalizedName("nugget_iron").setCreativeTab(CreativeTabs.tabMaterials);
         //nugget_rostygold = new Item().setUnlocalizedName("nugget_rostygold");
         nugget_pewter = new Item().setUnlocalizedName("nugget_pewter");
         //Darksteel
-        shard_darksteel = new Item().setUnlocalizedName("shard_darksteel");
-        chunk_darksteel = new Item().setUnlocalizedName("chunk_darksteel");
+        //shard_darksteel = new Item().setUnlocalizedName("shard_darksteel");
+        //chunk_darksteel = new Item().setUnlocalizedName("chunk_darksteel");
 
-        clay_porcelain = new Item().setUnlocalizedName("clay_porcelain");
+        //clay_porcelain = new Item().setUnlocalizedName("clay_porcelain");
         //bone_ash = new Item().setUnlocalizedName("ash_bone");
-        bone_shard = new Item().setUnlocalizedName("shard_bone");
+        //bone_shard = new Item().setUnlocalizedName("shard_bone");
 
-        feather_beetle = new Item().setUnlocalizedName("feather_beetle");
+        //feather_beetle = new Item().setUnlocalizedName("feather_beetle");
 
-
+        bonebooFruit = new ItemFood(3, 0.4F, false).setUnlocalizedName("boneboo_fruit");
 
         registerItems();
     }
 
     public static void registerItems()
     {
+        GameRegistry.registerItem(soul_dagger, soul_dagger.getUnlocalizedName().substring(5));
+
         regItem(soulgem);
         regItem(soulgem_black);
+        regItem(soulgem_charged);
+        regItem(soulgem_black_charged);
         regItem(ember);
         regItem(hematite);
 
@@ -160,22 +202,22 @@ public class ItemRegister
         regItem(ingot_pewter);
 
         //TODO: textures
-        regItem(dust_iron);
-        regItem(dust_gold);
+        GameRegistry.registerItem(dust_iron, dust_iron.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(dust_gold, dust_gold.getUnlocalizedName().substring(5));
         //regItem(dust_rostygold);
         regItem(dust_pewter);
 
-        regItem(nugget_iron);
+        GameRegistry.registerItem(nugget_iron, nugget_iron.getUnlocalizedName().substring(5));
         //regItem(nugget_rostygold);
         regItem(nugget_pewter);
 
-        regItem(clay_porcelain);
+        //regItem(clay_porcelain);
         //regItem(bone_ash);
-        regItem(bone_shard);
+        //regItem(bone_shard);
 
-        regItem(feather_beetle);
+        //regItem(feather_beetle);
 
-
+        regItem(bonebooFruit);
     }
 
     private static void regItem(Item item)

@@ -1,10 +1,10 @@
 {
     "parent": "soulwarden:block/urn_small",
     "textures": {
-        "texture": "blocks/hardened_clay",
-        "side": "blocks/hardened_clay",
-        "bottom": "blocks/hardened_clay",
-        "mouth": "blocks/hardened_clay",
-        "front": "blocks/hardened_clay"
+        "texture": "blocks/greek",
+        "side": "blocks/greek",
+        "bottom": "blocks/greek",
+        "mouth": "blocks/greek",
+        "front": "blocks/greek_face"
     }
 }

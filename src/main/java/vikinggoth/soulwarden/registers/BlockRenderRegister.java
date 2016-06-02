@@ -69,6 +69,21 @@ public final class BlockRenderRegister
         ModelBakery.addVariantName(Item.getItemFromBlock(BlockRegister.ore_soulgem),
                 modid + ":ore_soulgem", modid + ":ore_soulgem_nether", modid + ":ore_soulgem_necro"
         );
+
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockRegister.urnlarge),
+                modid + ":urn_large_soulstone", modid + ":urn_large_porcelain", modid + ":urn_large_clay", modid + ":urn_large_greek",
+                modid + ":urn_large_clay_unfired", modid + ":urn_large_porcelain_unfired", modid + ":urn_large_enameled_gold", modid + ":urn_large_enameled_pewter"
+        );
+
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockRegister.urnmedium),
+                modid + ":urn_medium_soulstone", modid + ":urn_medium_porcelain", modid + ":urn_medium_clay", modid + ":urn_medium_greek",
+                modid + ":urn_medium_clay_unfired", modid + ":urn_medium_porcelain_unfired", modid + ":urn_medium_enameled_gold", modid + ":urn_medium_enameled_pewter"
+        );
+
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockRegister.urnlarge),
+                modid + ":urn_small_soulstone", modid + ":urn_small_porcelain", modid + ":urn_small_clay", modid + ":urn_small_greek",
+                modid + ":urn_small_clay_unfired", modid + ":urn_small_porcelain_unfired", modid + ":urn_small_enameled_gold", modid + ":urn_small_enameled_pewter"
+        );
     }
 
     //These are the item models for the blocks
@@ -175,18 +190,33 @@ public final class BlockRenderRegister
         regBlock(BlockRegister.boneFence);
 
         //Urns
-        regBlock(BlockRegister.urnlarge, 0, "urnlarge_soulstone");
-        regBlock(BlockRegister.urnlarge, 1, "urnlarge_porcelain");
-        regBlock(BlockRegister.urnlarge, 2, "urnlarge_clay");
-        regBlock(BlockRegister.urnlarge, 3, "urnlarge_greek");
-        regBlock(BlockRegister.urnmedium, 0, "urnmedium_soulstone");
-        regBlock(BlockRegister.urnmedium, 1, "urnmedium_porcelain");
-        regBlock(BlockRegister.urnmedium, 2, "urnmedium_clay");
-        regBlock(BlockRegister.urnmedium, 3, "urnmedium_greek");
-        regBlock(BlockRegister.urnsmall, 0, "urnsmall_soulstone");
-        regBlock(BlockRegister.urnsmall, 1, "urnsmall_porcelain");
-        regBlock(BlockRegister.urnsmall, 2, "urnsmall_clay");
-        regBlock(BlockRegister.urnsmall, 3, "urnsmall_greek");
+        regBlock(BlockRegister.urnlarge, 0, "urn_large_soulstone");
+        regBlock(BlockRegister.urnlarge, 1, "urn_large_porcelain");
+        regBlock(BlockRegister.urnlarge, 2, "urn_large_clay");
+        regBlock(BlockRegister.urnlarge, 3, "urn_large_greek");
+        regBlock(BlockRegister.urnlarge, 4, "urn_large_clay_unfired");
+        regBlock(BlockRegister.urnlarge, 5, "urn_large_porcelain_unfired");
+        regBlock(BlockRegister.urnlarge, 6, "urn_large_enameled_gold");
+        regBlock(BlockRegister.urnlarge, 7, "urn_large_enameled_pewter");
+
+        regBlock(BlockRegister.urnmedium, 0, "urn_medium_soulstone");
+        regBlock(BlockRegister.urnmedium, 1, "urn_medium_porcelain");
+        regBlock(BlockRegister.urnmedium, 2, "urn_medium_clay");
+        regBlock(BlockRegister.urnmedium, 3, "urn_medium_greek");
+        regBlock(BlockRegister.urnmedium, 4, "urn_medium_clay_unfired");
+        regBlock(BlockRegister.urnmedium, 5, "urn_medium_porcelain_unfired");
+        regBlock(BlockRegister.urnmedium, 6, "urn_medium_enameled_gold");
+        regBlock(BlockRegister.urnmedium, 7, "urn_medium_enameled_pewter");
+
+
+        regBlock(BlockRegister.urnsmall, 0, "urn_small_soulstone");
+        regBlock(BlockRegister.urnsmall, 1, "urn_small_porcelain");
+        regBlock(BlockRegister.urnsmall, 2, "urn_small_clay");
+        regBlock(BlockRegister.urnsmall, 3, "urn_small_greek");
+        regBlock(BlockRegister.urnsmall, 4, "urn_small_clay_unfired");
+        regBlock(BlockRegister.urnsmall, 5, "urn_small_porcelain_unfired");
+        regBlock(BlockRegister.urnsmall, 6, "urn_small_enameled_gold");
+        regBlock(BlockRegister.urnsmall, 7, "urn_small_enameled_pewter");
 
         //Ores
         //regBlock(BlockRegister.ore_rostygold);
@@ -201,6 +231,11 @@ public final class BlockRenderRegister
         regBlock(BlockRegister.block_soulgem);
         regBlock(BlockRegister.block_soulgem_black);
         regBlock(BlockRegister.block_hematite);
+
+        //Plants
+        regBlock(BlockRegister.boneboo);
+        regBlock(BlockRegister.bonebooBase);
+        regBlock(BlockRegister.bonebooFruitBlock);
 
     }
 

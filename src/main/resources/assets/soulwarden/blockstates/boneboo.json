@@ -1,20 +1,60 @@
 {
     "variants": {
-        "age=0": { "model": "soulwarden:boneboo" },
-        "age=1": { "model": "soulwarden:boneboo" },
-        "age=2": { "model": "soulwarden:boneboo" },
-        "age=3": { "model": "soulwarden:boneboo" },
-        "age=4": { "model": "soulwarden:boneboo" },
-        "age=5": { "model": "soulwarden:boneboo" },
-        "age=6": { "model": "soulwarden:boneboo" },
-        "age=7": { "model": "soulwarden:boneboo" },
-        "age=8": { "model": "soulwarden:boneboo" },
-        "age=9": { "model": "soulwarden:boneboo" },
-        "age=10": { "model": "soulwarden:boneboo" },
-        "age=11": { "model": "soulwarden:boneboo" },
-        "age=12": { "model": "soulwarden:boneboo" },
-        "age=13": { "model": "soulwarden:boneboo" },
-        "age=14": { "model": "soulwarden:boneboo" },
-        "age=15": { "model": "soulwarden:boneboo" }
+        "age=0": [
+            { "model": "soulwarden:boneboo0" },
+            { "model": "soulwarden:boneboo0", "y": 90 },
+            { "model": "soulwarden:boneboo0", "y": 180 },
+            { "model": "soulwarden:boneboo0", "y": 270 }
+        ],
+        "age=1": [
+            { "model": "soulwarden:boneboo0" },
+            { "model": "soulwarden:boneboo0", "y": 90 },
+            { "model": "soulwarden:boneboo0", "y": 180 },
+            { "model": "soulwarden:boneboo0", "y": 270 }
+        ],
+        "age=2": [
+            { "model": "soulwarden:boneboo0" },
+            { "model": "soulwarden:boneboo0", "y": 90 },
+            { "model": "soulwarden:boneboo0", "y": 180 },
+            { "model": "soulwarden:boneboo0", "y": 270 }
+        ],
+        "age=3": [
+            { "model": "soulwarden:boneboo0" },
+            { "model": "soulwarden:boneboo0", "y": 90 },
+            { "model": "soulwarden:boneboo0", "y": 180 },
+            { "model": "soulwarden:boneboo0", "y": 270 }
+        ],
+        "age=4": [
+            { "model": "soulwarden:boneboo1" },
+            { "model": "soulwarden:boneboo1", "y": 90 },
+            { "model": "soulwarden:boneboo1", "y": 180 },
+            { "model": "soulwarden:boneboo1", "y": 270 }
+        ],
+        "age=5": [
+            { "model": "soulwarden:boneboo1" },
+            { "model": "soulwarden:boneboo1", "y": 90 },
+            { "model": "soulwarden:boneboo1", "y": 180 },
+            { "model": "soulwarden:boneboo1", "y": 270 }
+        ],
+        "age=6": [
+            { "model": "soulwarden:boneboo1" },
+            { "model": "soulwarden:boneboo1", "y": 90 },
+            { "model": "soulwarden:boneboo1", "y": 180 },
+            { "model": "soulwarden:boneboo1", "y": 270 }
+        ],
+        "age=7": [
+            { "model": "soulwarden:boneboo1" },
+            { "model": "soulwarden:boneboo1", "y": 90 },
+            { "model": "soulwarden:boneboo1", "y": 180 },
+            { "model": "soulwarden:boneboo1", "y": 270 }
+        ],
+        "age=8": { "model": "soulwarden:boneboo1" },
+        "age=9": { "model": "soulwarden:boneboo1" },
+        "age=10": { "model": "soulwarden:boneboo1" },
+        "age=11": { "model": "soulwarden:boneboo1" },
+        "age=12": { "model": "soulwarden:boneboo1" },
+        "age=13": { "model": "soulwarden:boneboo1" },
+        "age=14": { "model": "soulwarden:boneboo1" },
+        "age=15": { "model": "soulwarden:boneboo1" }
     }
 }

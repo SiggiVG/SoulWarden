@@ -1,0 +1,29 @@
+{
+  "textures": {
+    "particle": "soulwarden:blocks/skull_face",
+    "face": "soulwarden:blocks/skull_face",
+    "top": "soulwarden:blocks/skull_top",
+    "side": "soulwarden:blocks/skull_side",
+    "back": "soulwarden:blocks/skull_back",
+    "bottom": "soulwarden:blocks/skull_bottom"
+  },
+  "elements": [
+    { "from": [ 4, -1, 4 ],
+      "to": [ 12, 7, 12 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#bottom" },
+        "up":    { "uv": [ 16, 16, 0, 0 ], "texture": "#top" },
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#face" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#back" },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side" },
+        "east":  { "uv": [ 16, 0, 0, 16 ], "texture": "#side" }
+      },
+      "rotation": {
+        "origin": [8, 3.5, 8],
+        "axis": "x",
+        "angle": 22.5
+      },
+      "__comment": "Rotated Skull"
+    }
+  ]
+}

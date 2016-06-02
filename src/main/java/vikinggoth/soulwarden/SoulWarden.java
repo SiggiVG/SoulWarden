@@ -1,7 +1,9 @@
 package vikinggoth.soulwarden;
 
+import akka.util.HashCode;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -12,7 +14,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.configuration.ConfigurationHandler;
 import vikinggoth.soulwarden.proxies.CommonProxy;
 import vikinggoth.soulwarden.reference.Reference;
-import vikinggoth.soulwarden.registers.BlockRegister;
+import vikinggoth.soulwarden.registers.ItemRegister;
+
+import java.util.List;
 
 
 /**
@@ -33,16 +37,18 @@ public class SoulWarden
         @Override
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem()
-        {
-            return Item.getItemFromBlock(BlockRegister.logSW);
-        }
+        { return ItemRegister.soulgem; }
 
         @Override
         @SideOnly(Side.CLIENT)
-        public int getIconItemDamage()
+        public void displayAllReleventItems(List<ItemStack> list)
         {
-            return 2;
+            ItemStack dagger = new ItemStack(ItemRegister.soul_dagger);
+            dagger.addEnchantment(ItemRegister.soulSteal, 1);
+            list.add(dagger);
+            super.displayAllReleventItems(list);
         }
+
     };
 
     @Mod.EventHandler

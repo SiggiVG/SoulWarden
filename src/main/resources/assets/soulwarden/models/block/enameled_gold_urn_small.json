@@ -1,0 +1,10 @@
+{
+    "parent": "soulwarden:block/urn_small",
+    "textures": {
+        "texture": "soulwarden:blocks/enameled_gold",
+        "side": "soulwarden:blocks/enameled_gold",
+        "bottom": "soulwarden:blocks/enameled_gold",
+        "mouth": "soulwarden:blocks/enameled_gold",
+        "front": "soulwarden:blocks/enameled_gold_face"
+    }
+}

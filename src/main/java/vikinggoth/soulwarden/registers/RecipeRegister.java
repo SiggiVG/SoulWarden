@@ -159,10 +159,16 @@ public class RecipeRegister
         //Soul Gravel, it's a soul sand textured block that doesnt slow you down
         GameRegistry.addRecipe(new ItemStack(BlockRegister.soulGravel, 4), "#I", "I#", '#', Blocks.gravel, 'I', Blocks.soul_sand);
         GameRegistry.addRecipe(new ItemStack(BlockRegister.soulGravel, 4), "I#", "#I", '#', Blocks.gravel, 'I', Blocks.soul_sand);
+
+        GameRegistry.addShapelessRecipe(new ItemStack(BlockRegister.bonebooBase), ItemRegister.bonebooFruit);
     }
 
     public static void initItemCrafting()
     {
-
+        ItemStack dagger = new ItemStack(ItemRegister.soul_dagger);
+        dagger.addEnchantment(ItemRegister.soulSteal, 1);
+        GameRegistry.addRecipe(dagger, "S", "I", "W", 'S', ItemRegister.soulgem, 'I', Items.iron_ingot, 'W', Items.stick);
+        GameRegistry.addRecipe(dagger, "S", "I", "W", 'S', ItemRegister.soulgem_charged, 'I', Items.iron_ingot, 'W', Items.stick);
+        //TODO custom repair for Soul Dagger
     }
 }

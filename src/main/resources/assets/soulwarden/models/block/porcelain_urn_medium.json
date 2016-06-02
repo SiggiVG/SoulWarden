@@ -1,10 +1,10 @@
 {
     "parent": "soulwarden:block/urn_medium",
     "textures": {
-        "texture": "soulwarden:blocks/boneblock",
-        "side": "soulwarden:blocks/boneblock",
-        "bottom": "soulwarden:blocks/boneblock",
-        "mouth": "soulwarden:blocks/boneblock",
-        "front": "soulwarden:blocks/boneblock"
+        "texture": "soulwarden:blocks/porcelain",
+        "side": "soulwarden:blocks/porcelain",
+        "bottom": "soulwarden:blocks/porcelain",
+        "mouth": "soulwarden:blocks/porcelain",
+        "front": "soulwarden:blocks/porcelain_face"
     }
 }

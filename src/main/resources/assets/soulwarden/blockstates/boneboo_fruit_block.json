@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "normal": [
+      { "model":"soulwarden:boneboo_fruit" },
+      { "model":"soulwarden:boneboo_fruit", "y": 90 },
+      { "model":"soulwarden:boneboo_fruit", "y": 180 },
+      { "model":"soulwarden:boneboo_fruit", "y": 270 }
+    ]
+  }
+}

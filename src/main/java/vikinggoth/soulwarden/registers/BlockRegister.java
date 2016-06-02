@@ -3,6 +3,7 @@ package vikinggoth.soulwarden.registers;
 import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import vikinggoth.soulwarden.SoulWarden;
 import vikinggoth.soulwarden.blocks.*;
@@ -94,7 +95,9 @@ public class BlockRegister
     public static Block alnwickDoor;
     public static Block pomegranateDoor;
 
+    public static Block bonebooBase;
     public static Block boneboo;
+    public static Block bonebooFruitBlock;
 
     //Bone
     public static Block bonePile; //gravity block, compress to make boneBlock
@@ -177,9 +180,11 @@ public class BlockRegister
     public static void createBlocks()
     {
         //Decorative and Building
+        //TODO MAKE HOE-ABLE
         graveSoil = new BlockGraveSoil().setUnlocalizedName("gravesoil");
         graveSoilTilled = new BlockGraveFarmland().setUnlocalizedName("grave_farmland");//;
         grassCemetery = new BlockGrassCemetery().setUnlocalizedName("grass_cemetery");
+
         soulGravel = new BlockSoulGravel().setUnlocalizedName("soulgravel");
 
         //SoulStone
@@ -232,7 +237,9 @@ public class BlockRegister
         pomegranateDoor = new BlockDoorSW().setUnlocalizedName("door_pomegranate");
 
         //Plants TODO make boneboo spawn (sapling) craftable by crafting a soulgem with boneboo
-        boneboo = new BlockBamboo().setUnlocalizedName("boneboo");
+        bonebooBase = new BlockBonebooBase().setUnlocalizedName("boneboo_base");
+        boneboo = new BlockBonebooGrowth().setUnlocalizedName("boneboo").setCreativeTab(null);
+        bonebooFruitBlock = new BlockBonebooFruit().setUnlocalizedName("boneboo_fruit_block").setCreativeTab(null);
 
         //Bone
         bonePile = new BlockBonePile().setUnlocalizedName("bonepile");
@@ -324,7 +331,9 @@ public class BlockRegister
         //GameRegistry.registerBlock(handDoor, handDoor.getUnlocalizedName().substring(5));
 
         //Plants
-        regBlock(boneboo);
+        regBlock(bonebooBase);
+        GameRegistry.registerBlock(boneboo, boneboo.getUnlocalizedName().substring(5));
+        GameRegistry.registerBlock(bonebooFruitBlock, bonebooFruitBlock.getUnlocalizedName().substring(5));
 
         //Bone
         regBlock(bonePile);

@@ -1,0 +1,60 @@
+{
+    "variants": {
+        "age=0": [
+            { "model": "soulwarden:skull_crop0" },
+            { "model": "soulwarden:skull_crop0", "y": 90 },
+            { "model": "soulwarden:skull_crop0", "y": 180 },
+            { "model": "soulwarden:skull_crop0", "y": 270 }
+            ],
+        "age=1": [
+            { "model": "soulwarden:skull_crop1" },
+            { "model": "soulwarden:skull_crop1", "y": 90 },
+            { "model": "soulwarden:skull_crop1", "y": 180 },
+            { "model": "soulwarden:skull_crop1", "y": 270 }
+        ],
+        "age=2": [
+            { "model": "soulwarden:skull_crop1" },
+            { "model": "soulwarden:skull_crop1", "y": 90 },
+            { "model": "soulwarden:skull_crop1", "y": 180 },
+            { "model": "soulwarden:skull_crop1", "y": 270 }
+        ],
+        "age=3": [
+            { "model": "soulwarden:skull_crop2" },
+            { "model": "soulwarden:skull_crop2", "y": 90 },
+            { "model": "soulwarden:skull_crop2", "y": 180 },
+            { "model": "soulwarden:skull_crop2", "y": 270 }
+        ],
+        "age=4": [
+            { "model": "soulwarden:skull_crop2" },
+            { "model": "soulwarden:skull_crop2", "y": 90 },
+            { "model": "soulwarden:skull_crop2", "y": 180 },
+            { "model": "soulwarden:skull_crop2", "y": 270 }
+        ],
+        "age=5": [
+            { "model": "soulwarden:skull_crop3" },
+            { "model": "soulwarden:skull_crop3", "y": 90 },
+            { "model": "soulwarden:skull_crop3", "y": 180 },
+            { "model": "soulwarden:skull_crop3", "y": 270 }
+        ],
+        "age=6": [
+            { "model": "soulwarden:skull_crop3" },
+            { "model": "soulwarden:skull_crop3", "y": 90 },
+            { "model": "soulwarden:skull_crop3", "y": 180 },
+            { "model": "soulwarden:skull_crop3", "y": 270 }
+        ],
+        "age=7": [
+            { "model": "soulwarden:skull_crop4" },
+            { "model": "soulwarden:skull_crop4", "y": 90 },
+            { "model": "soulwarden:skull_crop4", "y": 180 },
+            { "model": "soulwarden:skull_crop4", "y": 270 }
+        ],
+        "age=8": { "model": "soulwarden:skull_crop4" },
+        "age=9": { "model": "soulwarden:skull_crop4" },
+        "age=10": { "model": "soulwarden:skull_crop4" },
+        "age=11": { "model": "soulwarden:skull_crop4" },
+        "age=12": { "model": "soulwarden:skull_crop4" },
+        "age=13": { "model": "soulwarden:skull_crop4" },
+        "age=14": { "model": "soulwarden:skull_crop4" },
+        "age=15": { "model": "soulwarden:skull_crop4" }
+    }
+}

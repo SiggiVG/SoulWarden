@@ -1,0 +1,10 @@
+{
+    "parent": "soulwarden:block/urn_small",
+    "textures": {
+        "texture": "soulwarden:blocks/enameled_pewter",
+        "side": "soulwarden:blocks/enameled_pewter",
+        "bottom": "soulwarden:blocks/enameled_pewter",
+        "mouth": "soulwarden:blocks/enameled_pewter",
+        "front": "soulwarden:blocks/enameled_pewter_face"
+    }
+}
