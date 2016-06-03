@@ -25,7 +25,8 @@ public class BlockSoulStoneWall extends BlockWallBase
     {
         super(modelBlock);
         this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.valueOf(false)).withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false)).withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)).withProperty(VARIANT, EnumType.SMOOTH));
-
+        this.setHardness(1.5F);
+        this.setResistance(10.0F);
     }
 
     /**

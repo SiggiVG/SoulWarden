@@ -38,6 +38,10 @@ public abstract class BlockSoulStoneSlab extends BlockSlab
         this.setDefaultState(blockState.withProperty(VARIANT, EnumType.DEFAULT));
         this.setCreativeTab(SoulWarden.SWTab);
         this.useNeighborBrightness = !this.isDouble();
+        this.setHardness(1.5F);
+        this.setResistance(10.0F);
+        this.setHarvestLevel("pickaxe", 0);
+
     }
 
     @Override

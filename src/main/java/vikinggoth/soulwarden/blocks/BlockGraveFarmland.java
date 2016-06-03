@@ -26,6 +26,7 @@ public class BlockGraveFarmland extends BlockFarmland
     {
         super();
         this.setStepSound(Block.soundTypeGravel);
+        this.setHardness(0.5F);
     }
 
     @Override

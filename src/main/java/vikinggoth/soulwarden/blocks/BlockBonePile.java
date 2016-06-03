@@ -17,6 +17,8 @@ public class BlockBonePile extends BlockFalling
     {
         super();
         this.setStepSound(Block.soundTypeGravel);
+        this.setHardness(0.5F);
+        this.setHarvestLevel("spade", 0);
     }
 
     /**
@@ -26,12 +28,7 @@ public class BlockBonePile extends BlockFalling
      */
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        if (fortune > 3)
-        {
-            fortune = 3;
-        }
-
-        return rand.nextInt(10 - fortune * 3) <= 2 ? Items.bone : Item.getItemFromBlock(this);
+        return Items.bone; //: Item.getItemFromBlock(this);
     }
 
     /**
@@ -39,6 +36,6 @@ public class BlockBonePile extends BlockFalling
      */
     public int quantityDropped(Random random)
     {
-        return 4 + random.nextInt(5);
+        return 3 + random.nextInt(7);
     }
 }

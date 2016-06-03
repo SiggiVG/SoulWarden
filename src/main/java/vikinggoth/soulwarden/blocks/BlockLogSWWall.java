@@ -25,7 +25,7 @@ public class BlockLogSWWall extends BlockWallBase
     {
         super(modelBlock);
         this.setDefaultState(this.blockState.getBaseState().withProperty(UP, false).withProperty(NORTH, false).withProperty(EAST, false).withProperty(SOUTH, false).withProperty(WEST, false).withProperty(VARIANT, EnumWoodType.GHOUL));
-
+        this.setHardness(1.5F).setResistance(10.0F);
     }
 
     /**

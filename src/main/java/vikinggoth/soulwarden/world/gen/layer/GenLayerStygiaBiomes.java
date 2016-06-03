@@ -11,7 +11,9 @@ import vikinggoth.soulwarden.world.biomes.BiomeGenStygia;
 public class GenLayerStygiaBiomes extends GenLayer
 {
     protected BiomeGenBase[] allowedBiomes = {
-            BiomeGenStygia.stygiaSea, BiomeGenStygia.boneBeach
+            BiomeGenStygia.stygiaSea,
+            BiomeGenStygia.forestNormal,
+            BiomeGenStygia.boneBeach,
     };
 
     public GenLayerStygiaBiomes(long seed) {

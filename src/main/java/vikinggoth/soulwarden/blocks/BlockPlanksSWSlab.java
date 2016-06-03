@@ -40,12 +40,14 @@ public abstract class BlockPlanksSWSlab extends BlockSlab
         this.setStepSound(Block.soundTypeWood);
         this.setCreativeTab(SoulWarden.SWTab);
         this.useNeighborBrightness = !this.isDouble();
+        this.setHardness(2.0F);
+        this.setResistance(5.0F);
     }
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(BlockRegister.soulStoneSlab);
+        return Item.getItemFromBlock(BlockRegister.planksSWSlab);
     }
 
     @Override

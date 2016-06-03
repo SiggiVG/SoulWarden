@@ -80,6 +80,8 @@ public class SWWorldGen implements IWorldGenerator
                     this.runGenerator(this.stygiaPewterOre, world, random, chunkX, chunkZ, 25, 0, 128);
                     this.runGenerator(this.stygiaHematiteOre, world, random, chunkX, chunkZ, 20, 0, 255);
                     this.runGenerator(this.stygiaEmberOre, world, random, chunkX, chunkZ, 20, 64, 255);
+
+                    //Soulstone Variants
                 }
             }
         }

@@ -13,84 +13,29 @@ import vikinggoth.soulwarden.configuration.ConfigurationHandler;
 public class WorldProviderStygia extends WorldProvider
 {
 
+    @Override
     public void registerWorldChunkManager()
     {
-        this.worldChunkMgr = new WorldChunkManagerStygia(worldObj.getSeed(), WorldTypeStygia.STYGIA, "");
+        //TODO change to Cave World
+        this.worldChunkMgr = new WorldChunkManagerStygia(worldObj.getSeed(), worldObj.getWorldInfo().getTerrainType());
         this.hasNoSky = true;
         this.dimensionId = ConfigurationHandler.dimStygiaID;
     }
 
     /**
-     * Return Vec3D with biome specific fog color
-     */
-    @SideOnly(Side.CLIENT)
-    public Vec3 getFogColor(float p_76562_1_, float p_76562_2_)
-    {
-        return new Vec3(0.1D, 0.1D, 0.1D);
-    }
-
-    /**
-     * Creates the light to brightness table
-     */
-    protected void generateLightBrightnessTable()
-    {
-        float f = 0.1F;
-
-        for (int i = 0; i <= 15; ++i)
-        {
-            float f1 = 1.0F - (float)i / 15.0F;
-            this.lightBrightnessTable[i] = (1.0F - f1) / (f1 * 3.0F + 1.0F) * (1.0F - f) + f;
-        }
-    }
-
-    /**
      * Returns a new chunk provider which generates chunks for this world
      */
+    @Override
     public IChunkProvider createChunkGenerator()
     {//TODO
         return new ChunkProviderStygia(this.worldObj, this.worldObj.getSeed());
     }
 
-    /**
-     * Returns 'true' if in the "main surface world", but 'false' if in the Nether or End dimensions.
-     */
-    public boolean isSurfaceWorld()
+    /** Get Provider for Dimension **/
+    /*public static WorldProvider getProviderForDimension(int id)
     {
-        return false;
-    }
-
-    /**
-     * Will check if the x, z position specified is alright to be set as the map spawn point
-     */
-    public boolean canCoordinateBeSpawn(int x, int z)
-    {
-        return false;
-    }
-
-    /**
-     * Calculates the angle of sun and moon in the sky relative to a specified time (usually worldTime)
-     */
-    public float calculateCelestialAngle(long p_76563_1_, float p_76563_3_)
-    {
-        return 0.5F;
-    }
-
-    /**
-     * True if the player can respawn in this dimension (true = overworld, false = nether).
-     */
-    public boolean canRespawnHere()
-    {
-        return false;
-    }
-
-    /**
-     * Returns true if the given X,Z coordinate should show environmental fog.
-     */
-    @SideOnly(Side.CLIENT)
-    public boolean doesXZShowFog(int x, int z)
-    {
-        return true;
-    }
+        return DimensionManager.createProviderFor(DimensionIDs.LIGHTFORESTDIMENSION);
+    }*/
 
     @Override
     public String getDimensionName()
@@ -103,4 +48,100 @@ public class WorldProviderStygia extends WorldProvider
     {
         return "_stygia";
     }
+
+    @Override
+    /** sets/creates the save folder */
+    public String getSaveFolder() {
+        return "DIM" + ConfigurationHandler.dimStygiaID;
+    }
+
+    /**
+     * Return Vec3D with biome specific fog color
+     */
+    @SideOnly(Side.CLIENT)
+    @Override
+    public Vec3 getFogColor(float p_76562_1_, float p_76562_2_)
+    {
+        return new Vec3(0.1D, 0.1D, 0.1D);
+    }
+
+    /**
+     * Creates the light to brightness table
+     */
+    @Override
+    protected void generateLightBrightnessTable()
+    {
+        float f = 0.1F;
+
+        for (int i = 0; i <= 15; ++i)
+        {
+            float f1 = 1.0F - (float)i / 15.0F;
+            this.lightBrightnessTable[i] = (1.0F - f1) / (f1 * 3.0F + 1.0F) * (1.0F - f) + f;
+        }
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    /** @return the dimension join message */
+    public String getWelcomeMessage()
+    {
+        return "What Is Dead May Never Die";
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    /** @return the dimension leave message */
+    public String getDepartMessage()
+    {
+        return "Death Becomes You";
+    }
+
+
+    /**
+     * Returns 'true' if in the "main surface world", but 'false' if in the Nether or End dimensions.
+     */
+    @Override
+    public boolean isSurfaceWorld()
+    {
+        return false;
+    }
+
+    /**
+     * Will check if the x, z position specified is alright to be set as the map spawn point
+     */
+    @Override
+    public boolean canCoordinateBeSpawn(int x, int z)
+    {
+        return false;
+    }
+
+    /**
+     * Calculates the angle of sun and moon in the sky relative to a specified time (usually worldTime)
+     */
+    @Override
+    public float calculateCelestialAngle(long p_76563_1_, float p_76563_3_)
+    {
+        return 0.5F;
+    }
+
+    /**
+     * True if the player can respawn in this dimension (true = overworld, false = nether).
+     */
+    @Override
+    public boolean canRespawnHere()
+    {
+        return false;
+    }
+
+    /**
+     * Returns true if the given X,Z coordinate should show environmental fog.
+     */
+    @SideOnly(Side.CLIENT)
+    @Override
+    public boolean doesXZShowFog(int x, int z)
+    {
+        return false;
+    }
+
+
 }

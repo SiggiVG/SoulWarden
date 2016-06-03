@@ -33,6 +33,7 @@ public class BlockSoulStone extends Block implements IMetaBlockName
         this.setResistance(10F);
         this.setHarvestLevel("pickaxe", 0);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumType.DEFAULT));
+        this.setHardness(1.5F).setResistance(10.0F);
     }
 
     /**

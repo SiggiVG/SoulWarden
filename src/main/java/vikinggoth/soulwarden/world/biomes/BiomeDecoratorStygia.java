@@ -1,7 +1,6 @@
 package vikinggoth.soulwarden.world.biomes;
 
 import net.minecraft.world.biome.BiomeDecorator;
-import net.minecraft.world.biome.BiomeGenBase;
 
 /**
  * Created by Friedrich on 6/2/2016.

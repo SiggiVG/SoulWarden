@@ -92,7 +92,7 @@ public final class BlockRenderRegister
         regBlock(BlockRegister.graveSoil);
         regBlock(BlockRegister.graveSoilTilled);
         regBlock(BlockRegister.grassCemetery);
-        regBlock(BlockRegister.soulGravel);
+        //regBlock(BlockRegister.soulGravel);
 
         regBlock(BlockRegister.soulStone, 0, "soulstone_default");
         regBlock(BlockRegister.soulStone, 1, "soulstone_mossy");

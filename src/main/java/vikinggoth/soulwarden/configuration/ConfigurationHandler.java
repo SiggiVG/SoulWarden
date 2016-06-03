@@ -15,8 +15,10 @@ public class ConfigurationHandler
 
     public static int biomeStygiaSeaID;
     public static int biomeBoneBeachID;
+    public static int biomeForestID;
 
     public static int enchIDSoulSteal;
+    public static float dimStygiaHealthReq;
 
     public static void init(File configFile)
     {
@@ -33,10 +35,12 @@ public class ConfigurationHandler
 
             //Dimension
             dimStygiaID = config.getInt(Configuration.CATEGORY_GENERAL, "dimStygiaID", DimensionManager.getNextFreeDimId(), 1, 255, "The ID of the Stygia Dimension");
+            dimStygiaHealthReq = config.getFloat(Configuration.CATEGORY_GENERAL, "dimStygiaHealthReq", 20.0F, 1.0F, 20.0F, "How close to Death you need to be to enter Stygia");
 
             //Biomes
             biomeStygiaSeaID = config.getInt(Configuration.CATEGORY_GENERAL, "biomeStygiaSeaID", 71, 40, 255, "The ID of the StygianSea Biome");
-            biomeBoneBeachID = config.getInt(Configuration.CATEGORY_GENERAL, "biomeBoneBeachID", 71, 40, 255, "The ID of the BoneBeach Biome");
+            biomeBoneBeachID = config.getInt(Configuration.CATEGORY_GENERAL, "biomeBoneBeachID", 72, 40, 255, "The ID of the BoneBeach Biome");
+            biomeForestID = config.getInt(Configuration.CATEGORY_GENERAL, "biomeForestID", 73, 40, 255, "The ID of the Stygian Forest Biome");
 
             //Enchantments
             enchIDSoulSteal = config.getInt(Configuration.CATEGORY_GENERAL, "enchIDSoulSteal", 71, 63, 255, "The ID of the Soul Steal Enchantment");

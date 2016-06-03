@@ -1,13 +1,13 @@
 package vikinggoth.soulwarden.registers;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFence;
+import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import vikinggoth.soulwarden.SoulWarden;
 import vikinggoth.soulwarden.blocks.*;
-import vikinggoth.soulwarden.blocks.containers.BlockSoulFurnace;
 import vikinggoth.soulwarden.items.itemblocks.ItemBlockMeta;
 import vikinggoth.soulwarden.items.itemblocks.ItemPlanksSWSlab;
 import vikinggoth.soulwarden.items.itemblocks.ItemSoulStoneSlab;
@@ -39,16 +39,12 @@ public class BlockRegister
     public static Block soulStoneWall; //first 12 variants
     public static Block soulStoneFence; //is just the cracked variant //"#", "#", '#', new ItemStack(soulstone, 1, 2); //a cracked on top of a cracked
 
-    //Stones
-    //  Sodalite - a blue version of stone, crafted by combining diorite and Lapis Lazuli
-    public static Block stoneSW;
-
     //Wood
     //Logs
     public static Block logSW;
-    public static Block logSWRot;
+    //public static Block logSWRot;
     public static Block logSW2;
-    public static Block logSW2Rot;
+    //public static Block logSW2Rot;
 
     /*
     All the varieties have at least 2 different growth algorithms
@@ -57,14 +53,14 @@ public class BlockRegister
      */
     //Walls
     public static Block log_wallSW;
-    public static Block log_wallSWRot;
+    //public static Block log_wallSWRot;
     //Leaves
     public static Block leafSW;
     //Saplings
     public static Block saplingSW;
     //Planks
     public static Block plankSW;
-    public static Block plankSWROT;
+    //public static Block plankSWROT;
     //Stairs
     public static Block ghoulStairs;
     public static Block weepwillowStairs;
@@ -72,21 +68,21 @@ public class BlockRegister
     public static Block handStairs;
     public static Block alnwickStairs;
     public static Block pomegranateStairs;
-    public static Block ghoulStairsRot;
+    /*public static Block ghoulStairsRot;
     public static Block weepwillowStairsRot;
     public static Block bonebeechStairsRot;
     public static Block handStairsRot;
     public static Block alnwickStairsRot;
-    public static Block pomegranateStairsRot;
+    public static Block pomegranateStairsRot;*/
 
     //Slabs
     public static Block planksSWSlab;
     public static Block planksSWSlabDouble;
-    public static Block planksSWSlabRot;
-    public static Block planksSWSlabDoubleRot;
+    //public static Block planksSWSlabRot;
+    //public static Block planksSWSlabDoubleRot;
     //Fences
     public static Block fenceSW;
-    public static Block fenceSWRot;
+    //public static Block fenceSWRot;
     //Doors TODO
     public static Block ghoulDoor;
     public static Block weepwillowDoor;
@@ -126,10 +122,10 @@ public class BlockRegister
     //public static Block block_rostygold;
     public static Block block_pewter;
     public static Block block_hematite;
-    public static Block block_silver;
-    public static Block block_copper;
-    public static Block block_tin;
-    public static Block block_bronze;
+    //public static Block block_silver;
+    //public static Block block_copper;
+    //public static Block block_tin;
+    //public static Block block_bronze;
 
     //Portal
     /**
@@ -185,7 +181,7 @@ public class BlockRegister
         graveSoilTilled = new BlockGraveFarmland().setUnlocalizedName("grave_farmland");//;
         grassCemetery = new BlockGrassCemetery().setUnlocalizedName("grass_cemetery");
 
-        soulGravel = new BlockSoulGravel().setUnlocalizedName("soulgravel");
+        //soulGravel = new BlockSoulGravel().setUnlocalizedName("soulgravel");
 
         //SoulStone
         soulStone = new BlockSoulStone().setUnlocalizedName("soulstone");
@@ -236,16 +232,16 @@ public class BlockRegister
         alnwickDoor = new BlockDoorSW().setUnlocalizedName("door_alnwick");
         pomegranateDoor = new BlockDoorSW().setUnlocalizedName("door_pomegranate");
 
-        //Plants TODO make boneboo spawn (sapling) craftable by crafting a soulgem with boneboo
+        //Plants TODO make boneboo spawn (sapling) craftable by crafting a skeleton skull with Boneboo Fruit
         bonebooBase = new BlockBonebooBase().setUnlocalizedName("boneboo_base");
         boneboo = new BlockBonebooGrowth().setUnlocalizedName("boneboo").setCreativeTab(null);
         bonebooFruitBlock = new BlockBonebooFruit().setUnlocalizedName("boneboo_fruit_block").setCreativeTab(null);
 
         //Bone
         bonePile = new BlockBonePile().setUnlocalizedName("bonepile");
-        boneBlock = new Block(Material.coral).setStepSound(Block.soundTypeLadder).setUnlocalizedName("boneblock");
+        (boneBlock = new Block(Material.coral).setStepSound(Block.soundTypeLadder).setHardness(1.0F).setResistance(5.0F).setUnlocalizedName("boneblock")).setHarvestLevel("pickaxe", 0);
         boneWall = new BlockBoneWall(boneBlock).setStepSound(Block.soundTypeLadder).setUnlocalizedName("bonewall");
-        boneFence = new BlockFence(boneBlock.getMaterial()).setStepSound(Block.soundTypeLadder).setHardness(1.0F).setResistance(3.0F).setStepSound(Block.soundTypeLadder).setUnlocalizedName("bonefence");
+        boneFence = new BlockFence(boneBlock.getMaterial()).setStepSound(Block.soundTypeLadder).setHardness(1.0F).setResistance(5.0F).setStepSound(Block.soundTypeLadder).setUnlocalizedName("bonefence");
 
         //Urn
         urnlarge = new BlockUrnLarge().setUnlocalizedName("urn_large");
@@ -265,7 +261,7 @@ public class BlockRegister
         //Metals
         block_soulgem = new BlockSoulgem().setUnlocalizedName("block_soulgem");
         block_soulgem_black = new BlockSoulgem().setUnlocalizedName("block_soulgem_black");
-        block_hematite = new Block(Material.rock, MapColor.redColor).setUnlocalizedName("block_hematite");
+        (block_hematite = new Block(Material.rock, MapColor.redColor).setHardness(5F).setResistance(10F).setStepSound(Block.soundTypeMetal).setUnlocalizedName("block_hematite")).setHarvestLevel("pickaxe", 0);
 
         //Portal
         soulstone_twisted = new BlockSoulstoneTwisted().setUnlocalizedName("soulstone_twisted");
@@ -287,7 +283,7 @@ public class BlockRegister
         regBlock(graveSoil);
         regBlock(graveSoilTilled);
         regBlock(grassCemetery);
-        regBlock(soulGravel);
+        //regBlock(soulGravel);
         regMetaBlock(soulStone);
         //SoulStoneStairs
         regBlock(soulStoneBrickStairs);

@@ -8,7 +8,6 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
-import net.minecraft.world.SpawnerAnimals;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -18,12 +17,18 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.NoiseGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.ChunkProviderEvent;
+import net.minecraftforge.fml.common.eventhandler.Event;
+import vikinggoth.soulwarden.registers.BlockRegister;
+import vikinggoth.soulwarden.world.biomes.BiomeGenStygia;
 
 import java.util.List;
 import java.util.Random;
 
 public class ChunkProviderStygia implements IChunkProvider
 {
+
     /** RNG. */
     private Random rand;
     private NoiseGeneratorOctaves noiseGen1;
@@ -52,33 +57,33 @@ public class ChunkProviderStygia implements IChunkProvider
     //Settings
     private Block water = Blocks.water;
 
-    float mainNoiseScaleX = 80.0F;
-    float mainNoiseScaleY = 160.0F;
-    float mainNoiseScaleZ = 80.0F;
-    float depthNoiseScaleX = 200.0F;
-    float depthNoiseScaleZ = 200.0F;
-    float depthNoiseScaleExponent = 0.5F;
-    float depthBaseSize = 8.5F;
-    float coordinateScale = 684.412F;
-    float heightScale = 684.412F;
-    float heightStretch = 12.0F;
-    float upperLimitScale = 512.0F;
-    float lowerLimitScale = 512.0F;
-    float biomeDepthWeight = 1.0F;
-    float biomeDepthOffSet = 0.0F;
-    float biomeScaleWeight = 1.0F;
-    float biomeScaleOffset = 0.0F;
+    float mainNoiseScaleX = 80.0F; //80
+    float mainNoiseScaleY = 160.0F; //160
+    float mainNoiseScaleZ = 80.0F; //80
+    float depthNoiseScaleX = 200.0F; //200
+    float depthNoiseScaleZ = 200.0F; //200
+    float depthNoiseScaleExponent = 0.5F; //0.5
+    float depthBaseSize = 8.5F; //85
+    float coordinateScale = 684.412F; //684.412
+    float heightScale = 684.412F; //684.412
+    float heightStretch = 12.0F; //12
+    float upperLimitScale = 512.0F; //512
+    float lowerLimitScale = 512.0F; //512
+    float biomeDepthWeight = 1.0F; //1
+    float biomeDepthOffSet = 0.0F; //0
+    float biomeScaleWeight = 1.0F; //1
+    float biomeScaleOffset = 0.0F; //0
 
-    private int seaLevel = 63;
+    private int seaLevel = 63; //63
 
 
 
     public ChunkProviderStygia(World worldIn, long seed)
     {
-
         this.worldObj = worldIn;
         this.worldType = worldIn.getWorldInfo().getTerrainType();
         this.rand = new Random(seed);
+
         this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
         this.noiseGen2 = new NoiseGeneratorOctaves(this.rand, 16);
         this.noiseGen3 = new NoiseGeneratorOctaves(this.rand, 8);
@@ -109,6 +114,10 @@ public class ChunkProviderStygia implements IChunkProvider
         //this.mobSpawnerNoise = (NoiseGeneratorOctaves)noiseGens[6];
     }
 
+    /**
+     * Generates the shape of the terrain for the chunk though its all stone
+     * though the water is frozen if the temperature is low enough
+     */
     public void setBlocksInChunk(int p_180518_1_, int p_180518_2_, ChunkPrimer p_180518_3_)
     {
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, p_180518_1_ * 4 - 2, p_180518_2_ * 4 - 2, 10, 10);
@@ -156,7 +165,7 @@ public class ChunkProviderStygia implements IChunkProvider
                             {
                                 if ((lvt_45_1_ += d16) > 0.0D)
                                 {
-                                    p_180518_3_.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, Blocks.stone.getDefaultState());
+                                    p_180518_3_.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, BlockRegister.soulStone.getDefaultState());
                                 }
                                 else if (i2 * 8 + j2 < this.seaLevel)
                                 {
@@ -178,23 +187,32 @@ public class ChunkProviderStygia implements IChunkProvider
         }
     }
 
-    public void replaceBlocksForBiome(int p_180517_1_, int p_180517_2_, ChunkPrimer p_180517_3_, BiomeGenBase[] p_180517_4_)
+    public void replaceBlocksForBiome(int x, int z, ChunkPrimer chunkPrimer, BiomeGenBase[] biomeGenBases)
     {
-        net.minecraftforge.event.terraingen.ChunkProviderEvent.ReplaceBiomeBlocks event = new net.minecraftforge.event.terraingen.ChunkProviderEvent.ReplaceBiomeBlocks(this, p_180517_1_, p_180517_2_, p_180517_3_, this.worldObj);
-        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event);
-        if (event.getResult() == net.minecraftforge.fml.common.eventhandler.Event.Result.DENY) return;
+        ///
+        ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent.ReplaceBiomeBlocks(this, x, z, chunkPrimer, this.worldObj);
+        MinecraftForge.EVENT_BUS.post(event);
+        if (event.getResult() == Event.Result.DENY) return;
 
         double d0 = 0.03125D;
-        this.stoneNoise = this.noiseGen4.func_151599_a(this.stoneNoise, (double)(p_180517_1_ * 16), (double)(p_180517_2_ * 16), 16, 16, d0 * 2.0D, d0 * 2.0D, 1.0D);
+        //uses perlin noise
+        this.stoneNoise = this.noiseGen4.func_151599_a(this.stoneNoise, (double)(x * 16), (double)(z * 16), 16, 16, d0 * 2.0D, d0 * 2.0D, 1.0D);
 
         for (int i = 0; i < 16; ++i)
         {
             for (int j = 0; j < 16; ++j)
             {
-                BiomeGenBase biomegenbase = p_180517_4_[j + i * 16];
-                biomegenbase.genTerrainBlocks(this.worldObj, this.rand, p_180517_3_, p_180517_1_ * 16 + i, p_180517_2_ * 16 + j, this.stoneNoise[j + i * 16]);
+                //Maybe this will only make it gen Stygian Biomes?
+                //Will crash with a ClassCastException if the biome does not extend BiomeGenStygia
+                BiomeGenStygia biomegenbase = (BiomeGenStygia) biomeGenBases[j + i * 16];
+                biomegenbase.genTerrainBlocks(this.worldObj, this.rand, chunkPrimer, x * 16 + i, z * 16 + j, this.stoneNoise[j + i * 16]);
             }
         }
+    }
+
+    public Chunk provideChunk(BlockPos blockPosIn)
+    {
+        return this.provideChunk(blockPosIn.getX() >> 4, blockPosIn.getZ() >> 4);
     }
 
     /**
@@ -209,6 +227,7 @@ public class ChunkProviderStygia implements IChunkProvider
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, x * 16, z * 16, 16, 16);
         this.replaceBlocksForBiome(x, z, chunkprimer, this.biomesForGeneration);
 
+        //Generators for across the dimension, currently handled in SWWorldGen
 
         Chunk chunk = new Chunk(this.worldObj, chunkprimer, x, z);
         byte[] abyte = chunk.getBiomeArray();
@@ -225,14 +244,11 @@ public class ChunkProviderStygia implements IChunkProvider
     private void replaceBlocksForBiome(int p_147423_1_, int p_147423_2_, int p_147423_3_)
     {
         this.noiseData4 = this.noiseGen6.generateNoiseOctaves(this.noiseData4, p_147423_1_, p_147423_3_, 5, 5, (double)this.depthNoiseScaleX, (double)this.depthNoiseScaleZ, (double)this.depthNoiseScaleExponent);
-        float f = this.coordinateScale;
-        float f1 = this.heightScale;
-        this.noiseData1 = this.noiseGen3.generateNoiseOctaves(this.noiseData1, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, (double)(f / this.mainNoiseScaleX), (double)(f1 / this.mainNoiseScaleY), (double)(f / this.mainNoiseScaleZ));
-        this.noiseData2 = this.noiseGen1.generateNoiseOctaves(this.noiseData2, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, (double)f, (double)f1, (double)f);
-        this.noiseData3 = this.noiseGen2.generateNoiseOctaves(this.noiseData3, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, (double)f, (double)f1, (double)f);
+        this.noiseData1 = this.noiseGen3.generateNoiseOctaves(this.noiseData1, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, (double)(coordinateScale / this.mainNoiseScaleX), (double)(heightScale / this.mainNoiseScaleY), (double)(coordinateScale / this.mainNoiseScaleZ));
+        this.noiseData2 = this.noiseGen1.generateNoiseOctaves(this.noiseData2, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, (double)coordinateScale, (double)heightScale, (double)coordinateScale);
+        this.noiseData3 = this.noiseGen2.generateNoiseOctaves(this.noiseData3, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, (double)coordinateScale, (double)heightScale, (double)coordinateScale);
         int i = 0;
         int j = 0;
-
         for (int k = 0; k < 5; ++k)
         {
             for (int l = 0; l < 5; ++l)
@@ -350,50 +366,25 @@ public class ChunkProviderStygia implements IChunkProvider
     /**
      * Populates chunk with ores etc etc
      */
-    public void populate(IChunkProvider p_73153_1_, int p_73153_2_, int p_73153_3_)
+    public void populate(IChunkProvider chunkProvider, int x, int z)
     {
         BlockFalling.fallInstantly = true;
-        int i = p_73153_2_ * 16;
-        int j = p_73153_3_ * 16;
+        int i = x * 16;
+        int j = z * 16;
         BlockPos blockpos = new BlockPos(i, 0, j);
         BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(blockpos.add(16, 0, 16));
         this.rand.setSeed(this.worldObj.getSeed());
         long k = this.rand.nextLong() / 2L * 2L + 1L;
         long l = this.rand.nextLong() / 2L * 2L + 1L;
-        this.rand.setSeed((long)p_73153_2_ * k + (long)p_73153_3_ * l ^ this.worldObj.getSeed());
+        this.rand.setSeed((long)x * k + (long)z * l ^ this.worldObj.getSeed());
         boolean flag = false;
-        ChunkCoordIntPair chunkcoordintpair = new ChunkCoordIntPair(p_73153_2_, p_73153_3_);
+        ChunkCoordIntPair chunkcoordintpair = new ChunkCoordIntPair(x, z);
 
-        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.terraingen.PopulateChunkEvent.Pre(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag));
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.terraingen.PopulateChunkEvent.Pre(chunkProvider, worldObj, rand, x, z, flag));
 
-        biomegenbase.decorate(this.worldObj, this.rand, new BlockPos(i, 0, j));
-        if (net.minecraftforge.event.terraingen.TerrainGen.populate(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ANIMALS))
-        {
-            SpawnerAnimals.performWorldGenSpawning(this.worldObj, biomegenbase, i + 8, j + 8, 16, 16, this.rand);
-        }
-        blockpos = blockpos.add(8, 0, 8);
+        //biomegenbase.decorate(this.worldObj, this.rand, new BlockPos(i, 0, j));
 
-        boolean doGen = net.minecraftforge.event.terraingen.TerrainGen.populate(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE);
-        for (int k2 = 0; doGen && k2 < 16; ++k2)
-        {
-            for (int j3 = 0; j3 < 16; ++j3)
-            {
-                BlockPos blockpos1 = this.worldObj.getPrecipitationHeight(blockpos.add(k2, 0, j3));
-                BlockPos blockpos2 = blockpos1.down();
-
-                if (this.worldObj.canBlockFreezeWater(blockpos2))
-                {
-                    this.worldObj.setBlockState(blockpos2, Blocks.ice.getDefaultState(), 2);
-                }
-
-                if (this.worldObj.canSnowAt(blockpos1, true))
-                {
-                    this.worldObj.setBlockState(blockpos1, Blocks.snow_layer.getDefaultState(), 2);
-                }
-            }
-        }
-
-        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.terraingen.PopulateChunkEvent.Post(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag));
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.terraingen.PopulateChunkEvent.Post(chunkProvider, worldObj, rand, x, z, flag));
 
         BlockFalling.fallInstantly = false;
     }
@@ -468,8 +459,5 @@ public class ChunkProviderStygia implements IChunkProvider
 
     }
 
-    public Chunk provideChunk(BlockPos blockPosIn)
-    {
-        return this.provideChunk(blockPosIn.getX() >> 4, blockPosIn.getZ() >> 4);
-    }
+
 }

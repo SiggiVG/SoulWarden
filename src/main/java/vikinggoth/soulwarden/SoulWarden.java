@@ -1,6 +1,5 @@
 package vikinggoth.soulwarden;
 
-import akka.util.HashCode;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

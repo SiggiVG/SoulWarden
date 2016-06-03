@@ -5,6 +5,8 @@ import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.util.*;
 import net.minecraft.world.IBlockAccess;
@@ -13,6 +15,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vikinggoth.soulwarden.configuration.ConfigurationHandler;
 import vikinggoth.soulwarden.registers.BlockRegister;
+import vikinggoth.soulwarden.world.dimension.TeleporterStygia;
 
 import java.util.Random;
 
@@ -250,15 +253,31 @@ public class BlockPortalNecro extends BlockBreakable
     /**
      * Called When an Entity Collided with the Block
      */
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entity)
     {
-        if(worldIn.isRemote)
+        if(entity instanceof EntityLivingBase)
         {
-            if (entityIn.ridingEntity == null && entityIn.riddenByEntity == null)
+            if (((EntityLivingBase) entity).getHealth() <= ConfigurationHandler.dimStygiaHealthReq)
             {
-                entityIn.travelToDimension(ConfigurationHandler.dimStygiaID);
+                if ((entity.ridingEntity == null) && (entity.riddenByEntity == null) && ((entity instanceof EntityPlayerMP)))
+                {
+                    EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
+                    if (thePlayer.timeUntilPortal > 0)
+                    {
+                        thePlayer.timeUntilPortal = 10;
+                    } else if (thePlayer.dimension != ConfigurationHandler.dimStygiaID)
+                    {
+                        thePlayer.timeUntilPortal = 10;
+                        thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, ConfigurationHandler.dimStygiaID, new TeleporterStygia(thePlayer.mcServer.worldServerForDimension(ConfigurationHandler.dimStygiaID)));
+                    } else
+                    {
+                        thePlayer.timeUntilPortal = 10;
+                        thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterStygia(thePlayer.mcServer.worldServerForDimension(0)));
+                    }
+                }
             }
         }
+
     }
 
     /**

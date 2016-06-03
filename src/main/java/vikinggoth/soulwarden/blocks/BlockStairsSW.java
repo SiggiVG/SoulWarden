@@ -15,5 +15,6 @@ public class BlockStairsSW extends BlockStairs
         super(modelState);
         this.setCreativeTab(SoulWarden.SWTab);
         this.useNeighborBrightness  = true;
+        this.setHardness(1.5F).setResistance(10.0F);
     }
 }

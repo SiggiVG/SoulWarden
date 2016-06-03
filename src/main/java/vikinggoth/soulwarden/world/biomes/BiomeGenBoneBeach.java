@@ -1,6 +1,5 @@
 package vikinggoth.soulwarden.world.biomes;
 
-import net.minecraft.world.biome.BiomeGenBase;
 import vikinggoth.soulwarden.registers.BlockRegister;
 
 /**

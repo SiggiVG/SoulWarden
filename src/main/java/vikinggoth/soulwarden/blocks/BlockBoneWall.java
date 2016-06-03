@@ -15,7 +15,9 @@ public class BlockBoneWall extends BlockWallBase
     {
         super(modelBlock);
         this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.valueOf(false)).withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false)).withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)));
-
+        this.setHardness(1.0F);
+        this.setResistance(5.0F);
+        this.setHarvestLevel("pickaxe", 0);
     }
 
     /**

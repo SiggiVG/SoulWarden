@@ -21,6 +21,7 @@ public class BlockGrassCemetery extends BlockGrass
     {
         super();
         this.setStepSound(Block.soundTypeGrass);
+        this.setHardness(0.6F);
     }
     /*//TODO make colorizers
     @SideOnly(Side.CLIENT)

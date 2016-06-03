@@ -16,6 +16,7 @@ public class BlockGraveSoil extends Block
     {
         super(Material.ground);
         this.setStepSound(Block.soundTypeGravel);
+        this.setHardness(0.5F);
     }
 
     @Override
